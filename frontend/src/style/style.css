@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: teal;
+}
+
+.cuadro {
+  width: 30vw;
+  height: 40vh;
+  background-color: brown;
+}
+
+.bloquePrincipal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloquePrincipal:active {
+  outline: none;
+  box-shadow: none;
+}
+.bloquePrincipal:focus {
+  outline: none;
+  box-shadow: none;
+}
+.cuadro2 {
+  background-color: forestgreen;
+  width: 30vw;
+  height: 40vh;
+}
+
+.cuadro3 {
+  background-color: blue;
+  width: 30vw;
+  height: 40vh;
+}
+
+.cuadro4 {
+  background-color: crimson;
+  width: 30vw;
+  height: 40vh;
+}
