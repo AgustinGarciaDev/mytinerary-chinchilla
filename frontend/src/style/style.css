@@ -2,14 +2,78 @@
   margin: 0;
   padding: 0;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
 header {
-  background-color: teal;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-right: 27px;
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+}
+
+.btn-login {
+  color: orange;
+  border: 1px solid orange;
+  border-radius: 21px;
+  padding: 4px 31px;
+  text-decoration: none;
+}
+
+.fa-user {
+  padding: 10px 7px;
+}
+#root {
+  min-height: 100vh;
+  flex: 1;
+}
+#video_hero {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+}
+
+.contenido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 19vw auto;
 }
 
 .cuadro {
   width: 30vw;
-  height: 40vh;
-  background-color: brown;
+  height: 20vw;
+  background-position: center;
+  background-size: cover;
+  margin: 20px;
 }
 
 .bloquePrincipal {
@@ -27,20 +91,27 @@ header {
   outline: none;
   box-shadow: none;
 }
-.cuadro2 {
-  background-color: forestgreen;
-  width: 30vw;
-  height: 40vh;
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: gainsboro;
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
 }
 
-.cuadro3 {
-  background-color: blue;
-  width: 30vw;
-  height: 40vh;
+.redesSociales {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.cuadro4 {
-  background-color: crimson;
-  width: 30vw;
-  height: 40vh;
+.redesSociales > li {
+  list-style: none;
+}
+.redesSociales > li > a {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
 }

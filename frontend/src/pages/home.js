@@ -1,16 +1,19 @@
 import React from 'react'
-import Footer from '../components/footer'
-import Header from '../components/header'
-import Slider from '../components/carrusel'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import Slider from '../components/Carrusel'
+import HeroHome from '../components/Hero'
+import ContentHome from '../components/ContentHome'
 
 class Home extends React.Component {
   
   render() {
-     /*  const { items } = this.state; */
+ 
     return (
     <div>
             <Header />
-            <Slider />
+            <HeroHome />
+            <Slider /> 
             <Footer />
     </div>
     )

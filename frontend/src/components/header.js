@@ -1,17 +1,17 @@
-import React from 'react'
-
-
+// no se importa con componentes funcionales
 const Header = () => {
     
     return (
         <header>
-            <h2>Yo soy el menu </h2>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Fotos</a></li>
-                <li><a href="">Pais</a></li>
-
-             </ul>
+            <img src="./assets/logo.png" alt=""/>
+            <nav>
+                 <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Cities</a></li>
+                </ul>
+                <a href="" className="btn-login" ><i className="fas fa-user"></i>Login</a>
+            </nav>
+          
         </header>
       
     )
