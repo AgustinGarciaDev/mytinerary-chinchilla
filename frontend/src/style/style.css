@@ -55,17 +55,14 @@ nav > ul > li > a {
   min-width: 100%;
   min-height: 100%;
   width: auto;
-  height: auto;
+
   z-index: -1000;
   overflow: hidden;
 }
 
 .contenido {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   margin: 19vw auto;
+  color: white;
 }
 
 .cuadro {
@@ -114,4 +111,32 @@ footer {
   text-decoration: none;
   padding: 10px;
   color: black;
+}
+
+@media (max-width: 576px) {
+  img {
+    width: 44vw;
+  }
+
+  #video_hero {
+    position: absolute;
+    bottom: 100px;
+    right: 0px;
+    min-width: 100%;
+    width: auto;
+    height: 70vw;
+    z-index: -1000;
+    overflow: hidden;
+  }
+
+  .contenido {
+    margin: 24vw 6vw;
+  }
+  .contenido > h4 {
+    margin-top: 7vw;
+  }
+
+  .contenido > button {
+    margin-top: 24px;
+  }
 }
