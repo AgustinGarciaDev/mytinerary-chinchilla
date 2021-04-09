@@ -9,30 +9,14 @@ body {
   height: 100vh;
 }
 header {
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-family: "Poppins", sans-serif;
 }
 
-nav {
+.navbar-nav {
   display: flex;
   align-items: center;
-  margin-right: 27px;
+  justify-content: center;
 }
-
-nav > ul {
-  display: flex;
-  list-style: none;
-}
-
-nav > ul > li > a {
-  text-decoration: none;
-  padding: 10px;
-  color: black;
-}
-
 .btn-login {
   color: orange;
   border: 1px solid orange;
@@ -89,7 +73,7 @@ nav > ul > li > a {
   box-shadow: none;
 }
 
-footer {
+.footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -111,6 +95,13 @@ footer {
   text-decoration: none;
   padding: 10px;
   color: black;
+}
+
+.cities {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 576px) {
@@ -138,5 +129,20 @@ footer {
 
   .contenido > button {
     margin-top: 24px;
+  }
+
+  .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    position: absolute !important;
+    background-color: #f8f9fa;
+    top: 63px !important;
+    width: 100vw !important;
+    left: 0px;
+  }
+  .navbar-nav {
+    padding-left: 26px !important;
+    align-items: flex-start;
   }
 }

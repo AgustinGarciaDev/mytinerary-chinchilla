@@ -7,11 +7,13 @@ const Header = () => {
     
     return (
         <header>
-          <Navbar bg="light" expand="lg">
-                <Navbar.Brand to="/"> <img src="./assets/logo.png" alt=""/></Navbar.Brand>
-                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar sticky="top" bg="light" expand="lg">
+            <LinkContainer to="/">
+               <Navbar.Brand > <img src="./assets/logo.png" alt=""/></Navbar.Brand>
+               </LinkContainer>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                 <Nav className="mr-auto">
+                 <Nav className="ml-auto">
               <LinkContainer  exact to="/">
               <Nav.Link >Home</Nav.Link>
               </LinkContainer>
@@ -24,8 +26,11 @@ const Header = () => {
                <LinkContainer  exact to="/Cities">
                <Nav.Link >Sign up</Nav.Link>
               </LinkContainer>
+              <LinkContainer  exact to="/Cities">
+               <Nav.Link ><i className="fas fa-user"></i></Nav.Link>
+              </LinkContainer>
         </Nav>
-    <i className="fas fa-user"></i>    
+ 
   </Navbar.Collapse>
   </Navbar>
     </header>

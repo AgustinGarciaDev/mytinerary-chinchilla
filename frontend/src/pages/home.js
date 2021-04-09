@@ -11,12 +11,12 @@ class Home extends React.Component {
   render() {
  
     return (
-    <div>
+    <>
             <Header />
             <HeroHome />
             <Slider /> 
             <Footer />
-    </div>
+    </>
     )
   }
 }

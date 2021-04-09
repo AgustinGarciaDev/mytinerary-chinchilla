@@ -1,8 +1,19 @@
-
+import React from 'react'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import 'bootstrap/dist/css/bootstrap.min.css';
 const Cities = () => {
     
     return (
-        <h1> Hola estamos en construction </h1>
+
+     <>
+            <Header />
+            <div className="cities">
+                 <h1> Under construction</h1>
+            </div>
+            <Footer />
+    </>
+
     )
 }
 

@@ -28,14 +28,8 @@ class Slider extends React.Component {
            {id: 10, url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-david-geib-3220846-scaled.jpg'},
            {id: 11, url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-david-geib-3220846-scaled.jpg'},
            {id: 12, url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-david-geib-3220846-scaled.jpg'},
-      ],
-    
-       [
-           {id: 1, url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-david-geib-3220846-scaled.jpg'},
-           {id: 2, url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-david-geib-3220846-scaled.jpg'},
-           {id: 3, url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-david-geib-3220846-scaled.jpg'},
-           {id: 4, url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-david-geib-3220846-scaled.jpg'},
       ]
+    
 
   ]
      
