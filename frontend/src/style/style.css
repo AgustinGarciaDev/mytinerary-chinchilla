@@ -10,8 +10,12 @@ body {
 }
 header {
   font-family: "Poppins", sans-serif;
+  font-weight: 700;
 }
 
+.logo {
+  width: 19vw;
+}
 .navbar-nav {
   display: flex;
   align-items: center;
@@ -23,6 +27,13 @@ header {
   border-radius: 21px;
   padding: 4px 31px;
   text-decoration: none;
+}
+.nav-link.active {
+  color: #032e50 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #032e5091;
 }
 
 .fa-user {
@@ -45,16 +56,113 @@ header {
 }
 
 .contenido {
-  margin: 19vw auto;
   color: white;
+  margin: 13vw 2vw;
+  font-family: "Poppins", sans-serif;
+}
+.contenido > h1 {
+  font-size: 6rem;
+  font-size: 6rem;
+  font-weight: 700;
+  text-shadow: 1px 1px black;
+  color: #ffffff;
 }
 
+.contenido > h4 {
+  text-shadow: 1px 1px #000000;
+  color: rgb(0 98 204 / 89%);
+  font-weight: 400;
+}
+
+.btn-hero {
+  color: white;
+  background: #032e50;
+  display: flex;
+  width: 16vw;
+  margin-top: 25px;
+  text-decoration: none;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 7px 7px 1px #6f595b;
+}
+
+.btn-hero:hover {
+  color: #f19547;
+  text-decoration: none;
+  font-weight: 700;
+}
+/* Contenido Home */
+
+.SeccionFotos {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contenedorImagenes {
+  display: flex;
+}
+
+.imagenes {
+  background-position: center;
+  background-size: cover;
+  width: 15vw;
+  height: 24vw;
+  box-shadow: 18px 8px 16px #0000005c;
+}
+
+.tittleCarrusel {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  position: relative;
+  top: 47px;
+  color: #032e50;
+  text-shadow: 1px 1px black;
+  font-size: 3rem;
+}
+
+.rec-carousel-wrapper {
+  position: relative;
+  top: 112px;
+}
+
+.one {
+  position: relative;
+  left: -44px;
+}
+
+.three {
+  position: relative;
+  right: -44px;
+}
+
+.contenedorTexto > h2 {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Carrusel */
 .cuadro {
   width: 30vw;
   height: 20vw;
   background-position: center;
   background-size: cover;
   margin: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.textImg {
+  background: #0d518870;
+  width: 100%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.textImg > h2 {
+  text-shadow: 1px 1px #000000de;
+  color: white;
+  font-weight: 700;
 }
 
 .bloquePrincipal {
@@ -78,8 +186,46 @@ header {
   align-items: center;
   justify-content: space-between;
   background: gainsboro;
-  font-family: "Poppins", sans-serif;
+
   padding: 10px;
+  height: 49vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fa-facebook {
+  font-size: 2vw;
+  color: wheat;
+}
+
+.fa-instagram {
+  font-size: 2vw;
+  color: wheat;
+}
+
+.fa-twitter {
+  font-size: 2vw;
+  color: wheat;
+}
+.nav_footer {
+  display: flex;
+  position: relative;
+  top: 20vw;
+}
+
+.btn_footer {
+  padding: 10px;
+}
+
+.btn_footer > h5 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: wheat;
+}
+
+.redes {
+  position: relative;
+  top: 20vw;
 }
 
 .redesSociales {
@@ -94,7 +240,7 @@ header {
 .redesSociales > li > a {
   text-decoration: none;
   padding: 10px;
-  color: black;
+  color: white;
 }
 
 .cities {
@@ -102,6 +248,287 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.rec-arrow-left {
+  position: relative;
+  left: 16px;
+}
+.rec-arrow-right {
+  position: relative;
+  right: 16px;
+}
+
+.bSWeAW:hover:enabled,
+.bSWeAW:focus:enabled {
+  background-color: rgb(0 123 255);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.fa-user {
+  font-size: 34px;
+}
+
+form {
+  position: relative;
+
+  top: 20vw;
+}
+
+.btn_send {
+  margin-left: 13px;
+  padding: 6px 32px;
+  background: #032e50;
+  border: none;
+  font-weight: 700;
+  color: white;
+}
+
+.contenedorForm {
+  font-family: "Poppins", sans-serif;
+  width: 33vw;
+  border: none;
+  padding: 6px;
+  box-shadow: -4px -2px 20px #ffffff42;
+}
+
+@media (max-width: 1024px) {
+  img {
+    width: 44vw;
+  }
+
+  #video_hero {
+    position: absolute;
+    bottom: 100px;
+    right: 0px;
+    min-width: 100%;
+    width: auto;
+    height: 70vw;
+    z-index: -1000;
+    overflow: hidden;
+  }
+
+  .contenido > h1 {
+    font-size: 3rem;
+  }
+
+  .contenido {
+    margin: 15vw 6vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .contenido > h4 {
+    margin-top: 7vw;
+  }
+
+  .btn-hero {
+    width: 37vw;
+  }
+
+  .contenido > button {
+    margin-top: 24px;
+  }
+
+  .cuadro {
+    width: 34vw;
+    height: 30vw;
+  }
+
+  .rec-arrow-left {
+    position: relative;
+    left: 16px;
+  }
+  .rec-arrow-right {
+    position: relative;
+    right: 16px;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: gainsboro;
+
+    padding: 10px;
+    height: 49vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .fa-facebook {
+    font-size: 2vw;
+    color: wheat;
+  }
+
+  .fa-instagram {
+    font-size: 2vw;
+    color: wheat;
+  }
+
+  .fa-twitter {
+    font-size: 2vw;
+    color: wheat;
+  }
+  .nav_footer {
+    display: flex;
+    position: relative;
+    top: 20vw;
+  }
+
+  .redesSociales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn_footer > h5 {
+    font-size: 2vw;
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    width: 36vw;
+  }
+
+  img {
+    width: 44vw;
+  }
+
+  #video_hero {
+    position: absolute;
+    bottom: 100px;
+    right: 0px;
+    min-width: 100%;
+    width: auto;
+    height: 70vw;
+    z-index: -1000;
+    overflow: hidden;
+  }
+
+  .contenido > h1 {
+    font-size: 3rem;
+  }
+
+  .contenido {
+    margin: 15vw 4vw;
+  }
+  .contenido > h4 {
+    margin-top: 7vw;
+  }
+
+  .btn-hero {
+    width: 37vw;
+  }
+
+  .contenido > button {
+    margin-top: 24px;
+  }
+
+  .navbar-collapse {
+    align-items: center;
+    position: absolute !important;
+    background-color: #f8f9fa;
+    top: 114px !important;
+    width: 100vw !important;
+    left: 0px;
+  }
+  .navbar-nav {
+    padding-left: 26px !important;
+    align-items: flex-start;
+  }
+
+  .SeccionFotos {
+    position: relative;
+    top: 32px;
+    flex-direction: column-reverse;
+  }
+
+  .contenedorImagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .one .two .three {
+    position: relative;
+    left: 0;
+  }
+
+  .cuadro {
+    width: 36vw;
+    height: 30vw;
+  }
+
+  main {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .tittleCarrusel {
+    top: 13px;
+  }
+
+  .rec-carousel-wrapper {
+    position: relative;
+    top: 36px;
+  }
+  .rec-arrow-left {
+    position: relative;
+    left: 16px;
+  }
+  .rec-arrow-right {
+    position: relative;
+    right: 16px;
+  }
+
+  .footer {
+    padding: 9px;
+    flex-direction: column;
+    height: 59vw;
+  }
+
+  .redes {
+    top: 0;
+  }
+
+  .nav_footer {
+    flex-direction: column;
+    top: 10vw;
+  }
+
+  .btn_footer > h5 {
+    color: #032e50;
+    font-size: 5vw;
+  }
+
+  .fa-facebook {
+    font-size: 5vw;
+  }
+  .fa-instagram {
+    font-size: 5vw;
+  }
+
+  .fa-twitter {
+    font-size: 5vw;
+  }
+
+  form {
+    top: 0;
+    margin: 18px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .contenedorForm {
+    width: 62vw;
+  }
 }
 
 @media (max-width: 576px) {
@@ -120,11 +547,21 @@ header {
     overflow: hidden;
   }
 
+  .contenido > h1 {
+    font-size: 3rem;
+  }
+
   .contenido {
     margin: 24vw 6vw;
+    display: flex;
+    flex-direction: column;
   }
   .contenido > h4 {
     margin-top: 7vw;
+  }
+
+  .btn-hero {
+    width: 68vw;
   }
 
   .contenido > button {
@@ -132,17 +569,94 @@ header {
   }
 
   .navbar-collapse {
-    flex-basis: 100%;
-    flex-grow: 1;
     align-items: center;
     position: absolute !important;
     background-color: #f8f9fa;
-    top: 63px !important;
+    top: 56px !important;
     width: 100vw !important;
     left: 0px;
   }
   .navbar-nav {
     padding-left: 26px !important;
     align-items: flex-start;
+  }
+
+  /* Carrusel */
+
+  main {
+    background-position: left;
+    position: relative;
+    top: -24px;
+  }
+
+  .cuadro {
+    width: 71vw;
+    height: 48vw;
+    margin: 7px;
+  }
+
+  .tittleCarrusel {
+    position: relative;
+    top: 8px;
+    font-size: 2rem;
+  }
+  .rec-carousel-wrapper {
+    position: relative;
+    top: 0px;
+  }
+
+  .textImg > h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px #000000de;
+    color: white;
+  }
+
+  /* Footer */
+
+  .footer {
+    padding: 9px;
+    flex-direction: column;
+    height: 84vw;
+  }
+  .redes {
+    top: 0;
+  }
+
+  .nav_footer {
+    flex-direction: column;
+    top: 0;
+  }
+
+  .btn_footer > h5 {
+    color: #032e50;
+  }
+
+  .fa-facebook {
+    font-size: 9vw;
+  }
+  .fa-instagram {
+    font-size: 9vw;
+  }
+
+  .fa-twitter {
+    font-size: 9vw;
+  }
+
+  .ml-auto .navbar-nav {
+    flex-direction: column-reverse;
+  }
+
+  form {
+    top: 0;
+    margin: 18px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .contenedorForm {
+    width: 62vw;
   }
 }

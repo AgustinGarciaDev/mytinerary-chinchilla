@@ -5,7 +5,7 @@ const Slide = (props) => {
     const { ciudades } = props
     return (
        <>
-            { ciudades.map(ciudad => <div className="cuadro "  style={{backgroundImage:`url("${ciudad.url}")`}}   key={ciudad.id}>{ ciudad.id}</div>)}
+        { ciudades.map(ciudad => <div key={ciudad.nombre} className="cuadro " style={{ backgroundImage: `url("${ciudad.url}")` }}> <div className="textImg"><h2>{ ciudad.nombre}</h2></div> </div>)}
       </>
     )
     

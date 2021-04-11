@@ -9,7 +9,7 @@ const Header = () => {
         <header>
         <Navbar sticky="top" bg="light" expand="lg">
             <LinkContainer to="/">
-               <Navbar.Brand > <img src="./assets/logo.png" alt=""/></Navbar.Brand>
+               <Navbar.Brand > <img className="logo" src="./assets/logo.png" alt=""/></Navbar.Brand>
                </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -20,13 +20,13 @@ const Header = () => {
                <LinkContainer  exact to="/Cities">
               <Nav.Link  >Cities</Nav.Link>
               </LinkContainer>
-               <LinkContainer  exact to="/Cities">
+               <LinkContainer  to="/Cities">
                <Nav.Link >Sign in</Nav.Link>
               </LinkContainer>
-               <LinkContainer  exact to="/Cities">
+               <LinkContainer to="/Cities">
                <Nav.Link >Sign up</Nav.Link>
               </LinkContainer>
-              <LinkContainer  exact to="/Cities">
+              <LinkContainer  to="/Cities">
                <Nav.Link ><i className="fas fa-user"></i></Nav.Link>
               </LinkContainer>
         </Nav>
