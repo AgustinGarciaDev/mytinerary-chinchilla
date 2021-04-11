@@ -5,7 +5,9 @@ const Footer = () => {
         <footer className="footer" style={{ backgroundImage: `url("http://baravdg.com/wp-content/uploads/2021/04/avion_De.png")` }}  >
         <div className= "nav_footer">
                 <Link  className="btn_footer" exact to="/"><h5>Home</h5></Link>
-                <Link  className="btn_footer" exact to="/Cities"><h5>Cities</h5></Link>      
+                <Link className="btn_footer" exact to="/Cities"><h5>Cities</h5></Link>
+                <Link className="btn_footer" exact to="/Cities"><h5>Sign in</h5></Link>
+                <Link  className="btn_footer" exact to="/Cities"><h5>Sign up</h5></Link>  
         </div>
             
             <div>

@@ -296,6 +296,17 @@ form {
   box-shadow: -4px -2px 20px #ffffff42;
 }
 
+.rec.rec-arrow {
+  background: #032e507d;
+  color: white;
+}
+
+.cetQhm {
+  background: #032e50 !important;
+
+  box-shadow: 0 0 1px 3px rgb(58 103 183 / 85%) !important;
+}
+
 @media (max-width: 1024px) {
   img {
     width: 44vw;
@@ -410,14 +421,14 @@ form {
   }
 
   .contenido > h1 {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   .contenido {
     margin: 15vw 4vw;
   }
   .contenido > h4 {
-    margin-top: 7vw;
+    margin-top: 1vw;
   }
 
   .btn-hero {
@@ -471,6 +482,7 @@ form {
 
   .tittleCarrusel {
     top: 13px;
+    font-size: 2rem;
   }
 
   .rec-carousel-wrapper {
@@ -503,7 +515,12 @@ form {
 
   .btn_footer > h5 {
     color: #032e50;
-    font-size: 5vw;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .textImg > h2 {
+    font-size: 1.5rem;
   }
 
   .fa-facebook {
@@ -519,7 +536,7 @@ form {
 
   form {
     top: 0;
-    margin: 18px 0;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -528,6 +545,11 @@ form {
 
   .contenedorForm {
     width: 62vw;
+    text-align: center;
+  }
+
+  .btn_footer {
+    padding: 3px;
   }
 }
 
@@ -614,10 +636,14 @@ form {
 
   /* Footer */
 
+  footer {
+    background-position: bottom;
+  }
+
   .footer {
     padding: 9px;
     flex-direction: column;
-    height: 84vw;
+    height: 95vw;
   }
   .redes {
     top: 0;
@@ -630,6 +656,12 @@ form {
 
   .btn_footer > h5 {
     color: #032e50;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .btn_footer {
+    padding: 3px;
   }
 
   .fa-facebook {
