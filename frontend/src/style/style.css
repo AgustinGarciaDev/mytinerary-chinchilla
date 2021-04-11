@@ -86,11 +86,6 @@ header {
   box-shadow: 7px 7px 1px #6f595b;
 }
 
-.btn-hero:hover {
-  color: #f19547;
-  text-decoration: none;
-  font-weight: 700;
-}
 /* Contenido Home */
 
 .SeccionFotos {
