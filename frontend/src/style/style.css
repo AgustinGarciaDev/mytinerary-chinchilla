@@ -307,6 +307,13 @@ form {
   box-shadow: 0 0 1px 3px rgb(58 103 183 / 85%) !important;
 }
 
+.bSWeAW:hover:enabled,
+.bSWeAW:focus:enabled {
+  color: #fff;
+  background-color: #032e50 !important;
+  box-shadow: 0 0 2px 0 #333;
+}
+
 @media (max-width: 1024px) {
   img {
     width: 44vw;
@@ -690,5 +697,13 @@ form {
 
   .contenedorForm {
     width: 62vw;
+  }
+  .rec-arrow-left {
+    position: relative;
+    left: 8px;
+  }
+  .rec-arrow-right {
+    position: relative;
+    left: -5px;
   }
 }

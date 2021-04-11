@@ -41,10 +41,9 @@ class Slider extends React.Component {
   
       <main style={{ backgroundImage: `url("http://baravdg.com/wp-content/uploads/2021/04/Mesa-de-trabajo-2.png)` }}>
         <h1 className="tittleCarrusel">Popular myTineraries</h1>
-        <Carousel /*  enableAutoPlay autoPlaySpeed={4000} */>
-          {this.ciudades.map(item => <div className="bloquePrincipal" key={item[0].nombre} > <Slide    key={item.slide}   ciudades={item} /></div> )}
+        <Carousel   enableAutoPlay autoPlaySpeed={4000} >
+          {this.ciudades.map(item => <div className="bloquePrincipal" key={item[0].nombre} > <Slide    key={item.slide}  ciudades={item} /> </div> )}
         </Carousel> 
-        
        </main>
      
     )
