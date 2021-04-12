@@ -1,7 +1,8 @@
 // no se importa con componentes funcionales
 import { Navbar } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+
 
 const Header = () => {
     
@@ -11,13 +12,14 @@ const Header = () => {
             <LinkContainer to="/">
                <Navbar.Brand > <img className="logo" src="./assets/logo.png" alt=""/></Navbar.Brand>
                </LinkContainer>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                 <Nav className="ml-auto">
-              <LinkContainer  exact to="/">
+            <Nav className="ml-auto">
+
+            <LinkContainer   to="/">
               <Nav.Link >Home</Nav.Link>
               </LinkContainer>
-               <LinkContainer  exact to="/Cities">
+               <LinkContainer  to="/Cities">
               <Nav.Link  >Cities</Nav.Link>
               </LinkContainer>
                <LinkContainer  to="/Cities">
@@ -28,7 +30,7 @@ const Header = () => {
               </LinkContainer>
               <LinkContainer  to="/Cities">
                <Nav.Link ><i className="fas fa-user"></i></Nav.Link>
-              </LinkContainer>
+              </LinkContainer> 
         </Nav>
  
   </Navbar.Collapse>

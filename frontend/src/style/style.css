@@ -309,6 +309,11 @@ form {
   box-shadow: 0 0 2px 0 #333;
 }
 
+.ml-auto > a {
+  color: gray;
+  padding: 7px 0;
+}
+
 @media (max-width: 1024px) {
   img {
     width: 44vw;
@@ -445,13 +450,13 @@ form {
     align-items: center;
     position: absolute !important;
     background-color: #f8f9fa;
-    top: 114px !important;
+    top: 98px !important;
     width: 100vw !important;
     left: 0px;
   }
   .navbar-nav {
-    padding-left: 26px !important;
     align-items: flex-start;
+    flex-direction: column-reverse !important;
   }
 
   .SeccionFotos {
@@ -601,8 +606,8 @@ form {
     left: 0px;
   }
   .navbar-nav {
-    padding-left: 26px !important;
     align-items: flex-start;
+    flex-direction: column-reverse !important;
   }
 
   /* Carrusel */
@@ -675,10 +680,6 @@ form {
 
   .fa-twitter {
     font-size: 9vw;
-  }
-
-  .ml-auto .navbar-nav {
-    flex-direction: column-reverse;
   }
 
   form {
