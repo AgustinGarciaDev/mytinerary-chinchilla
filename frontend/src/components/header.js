@@ -16,7 +16,7 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
 
-            <LinkContainer   to="/">
+            <LinkContainer exact  to="/">
               <Nav.Link >Home</Nav.Link>
               </LinkContainer>
                <LinkContainer  to="/Cities">

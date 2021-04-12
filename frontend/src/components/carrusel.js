@@ -34,8 +34,6 @@ class Slider extends React.Component {
 
   render() {
 
-  console.log(this.ciudades)
-
     return (
   
       <main style={{ backgroundImage: `url("http://baravdg.com/wp-content/uploads/2021/04/Mesa-de-trabajo-2.png)` }}>

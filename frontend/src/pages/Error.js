@@ -1,8 +1,19 @@
 
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const Error = () => {
     
     return (
-        <h1>Este link no existe intente nuevamente</h1>
+        <>
+            <Header />
+            <div className="cities">
+                     <h1>404 not found</h1>
+              </div>
+   
+         <Footer />
+        </>
     )
 }
 
