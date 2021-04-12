@@ -34,6 +34,7 @@ class Slider extends React.Component {
 
   render() {
 
+  console.log(this.ciudades)
 
     return (
   
