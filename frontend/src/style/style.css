@@ -320,7 +320,7 @@ form {
     right: 0px;
     min-width: 100%;
     width: auto;
-    height: 70vw;
+    height: 57vw;
     z-index: -1000;
     overflow: hidden;
   }
@@ -330,7 +330,7 @@ form {
   }
 
   .contenido {
-    margin: 15vw 6vw;
+    margin: 5vw 6vw;
     display: flex;
     flex-direction: column;
   }
@@ -423,7 +423,7 @@ form {
   }
 
   .contenido > h1 {
-    font-size: 5rem;
+    font-size: 3rem;
   }
 
   .contenido {
@@ -572,7 +572,7 @@ form {
   }
 
   .contenido > h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .contenido {
