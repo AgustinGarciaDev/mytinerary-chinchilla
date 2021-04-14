@@ -12,10 +12,8 @@ class Home extends React.Component {
  
     return (
     <>
-            <Header />
             <HeroHome />
             <Slider /> 
-            <Footer />
     </>
     )
   }

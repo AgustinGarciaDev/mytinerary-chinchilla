@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Cities from './pages/Cities'
 import Error from './pages/Error'
 import './style/style.css'
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 class App extends React.Component {
   
@@ -11,14 +13,15 @@ class App extends React.Component {
     
     return (
     <BrowserRouter>
-       
+         <Header />
+    
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/Cities" component={Cities} />
+          <Route path="/cities" component={Cities} />
           <Route path="/Error" component={Error} />
           <Redirect to="/Error" />
       </Switch>
-        
+          <Footer />   
      </BrowserRouter>
     )
   }

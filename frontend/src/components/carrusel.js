@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from 'react-elastic-carousel';
- import Slide from './Slide' 
+import Slide from './Slide' 
 
 class Slider extends React.Component {
   
@@ -28,8 +28,10 @@ class Slider extends React.Component {
            {id: 9, nombre:"Rome", url: 'http://baravdg.com/wp-content/uploads/2021/04/rome-4087275_1920.jpg', slide:"C"},
            {id: 10, nombre:"Seville", url: 'http://baravdg.com/wp-content/uploads/2021/04/Diseno-sin-titulo-2.png'},
            {id: 11, nombre:"Amsterdam", url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-harvey-1790573-scaled.jpg'},
-           {id: 12, nombre:"London", url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-pixabay-460672.jpg'},
-      ]
+       { id: 12, nombre: "London", url: 'http://baravdg.com/wp-content/uploads/2021/04/pexels-pixabay-460672.jpg' },
+           
+    ]
+     
   ]
 
   render() {
