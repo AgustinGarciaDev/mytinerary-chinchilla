@@ -11,7 +11,7 @@ const Footer = () => {
         </div>
             
             <div>
-                <form action="/">
+                <form  className="formulario_position" action="/">
 
                     <label htmlFor="">
                         <input className="contenedorForm" placeholder="Enter email for monthly newsletter" type="text" name="" id=""/>

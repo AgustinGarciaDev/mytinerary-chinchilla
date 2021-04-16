@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const CardCities = ({ ciudad: { nombre, id, url } }) => {
+const CardCities = ({ ciudad: { nombre, _id, url } }) => {
 
  
 
@@ -8,9 +8,11 @@ const CardCities = ({ ciudad: { nombre, id, url } }) => {
   <>
 
             
- <Link to={`/city/${id}`}>
-     <h1>{nombre}</h1>
-    <div key={nombre} className="cuadro " style={{ backgroundImage: `url("${url}")` }} ></div>
+ <Link to={`/city/${_id}`}>
+     
+    <div key={nombre} className="bannerCiudad" style={{ backgroundImage: `url("${url}")` }} >
+      <h1>{nombre}</h1>
+    </div>
  </Link>
 
 

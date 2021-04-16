@@ -12,13 +12,17 @@ const City = (props) => {
         const idCiudadRuta = props.match.params.id
 
         axios.get('http://localhost:5000/api/ciudad/' + idCiudadRuta)
-            .then(response => setIdCiudad([...response.data.respuesta]))
+            .then(response => setIdCiudad([response.data.respuesta]))
+            .catch(error => props.history.push('/errorServer'))
     }, [])
     
     return (  
      <>
-            <h1>hola </h1>
-           {idCiudad.map(ciudad => <h1>{ciudad.nombre}</h1>)}  
+            <h1>Proximante disponible</h1>
+          
+            <main>
+                 {idCiudad.map(ciudad => <h1>{ciudad.nombre}</h1>)}  
+            </main>
     </>        
     )
 }

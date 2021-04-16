@@ -2,3 +2,42 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
+
+.bannerCiudad {
+  width: 45vw;
+  height: 32vw;
+  background-position: center;
+  background-size: cover;
+  margin: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.formBuscador {
+  display: flex;
+  justify-content: center;
+}
+.inputSearch {
+  width: 41vw;
+  height: 3vw;
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.heroSearch {
+  height: 41vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tituloBuscador {
+  margin-top: 20vw;
+  font-size: 5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px black;
+  color: #ffffff;
+}

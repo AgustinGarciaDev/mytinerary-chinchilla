@@ -7,6 +7,8 @@ import axios from 'axios';
 
 const Cities = () => {
 
+
+  const [loading, setLoading] = useState (true)
   const [listaCiudades, setListaCiudades] = useState ([]) //Trae por api
   const [ciudades, setCiudades] = useState([]) // Guardo el filtrado
   
@@ -15,7 +17,11 @@ const Cities = () => {
   useEffect(() => {
         
     axios.get('http://localhost:5000/api/ciudades')
-    .then(response => setListaCiudades([...response.data.respuesta]))  
+      .then(response => setListaCiudades([...response.data.respuesta]))
+      .catch(error => this.props.history.push('/error'))
+    
+  
+    
   },[])
 
 
@@ -23,6 +29,7 @@ const Cities = () => {
   useEffect(() => {
       
     setCiudades([...listaCiudades])
+      setLoading(false)
   } ,[listaCiudades])
 
 
@@ -30,35 +37,46 @@ const Cities = () => {
   
     const valorInput = e.target.value.trim()
     const ciudadBuscada = listaCiudades.filter(ciudad => valorInput.toLowerCase() === ciudad.nombre.slice(0,valorInput.length).toLowerCase())
-  
-   setCiudades([...ciudadBuscada])
+
+    setCiudades([...ciudadBuscada])
 
   }
 
+
   
-
-    return (
-
-     <>
-            <h1>Cities</h1>
+   return (
+      <>
+        <section className="heroSearch">
+          <h1 className="tituloBuscador" >Search cities</h1>
+          <form className="formBuscador" action="">
             <label htmlFor="">
-                <input  onChange={buscandoCiudad} type="text"/>
+              <input className="inputSearch" onChange={buscandoCiudad} type="text" />
             </label>
+          </form>
+          <video id="video_hero" loop autoPlay muted>
+            <source src="http://baravdg.com/wp-content/uploads/2021/04/Pexels-Videos-2252797-1.mp4" type="video/mp4" />
+          </video>
 
-        { 
-         
-       ciudades.length === 0
-       ? <h1>No existe</h1>
-       : ciudades.map(ciudad => <div className="ciudad"> <CardCities ciudad={ciudad} /> </div>)
-       
-          
+        </section>
+        {
+          <main>
+            
+           {
+             
+              listaCiudades.length === 0
+              ? <h1>Cargando</h1>
+              : ciudades.length === 0 
+              ? <h1>No se encontro la ciudad</h1>
+              : ciudades.map(ciudad => <div className="ciudad" key={ciudad._id} > <CardCities ciudad={ciudad} /> </div>) 
+           
+           }
+          </main>
         }
-        
-
           
-    </>
-
+      </>
     )
+
+    
 }
 
 export default Cities

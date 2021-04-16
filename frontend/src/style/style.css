@@ -268,9 +268,8 @@ header {
   font-size: 34px;
 }
 
-form {
+.formulario_position {
   position: relative;
-
   top: 20vw;
 }
 

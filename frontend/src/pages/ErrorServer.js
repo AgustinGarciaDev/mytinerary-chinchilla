@@ -1,16 +1,15 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Error = () => {
+const ErrorServer = () => {
     
     return (
         <>
           
             <div className="cities">
-                <h1>404 not found</h1>
+                <h1>Error en el server</h1>
               </div>
         </>
     )
 }
 
-export default Error
+export default ErrorServer
