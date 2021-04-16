@@ -7,12 +7,10 @@ const Error = () => {
     
     return (
         <>
-            <Header />
+          
             <div className="cities">
                      <h1>404 not found</h1>
               </div>
-   
-         <Footer />
         </>
     )
 }
