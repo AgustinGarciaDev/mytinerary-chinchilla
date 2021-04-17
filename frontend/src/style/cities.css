@@ -1,6 +1,7 @@
 main {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .bannerCiudad {
@@ -12,6 +13,15 @@ main {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  -webkit-transition: 1s linear;
+  transition: 0.4s linear;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.bannerCiudad:hover {
+  border-radius: 1.5rem;
+  box-shadow: 1px -1px 8px 3px rgb(0 0 0 / 31%);
 }
 
 .formBuscador {
@@ -19,11 +29,34 @@ main {
   justify-content: center;
 }
 .inputSearch {
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   width: 41vw;
   height: 3vw;
   font-family: "Poppins";
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1rem;
+  border: none;
+  transition: 0.4s linear;
+}
+
+label {
+  margin-bottom: 0;
+}
+input:focus {
+  outline: none;
+}
+
+.ciudad > a:hover {
+  color: transparent;
+}
+#search-wrapper {
+  background-color: white;
+}
+
+.fa-search {
+  margin-left: 10px;
 }
 
 .heroSearch {
@@ -40,4 +73,140 @@ main {
   font-weight: 700;
   text-shadow: 1px 1px black;
   color: #ffffff;
+}
+
+.contenedorTextBanner {
+  width: 100%;
+  color: white;
+  height: 18%;
+  font-size: poppins;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: rgb(19 105 224 / 3%);
+  backdrop-filter: blur(5px);
+  -webkit-transition: 1s linear;
+  transition: 0.4s linear;
+  border-radius: 0;
+}
+
+.contenedorTextBanner:hover {
+  border-radius: 0 0 20px 20px;
+}
+
+.textoBanner {
+  font-family: "Poppins";
+  font-size: 2.5rem;
+}
+
+.btn-one {
+  color: #fff;
+  transition: all 0.3s;
+  position: relative;
+}
+.btn-one {
+  transition: all 0.3s;
+}
+.btn-one::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgb(255, 255, 255);
+  border-bottom-color: rgb(255, 255, 255);
+  transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+.btn-one:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.btn-one::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+}
+.btn-one:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+
+.contenedorHeroImg {
+  width: 100vw;
+  height: 42vw;
+  font-family: "poppins";
+}
+
+.imgCity {
+  height: 43vw;
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorHeroImg {
+  width: 100vw;
+  height: 42vw;
+  font-family: "poppins";
+}
+
+.imgCity {
+  height: 43vw;
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textoCiudad {
+  color: white;
+  font-size: 7rem;
+
+  background-color: rgb(19 105 224 / 3%);
+  backdrop-filter: blur(5px);
+  width: 100%;
+
+  height: 102%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageLoader {
+  width: 100vw;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  height: 103vh;
+  z-index: 71px;
+  z-index: 10;
+  top: 87px;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

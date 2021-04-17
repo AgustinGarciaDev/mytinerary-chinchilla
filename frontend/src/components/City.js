@@ -18,10 +18,22 @@ const City = (props) => {
     
     return (  
      <>
-            <h1>Proximante disponible</h1>
+    
           
             <main>
-                 {idCiudad.map(ciudad => <h1>{ciudad.nombre}</h1>)}  
+                <div className="contenedorHeroImg">
+                        {idCiudad.map(ciudad =>{ 
+               
+                    return (
+                          <div key={ciudad.nombre} className="imgCity" style={{ backgroundImage: `url("${ciudad.url}")` }}>
+                        
+                            <h1 className="textoCiudad" >{ciudad.nombre}</h1>
+                
+                          </div>
+                   )
+             })
+            }
+             </div>
             </main>
     </>        
     )

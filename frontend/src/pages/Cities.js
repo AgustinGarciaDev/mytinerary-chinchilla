@@ -8,7 +8,7 @@ import axios from 'axios';
 const Cities = () => {
 
 
-  const [loading, setLoading] = useState (true)
+
   const [listaCiudades, setListaCiudades] = useState ([]) //Trae por api
   const [ciudades, setCiudades] = useState([]) // Guardo el filtrado
   
@@ -20,7 +20,7 @@ const Cities = () => {
       .then(response => setListaCiudades([...response.data.respuesta]))
       .catch(error => this.props.history.push('/error'))
     
-  
+
     
   },[])
 
@@ -29,7 +29,7 @@ const Cities = () => {
   useEffect(() => {
       
     setCiudades([...listaCiudades])
-      setLoading(false)
+
   } ,[listaCiudades])
 
 
@@ -41,37 +41,44 @@ const Cities = () => {
     setCiudades([...ciudadBuscada])
 
   }
+ 
 
-
-  
    return (
       <>
         <section className="heroSearch">
           <h1 className="tituloBuscador" >Search cities</h1>
           <form className="formBuscador" action="">
-            <label htmlFor="">
-              <input className="inputSearch" onChange={buscandoCiudad} type="text" />
-            </label>
+        
+             <div id="search-wrapper">
+                   <label htmlFor="">
+              <i class="fa fa-search"></i>
+              <input  type="search"  placeholder=" Search..."  className="inputSearch" onChange={buscandoCiudad} />
+             </label>
+                    </div>
+    
           </form>
           <video id="video_hero" loop autoPlay muted>
-            <source src="http://baravdg.com/wp-content/uploads/2021/04/Pexels-Videos-2252797-1.mp4" type="video/mp4" />
+            <source src="http://baravdg.com/wp-content/uploads/2021/04/pexels-francesco-navarro-6216472.mp4" type="video/mp4" />
           </video>
 
         </section>
-        {
-          <main>
-            
+      
+        <main>
            {
-             
-              listaCiudades.length === 0
-              ? <h1>Cargando</h1>
-              : ciudades.length === 0 
-              ? <h1>No se encontro la ciudad</h1>
-              : ciudades.map(ciudad => <div className="ciudad" key={ciudad._id} > <CardCities ciudad={ciudad} /> </div>) 
-           
+                  listaCiudades.length === 0
+                  ? <div className="pageLoader">
+                        <lottie-player className="loader" style={{ width: "20vw" }} src="https://assets1.lottiefiles.com/packages/lf20_tVT3vG.json"  speed="1"  loop  autoplay></lottie-player>
+                    </div>
+                  :ciudades.length === 0 
+                  ? <div>
+                        <h2>No se encontro la ciudad que buscadabas</h2>
+                        <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_fyqtse3p.json" speed="1" loop  autoplay></lottie-player>   
+                    </div>
+                  : ciudades.map(ciudad => <div className="ciudad" key={ciudad._id} > <CardCities ciudad={ciudad} /> </div>) 
+              
            }
-          </main>
-        }
+      </main>
+
           
       </>
     )
