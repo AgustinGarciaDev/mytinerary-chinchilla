@@ -6,8 +6,10 @@ const Error = () => {
     return (
         <>
           
-            <div className="cities">
-                <h1>404 not found</h1>
+            <div className="citiesError">
+                <h1 className="textCitiesError">Ops! </h1>
+             
+                 <lottie-player src="https://assets3.lottiefiles.com/temp/lf20_0txt7u.json"  style={{ width: "50vw" }} loop  autoplay></lottie-player>
               </div>
         </>
     )

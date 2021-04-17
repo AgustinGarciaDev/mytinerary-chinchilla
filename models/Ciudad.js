@@ -6,7 +6,8 @@ const mongoose = require('mongoose')
 const ciudadSchema = new mongoose.Schema({
 
     nombre: { type: String, required: true },
-    url: {type: String, required: true},
+    url: { type: String, required: true },
+    pais: {type:String, required: true},
     descripcion: {type: String}
     
 })

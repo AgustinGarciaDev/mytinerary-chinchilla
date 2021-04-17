@@ -1,4 +1,4 @@
-main {
+.contenedorImagenes {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -50,6 +50,7 @@ input:focus {
 
 .ciudad > a:hover {
   color: transparent;
+  text-decoration: none;
 }
 #search-wrapper {
   background-color: white;
@@ -163,7 +164,7 @@ input:focus {
 }
 
 .contenedorHeroImg {
-  width: 100vw;
+  width: 100%;
   height: 42vw;
   font-family: "poppins";
 }
@@ -177,19 +178,19 @@ input:focus {
   align-items: center;
 }
 
-.textoCiudad {
-  color: white;
-  font-size: 7rem;
-
+.ContenedortextoCiudad {
   background-color: rgb(19 105 224 / 3%);
   backdrop-filter: blur(5px);
   width: 100%;
-
-  height: 102%;
-
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+.textoCiudad {
+  color: white;
+  font-size: 7rem;
 }
 
 .pageLoader {
@@ -209,4 +210,192 @@ input:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.contenedorBotones > a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-city > p {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+
+a,
+.btn-city::after {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-city {
+  background: none;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 17px;
+  position: relative;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.btn-city::before,
+.btn-city::after {
+  background: #032e50c7;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+
+.btn-city::after {
+  height: 0;
+  left: 50%;
+  top: 50%;
+  width: 0;
+}
+
+.btn-city:hover:after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.contenedorBotones {
+  display: flex;
+  justify-content: center;
+}
+.spaceBtn {
+  margin-right: 10px;
+}
+
+.btn-cities {
+  background: #032e50c7;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 17px;
+  position: relative;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.btn-cities > p {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+
+.btn-cities::before,
+.btn-cities::after {
+  background: #032e50c7;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+
+.btn-cities::after {
+  height: 0;
+  left: 50%;
+  top: 50%;
+  width: 0;
+}
+
+.btn-cities:hover:after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.btn-cities::after {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.errorBusqueda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errorBusqueda > h2 {
+  font-family: "poppins";
+}
+
+@media (max-width: 768px) {
+  .contenedorImagenes {
+    position: relative;
+    top: 75px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .bannerCiudad {
+    width: 43vw;
+    height: 33vw;
+  }
+  .formulario_position {
+    top: 0;
+  }
+  .btn-cities {
+    margin-top: 12vw;
+  }
+}
+
+@media (max-width: 520px) {
+  .contenedorImagenes {
+    position: relative;
+    top: 69vw;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 65vw;
+  }
+
+  .bannerCiudad {
+    width: 88vw;
+    height: 69vw;
+  }
+  .formulario_position {
+    top: 0;
+  }
+
+  .tituloBuscador {
+    margin-top: 87vw;
+    text-align: center;
+    line-height: 0.9;
+  }
+  .textoBanner {
+    font-size: 1.8rem;
+  }
+  .inputSearch {
+    width: 64vw;
+  }
+  .btn-cities {
+    margin-top: 7vw;
+    margin-bottom: 7vw;
+  }
+  .imgCity {
+    height: 100vw;
+  }
+  .spaceBtn {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .contenedorBotones {
+    flex-direction: column;
+  }
+
+  .contenedorHeroImg {
+    margin-bottom: 57vw;
+  }
 }

@@ -5,8 +5,9 @@ const ErrorServer = () => {
     return (
         <>
           
-            <div className="cities">
-                <h1>Error en el server</h1>
+            <div className="citiesError">
+                <h1 className="textCitiesError">Error server</h1>
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_hd63kfgz.json" style={{ width: "50vw" }} speed="1"   loop  autoplay></lottie-player> 
               </div>
         </>
     )

@@ -1,5 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
 
 const City = (props) => {
     
@@ -9,6 +10,7 @@ const City = (props) => {
 
     useEffect(() => {
         
+        window.scroll(0,0)
         const idCiudadRuta = props.match.params.id
 
         axios.get('http://localhost:5000/api/ciudad/' + idCiudadRuta)
@@ -27,8 +29,24 @@ const City = (props) => {
                     return (
                           <div key={ciudad.nombre} className="imgCity" style={{ backgroundImage: `url("${ciudad.url}")` }}>
                         
-                            <h1 className="textoCiudad" >{ciudad.nombre}</h1>
-                
+                            <div className="ContenedortextoCiudad">
+                                <h1 className="textoCiudad" >{ciudad.nombre}</h1>
+                                <div className="contenedorBotones">
+                                    <Link to="/">
+                                        <div className="btn-city spaceBtn">
+                                            <i className="fas fa-home"></i>
+                                            <p>Go back home</p>
+                                        </div>
+                                    </Link>
+                                    <Link to="/Cities">
+                                         <div className="btn-city">
+                                           <i className="fas fa-map"></i>
+                                            <p>Go back cities</p>
+                                        </div>
+                                    </Link>
+                                    
+                               </div>
+                            </div>
                           </div>
                    )
              })

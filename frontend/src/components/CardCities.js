@@ -8,7 +8,7 @@ const CardCities = ({ ciudad: { nombre, _id, url } }) => {
   <>
 
             
- <Link onclick={window.scroll(0,0)} to={`/city/${_id}`}>
+ <Link  to={`/city/${_id}`}>
      
     <div key={nombre} className="bannerCiudad" style={{ backgroundImage: `url("${url}")` }} >
             <div className="contenedorTextBanner">

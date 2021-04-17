@@ -20,9 +20,9 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/cities" component={Cities} />
-          <Route path="/city/:id"  component={ City}  />
+          <Route exact path="/city/:id"  component={ City}  />
           <Route exact path="/error" component={Error} />
-            <Route exact path="/errorserver" component={ErrorServer} />
+            <Route  path="/errorserver" component={ErrorServer} />
           <Redirect to="/Error" />
       </Switch>
           <Footer />   

@@ -6,8 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Home extends React.Component {
   
+  componentDidMount() {
+          window.scroll({
+  top: 100,
+  left: 100,
+  behavior: 'smooth'
+});
+  }
+  
   render() {
  
+
     return (
     <>
             <HeroHome />

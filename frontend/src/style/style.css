@@ -78,7 +78,7 @@ header {
   color: white;
   background: #032e50;
   display: flex;
-  width: 16vw;
+  width: 19vw;
   margin-top: 25px;
   text-decoration: none;
   justify-content: center;
@@ -311,6 +311,16 @@ header {
 .ml-auto > a {
   color: gray;
   padding: 7px 0;
+}
+
+.citiesError {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.textCitiesError {
+  font-family: "poppins";
 }
 
 @media (max-width: 1024px) {
