@@ -18,10 +18,7 @@ const Cities = (props) => {
   useEffect(() => {
         
     axios.get('http://localhost:4000/api/ciudades')
-      .then(response => {
-        setListaCiudades([...response.data.respuesta])
-        setCiudades([...response.data.respuesta])
-      })
+      .then(response =>  setListaCiudades([...response.data.respuesta]))
       .catch(error => props.history.push('/ErrorServer'))
       
     
@@ -29,7 +26,7 @@ const Cities = (props) => {
   
 
   useEffect(() => {
-  
+        setCiudades([...listaCiudades])
         window.scroll({
          top: 400,
          left: 100,
