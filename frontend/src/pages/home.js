@@ -14,6 +14,7 @@ class Home extends React.Component {
 });
   }
   
+    /* Hola */
   render() {
  
 
