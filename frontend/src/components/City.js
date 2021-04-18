@@ -13,7 +13,7 @@ const City = (props) => {
         window.scroll(0,0)
         const idCiudadRuta = props.match.params.id
 
-        axios.get('http://localhost:5000/api/ciudad/' + idCiudadRuta)
+        axios.get('http://localhost:4000/api/ciudad/' + idCiudadRuta)
             .then(response => setIdCiudad([response.data.respuesta]))
             .catch(error => props.history.push('/errorServer'))
     }, [])

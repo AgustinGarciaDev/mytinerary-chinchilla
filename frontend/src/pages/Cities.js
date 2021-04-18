@@ -17,7 +17,7 @@ const Cities = (props) => {
   /* LLamo a la API */
   useEffect(() => {
         
-    axios.get('http://localhost:5000/api/ciudades')
+    axios.get('http://localhost:4000/api/ciudades')
       .then(response => {
         setListaCiudades([...response.data.respuesta])
        setCiudades([...response.data.respuesta])
