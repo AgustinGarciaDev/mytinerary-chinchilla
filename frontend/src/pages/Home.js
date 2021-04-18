@@ -8,10 +8,9 @@ class Home extends React.Component {
   
   componentDidMount() {
           window.scroll({
-  top: 100,
-  left: 100,
-  behavior: 'smooth'
-});
+           top: 0,
+           behavior: 'smooth'
+          });
   }
   
   render() {
