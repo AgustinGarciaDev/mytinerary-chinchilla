@@ -195,21 +195,19 @@ input:focus {
 
 .pageLoader {
   width: 100vw;
-  position: absolute;
+  position: relative;
   background-color: white;
   width: 100%;
-  position: absolute;
   background-color: white;
-  height: 103vh;
-  z-index: 71px;
   z-index: 10;
-  top: 87px;
+  top: -26px;
   left: 0;
   right: 0;
   bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 
 .contenedorBotones > a:hover {
@@ -285,6 +283,7 @@ a,
   align-items: center;
   justify-content: center;
   color: white;
+  margin-top: 6vw;
 }
 
 .btn-cities > p {
@@ -325,6 +324,7 @@ a,
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5vw;
 }
 
 .errorBusqueda > h2 {
@@ -334,7 +334,7 @@ a,
 @media (max-width: 768px) {
   .contenedorImagenes {
     position: relative;
-    top: 75px;
+    top: 30vw;
     display: flex;
     flex-direction: row;
   }
@@ -349,12 +349,15 @@ a,
   .btn-cities {
     margin-top: 12vw;
   }
+  .heroSearch {
+    height: 32vw;
+  }
 }
 
 @media (max-width: 520px) {
   .contenedorImagenes {
     position: relative;
-    top: 69vw;
+    top: 46vw;
     display: flex;
     flex-direction: row;
     margin-bottom: 65vw;
@@ -369,7 +372,8 @@ a,
   }
 
   .tituloBuscador {
-    margin-top: 87vw;
+    margin-top: 51vw;
+
     text-align: center;
     line-height: 0.9;
   }
@@ -397,5 +401,33 @@ a,
 
   .contenedorHeroImg {
     margin-bottom: 57vw;
+  }
+
+  .errorBusqueda {
+    text-align: center;
+    margin-top: 10vw;
+  }
+  .contenedorBotones {
+    align-items: center;
+  }
+  .btn-cities {
+    width: 59vw;
+  }
+}
+
+@media (max-width: 375px) {
+  .contenedorImagenes {
+    top: 76vw;
+  }
+
+  .tituloBuscador {
+    margin-top: 113vw;
+  }
+
+  .contenedorBotones {
+    align-items: center;
+  }
+  .btn-cities {
+    width: 59vw;
   }
 }

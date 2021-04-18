@@ -16,11 +16,6 @@ const Cities = (props) => {
 
   /* LLamo a la API */
   useEffect(() => {
-     window.scroll({
-  top: 100,
-  left: 100,
-  behavior: 'smooth'
-});
         
     axios.get('http://localhost:5000/api/ciudades')
       .then(response => {
@@ -29,7 +24,21 @@ const Cities = (props) => {
       } )
       .catch(error => props.history.push('/ErrorServer'))
     
-  },[])
+  }, [])
+  
+
+  useEffect(() => {
+
+    console.log("PA BUENAS")
+    
+        window.scroll({
+         top: 400,
+         left: 100,
+         behavior: 'smooth'
+});
+  },[listaCiudades])
+  
+
 
   const buscandoCiudad = (e) => {
    
@@ -61,7 +70,7 @@ const Cities = (props) => {
               
                 </form>
                 <video id="video_hero" loop autoPlay muted>
-                     <source src="http://baravdg.com/wp-content/uploads/2021/04/pexels-francesco-navarro-6216472.mp4" type="video/mp4" />
+                     <source src="https://myhadministracionedificios.com/wp-content/uploads/2021/04/production-ID_4507988-1-1.mp4" type="video/mp4" />
                 </video>
 
         </section>
@@ -70,7 +79,7 @@ const Cities = (props) => {
            {
                   listaCiudades.length === 0
                   ? <div className="pageLoader">
-                        <lottie-player className="loader" style={{ width: "20vw" , margin:"5vw" }} src="https://assets1.lottiefiles.com/packages/lf20_tVT3vG.json"  speed="1"  loop  autoplay></lottie-player>
+                        <lottie-player className="loader" style={{ width: "40vw" , margin:"5vw" }} src="https://assets1.lottiefiles.com/packages/lf20_tVT3vG.json"  speed="1"  loop  autoplay></lottie-player>
                     </div>
                   :ciudades.length === 0 
                   ? <div className="errorBusqueda">
