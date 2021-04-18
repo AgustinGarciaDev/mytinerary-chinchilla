@@ -23,6 +23,7 @@ const Cities = (props) => {
         setCiudades([...response.data.respuesta])
       })
       .catch(error => props.history.push('/ErrorServer'))
+      
     
   }, [])
   
