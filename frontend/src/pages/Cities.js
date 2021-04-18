@@ -23,35 +23,23 @@ const Cities = (props) => {
 });
         
     axios.get('http://localhost:5000/api/ciudades')
-      .then(response => setListaCiudades([...response.data.respuesta]))
+      .then(response => {
+        setListaCiudades([...response.data.respuesta])
+       setCiudades([...response.data.respuesta])
+      } )
       .catch(error => props.history.push('/ErrorServer'))
     
   },[])
 
-
-  useEffect(() => {
-        window.scroll({
-         top: 100,
-         left: 100,
-         behavior: 'smooth'
-          });
-  },[])
-
-
-
-
-  useEffect(() => {
-      
-    setCiudades([...listaCiudades])
-
-  } ,[listaCiudades])
-
-
   const buscandoCiudad = (e) => {
-  
+   
+    console.log("recien entre")
 
     const valorInput = e.target.value.trim()
+    console.log(valorInput.length)
     const ciudadBuscada = listaCiudades.filter(ciudad => valorInput.toLowerCase() === ciudad.nombre.slice(0,valorInput.length).toLowerCase())
+
+     console.log(ciudadBuscada) 
 
     setCiudades([...ciudadBuscada])
 
