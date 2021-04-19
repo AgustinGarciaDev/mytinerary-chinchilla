@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 
 const Cities = (props) => {
 
-
-
   const [listaCiudades, setListaCiudades] = useState ([]) //Trae por api
   const [ciudades, setCiudades] = useState([]) // Guardo el filtrado
   

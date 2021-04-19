@@ -20,7 +20,7 @@ const ciudadControllers = {
 
     crearCiudad: async(req, res) => {
         
-        const {nombre,url , descripcion} = req.body
+        const {nombre,url , descripcion, pais} = req.body
        
         try {
             const ciudadACrear = new Ciudad({
@@ -28,6 +28,7 @@ const ciudadControllers = {
                 nombre: nombre,
                 url: url,
                 descripcion: descripcion,
+                pais: pais,
             })
 
             await ciudadACrear.save()
