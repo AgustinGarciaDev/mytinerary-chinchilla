@@ -15,9 +15,11 @@ const City = (props) => {
 
         axios.get('http://localhost:4000/api/ciudad/' + idCiudadRuta)
             .then(response => setIdCiudad([response.data.respuesta]))
-            .catch(error => props.history.push('/errorServer'))
+            .catch(error => props.history.push('/errorserver'))
     }, [])
     
+
+    console.log(idCiudad)
     return (  
      <>
     
@@ -32,16 +34,16 @@ const City = (props) => {
                             <div className="ContenedortextoCiudad">
                                 <h1 className="textoCiudad" >{ciudad.nombre}</h1>
                                 <div className="contenedorBotones">
-                                    <Link to="/">
-                                        <div className="btn-city spaceBtn">
-                                            <i className="fas fa-home"></i>
-                                            <p>Go back home</p>
-                                        </div>
-                                    </Link>
                                     <Link to="/Cities">
-                                         <div className="btn-city">
+                                         <div className="btn-city spaceBtn">
                                            <i className="fas fa-map"></i>
                                             <p>Go back cities</p>
+                                        </div>
+                                    </Link>
+                                      <Link to="/">
+                                        <div className="btn-city ">
+                                            <i className="fas fa-home"></i>
+                                            <p>Go back home</p>
                                         </div>
                                     </Link>
                                     

@@ -332,6 +332,17 @@ a,
 }
 
 @media (max-width: 768px) {
+  .tituloBuscador {
+    margin-top: 50vw;
+  }
+
+  .inputSearch {
+    width: 59vw;
+  }
+  .btn-cities {
+    margin-top: 30vw;
+  }
+
   .contenedorImagenes {
     position: relative;
     top: 30vw;
@@ -346,9 +357,7 @@ a,
   .formulario_position {
     top: 0;
   }
-  .btn-cities {
-    margin-top: 12vw;
-  }
+
   .heroSearch {
     height: 32vw;
   }
@@ -373,7 +382,7 @@ a,
 
   .tituloBuscador {
     margin-top: 51vw;
-
+    font-size: 3rem;
     text-align: center;
     line-height: 0.9;
   }
@@ -426,6 +435,7 @@ a,
 
   .contenedorBotones {
     align-items: center;
+    margin-top: 3rem;
   }
   .btn-cities {
     width: 59vw;

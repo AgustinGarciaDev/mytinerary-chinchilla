@@ -1,7 +1,7 @@
 const Ciudad = require('../models/Ciudad')
 
 
-const tareasControllers = {
+const ciudadControllers = {
   
     //El controlador es asincrono
     
@@ -84,4 +84,4 @@ const tareasControllers = {
       }
   
 }
-module.exports = tareasControllers
+module.exports = ciudadControllers

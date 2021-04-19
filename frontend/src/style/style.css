@@ -86,6 +86,11 @@ header {
   box-shadow: 7px 7px 1px #6f595b;
 }
 
+.contenido > a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 /* Contenido Home */
 
 .SeccionFotos {

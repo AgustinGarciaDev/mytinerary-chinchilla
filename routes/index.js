@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const  tareasControllers = require('../controllers/taresControllers')
+const  tareasControllers = require('../controllers/ciudadControllers')
 
 
 const { obtenerCiudades, crearCiudad , buscarCiudad ,  actualizarCiudad , borrarCiudad } = tareasControllers

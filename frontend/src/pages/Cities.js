@@ -19,7 +19,7 @@ const Cities = (props) => {
         
     axios.get('http://localhost:4000/api/ciudades')
       .then(response =>  setListaCiudades([...response.data.respuesta]))
-      .catch(error => props.history.push('/ErrorServer'))
+      .catch(error => props.history.push('/errorserver'))
       
     
   }, [])
@@ -50,21 +50,17 @@ const Cities = (props) => {
         <section className="heroSearch">
            <h1 className="tituloBuscador" >Search cities</h1>
                 <form className="formBuscador" action="">
-              
-                      <div id="search-wrapper">
+                    <div id="search-wrapper">
                           <label htmlFor="">
                               <i className="fa fa-search"></i>
                               <input  type="search"  placeholder=" Search..."  className="inputSearch" onChange={buscandoCiudad} />
                         </label>
                       </div>
-              
                 </form>
                 <video id="video_hero" loop autoPlay muted>
                      <source src="https://myhadministracionedificios.com/wp-content/uploads/2021/04/production-ID_4507988-1-1.mp4" type="video/mp4" />
                 </video>
-
         </section>
-      
         <main className="contenedorImagenes">
            {
                   listaCiudades.length === 0
@@ -76,8 +72,7 @@ const Cities = (props) => {
                         <h2>The city you were looking for was not found</h2>
                         <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_fyqtse3p.json" style={{ width: "20vw" }}  speed="1" loop  autoplay></lottie-player>   
                     </div>
-                  : ciudades.map(ciudad => <div className="ciudad" key={ciudad._id} > <CardCities ciudad={ciudad} /> </div>) 
-              
+                  : ciudades.map(ciudad => <div className="ciudad" key={ciudad._id} > <CardCities ciudad={ciudad} /> </div>)  
          }
 
        </main>
