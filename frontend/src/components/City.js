@@ -5,13 +5,9 @@ import { Link } from "react-router-dom";
 const City = (props) => {
     
     /* Falta colocar el useEstate para setear  */
-
-    console.log(props)
-
     const [idCiudad, setIdCiudad ] = useState([])
 
-    useEffect(() => {
-        
+    useEffect(() => {   
         window.scroll(0,0)
         const idCiudadRuta = props.match.params.id
 
@@ -20,13 +16,12 @@ const City = (props) => {
             .catch(error => props.history.push('/errorserver'))
     }, [props])
     
-
     return (  
      <>
-            <main>
-                <div className="contenedorHeroImg">
-                        {idCiudad.map(ciudad =>{ 
-               
+     <main>
+         <div className="contenedorHeroImg">
+                 {idCiudad.map(ciudad => {
+              
                     return (
                           <div key={ciudad.nombre} className="imgCity" style={{ backgroundImage: `url("${ciudad.url}")` }}>
                         
