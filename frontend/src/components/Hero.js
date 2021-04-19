@@ -12,7 +12,7 @@ const HeroHome = () => {
                 <h4>Find your perfect trip, 
                 designed by insiders <br/> who know and love their cities!
                 </h4>
-                <Link  exact to="/Cities" className="btn-hero">
+                <Link  to="/Cities" className="btn-hero">
                 Choose destination now!
                 </Link>
             </div>

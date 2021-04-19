@@ -6,6 +6,8 @@ const City = (props) => {
     
     /* Falta colocar el useEstate para setear  */
 
+    console.log(props)
+
     const [idCiudad, setIdCiudad ] = useState([])
 
     useEffect(() => {
@@ -16,14 +18,11 @@ const City = (props) => {
         axios.get('http://localhost:4000/api/ciudad/' + idCiudadRuta)
             .then(response => setIdCiudad([response.data.respuesta]))
             .catch(error => props.history.push('/errorserver'))
-    }, [])
+    }, [props])
     
 
-    console.log(idCiudad)
     return (  
      <>
-    
-          
             <main>
                 <div className="contenedorHeroImg">
                         {idCiudad.map(ciudad =>{ 

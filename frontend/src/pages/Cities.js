@@ -22,7 +22,7 @@ const Cities = (props) => {
       .catch(error => props.history.push('/errorserver'))
       
     
-  }, [])
+  }, [props])
   
 
   useEffect(() => {
