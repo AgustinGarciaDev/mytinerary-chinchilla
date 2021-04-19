@@ -38,10 +38,9 @@ const Cities = (props) => {
 
   const buscandoCiudad = (e) => {
    
-    const valorInput = e.target.value.trim()
+    const valorInput = e.target.value.trim()                             
     const ciudadBuscada = listaCiudades.filter(ciudad => valorInput.toLowerCase() === ciudad.nombre.slice(0,valorInput.length).toLowerCase())
     setCiudades([...ciudadBuscada])
-
   }
  
 
