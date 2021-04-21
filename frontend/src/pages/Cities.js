@@ -13,25 +13,16 @@ const Cities = (props) => {
   useEffect(() => {
 
     props.cargarCiudades()
-    
-  }, [])
-  
-  useEffect(() => {
-  
-        window.scroll({
+
+          window.scroll({
          top: 400,
          left: 100,
          behavior: 'smooth'
-});
-  },[props.ciudades])
+        });
+    
+  }, [])
   
-/*   const buscandoCiudad = (e) => {
   
-    const valorInput = e.target.value.trim()                             
-    const ciudadBuscada = props.ciudades.filter(ciudad => valorInput.toLowerCase() === ciudad.nombre.slice(0,valorInput.length).toLowerCase())
-    setCiudades([...ciudadBuscada]) 
-  }
-  */
    return (
       <>
         <section className="heroSearch">
@@ -54,12 +45,12 @@ const Cities = (props) => {
                   ? <div className="pageLoader">
                         <lottie-player className="loader" style={{ width: "40vw" , margin:"5vw" }} src="https://assets1.lottiefiles.com/packages/lf20_tVT3vG.json"  speed="1"  loop  autoplay></lottie-player>
                     </div>
-                  : props.ciudades.length === 0 
+                  : props.copiaCiudades.length === 0 
                   ? <div className="errorBusqueda">
                         <h2>The city you were looking for was not found</h2>
                         <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_fyqtse3p.json" style={{ width: "20vw" }}  speed="1" loop  autoplay></lottie-player>   
                     </div>
-                  : props.ciudades.map(ciudad => <div className="ciudad" key={ciudad._id} > <CardCities ciudad={ciudad} /> </div>)  
+                  : props.copiaCiudades.map(ciudad => <div className="ciudad" key={ciudad._id} > <CardCities ciudad={ciudad} /> </div>)  
                 
          }
 
@@ -78,8 +69,8 @@ const Cities = (props) => {
 
 const mapStateToProps = state => {
   return {
-    ciudades: state.cities.todasCiudades
-    
+    ciudades: state.cities.todasCiudades,
+    copiaCiudades: state.cities.copiaCiudades
   }
 }
 

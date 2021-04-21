@@ -4,7 +4,8 @@
 // Un reducer tiene por defecto 2 parametros  un state y un action
 
 const inicialState = {
-    todasCiudades : []
+    todasCiudades: [],
+    copiaCiudades: [],
 }
 
 const citiesReducer = (state = inicialState, action) => {
@@ -15,12 +16,13 @@ const citiesReducer = (state = inicialState, action) => {
             return {
                 ...state,
                 todasCiudades: action.payload,
+                copiaCiudades: action.payload,
             }
             break
         case 'FILTRAR_CIUDADES':
             return {
                 ...state,
-                todasCiudades: state.todasCiudades.filter(ciudad => action.payload.toLowerCase() === ciudad.nombre.slice(0,action.payload.length).toLowerCase()) 
+                copiaCiudades: state.todasCiudades.filter(ciudad => action.payload.toLowerCase() === ciudad.nombre.slice(0,action.payload.length).toLowerCase()) 
             }
         default:
             return state
