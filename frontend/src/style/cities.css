@@ -149,13 +149,13 @@ input:focus {
 }
 
 .contenedorHeroImg {
-  width: 100vw;
-  height: 42vw;
+  width: 50%;
   font-family: "poppins";
 }
 
 .imgCity {
-  height: 43vw;
+  height: 68vw;
+  position: sticky;
   background-position: bottom;
   background-size: cover;
   display: flex;
@@ -163,19 +163,9 @@ input:focus {
   align-items: center;
 }
 
-.contenedorHeroImg {
-  width: 100%;
-  height: 42vw;
-  font-family: "poppins";
-}
-
-.imgCity {
-  height: 43vw;
-  background-position: bottom;
-  background-size: cover;
+.contenedorCities {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100vw;
 }
 
 .ContenedortextoCiudad {

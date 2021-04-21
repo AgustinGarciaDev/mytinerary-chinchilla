@@ -10,7 +10,7 @@ mongoose.connect( process.env.MONGO_URI, {
     useFindAndModify: false
 
 })
-    .then(() => console.log("Conectada con exito") )
+    .then(() => console.log("Conectada con exito"))
     .catch(error => console.log(error, "estamos teniendo un error"))
     
  //Exportamos nuestra base de pasos para que apenas levante el servidor se ejecute   

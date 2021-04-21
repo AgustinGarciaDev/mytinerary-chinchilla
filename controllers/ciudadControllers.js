@@ -29,6 +29,7 @@ const ciudadControllers = {
                 url: url,
                 descripcion: descripcion,
                 pais: pais,
+             
             })
 
             await ciudadACrear.save()

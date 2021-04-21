@@ -3,30 +3,39 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 
 const City = (props) => {
-    
-    /* Falta colocar el useEstate para setear  */
-    const [idCiudad, setIdCiudad ] = useState([])
 
+    
+    
+    const [idCiudad, setIdCiudad] = useState({ ciudades: null, loading: true })
+    
     useEffect(() => {   
         window.scroll(0,0)
         const idCiudadRuta = props.match.params.id
 
         axios.get('http://localhost:4000/api/ciudad/' + idCiudadRuta)
-            .then(response => setIdCiudad([response.data.respuesta]))
+            .then(response => setIdCiudad({ ciudades: response.data.respuesta, loading: false}))
             .catch(error => props.history.push('/errorserver'))
     }, [props])
     
-    return (  
+    const {  loading } = idCiudad
+
+    if (loading) {
+        
+        return <h1>Loading</h1>
+    }
+
+    const { ciudades: { nombre, url } } = idCiudad
+    
+
+    return (
      <>
-     <main>
-         <div className="contenedorHeroImg">
-                 {idCiudad.map(ciudad => {
-              
-                    return (
-                          <div key={ciudad.nombre} className="imgCity" style={{ backgroundImage: `url("${ciudad.url}")` }}>
+        <main className= "contenedorCities">
+                
+         <div className="contenedorHeroImg">        
+               <div className="imgCity" style={{ backgroundImage: `url("${url}")` }}>
                         
-                            <div className="ContenedortextoCiudad">
-                                <h1 className="textoCiudad" >{ciudad.nombre}</h1>
+                  <div className="ContenedortextoCiudad">
+                                <h1 className="textoCiudad" >{nombre}</h1>
                                 <div className="contenedorBotones">
                                     <Link to="/Cities">
                                          <div className="btn-city spaceBtn">
@@ -39,16 +48,13 @@ const City = (props) => {
                                             <i className="fas fa-home"></i>
                                             <p>Go back home</p>
                                         </div>
-                                    </Link>
-                                    
+                                    </Link>      
                                </div>
                             </div>
-                          </div>
-                   )
-             })
-            }
-             </div>
-            </main>
+                          </div>         
+                </div>
+
+        </main>
     </>        
     )
 }
