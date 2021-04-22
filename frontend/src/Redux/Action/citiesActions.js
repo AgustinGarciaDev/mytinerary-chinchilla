@@ -25,9 +25,16 @@ const citiesActions = {
             dispatch({ type: 'FILTRAR_CIUDADES', payload: valorInput } )
         } 
 
+    },
+
+    encontrarCiudad: (id) => {
+ 
+
+        return (dispatch, getState) => { 
+            dispatch({ type: 'BUSCAR_CIUDADES', payload: id} )
+        } 
     }
 
 }
-
-export default citiesActions
 // Esto lo tenemos que importar para EL COMPONENTE!
+export default citiesActions

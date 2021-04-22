@@ -1,37 +1,40 @@
-import axios from "axios"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import citiesActions from '../Redux/Action/citiesActions'
 
 const City = (props) => {
 
     
-    
-    const [idCiudad, setIdCiudad] = useState({ ciudades: null, loading: true })
+/*     const [idCiudad, setIdCiudad] = useState({ ciudades: null, loading: true }) */
     
     useEffect(() => {   
         window.scroll(0,0)
         const idCiudadRuta = props.match.params.id
 
-        axios.get('http://localhost:4000/api/ciudad/' + idCiudadRuta)
-            .then(response => setIdCiudad({ ciudades: response.data.respuesta, loading: false}))
-            .catch(error => props.history.push('/errorserver'))
-    }, [props])
+        console.log(idCiudadRuta)
+
+         props.encontrarCiudad(idCiudadRuta)
+     /*    let ciudadEncontrada = props.ciudadBuscada.find(ciudad => ciudad._id === idCiudadRuta) */
+
+    }, [] )
     
-    const {  loading } = idCiudad
+/*     const {  loading } = idCiudad
 
     if (loading) {
         
         return <h1>Loading</h1>
     }
-
-    const { ciudades: { nombre, url } } = idCiudad
-    
-
+ */
+     
+     console.log( props.ciudadBuscada ) 
     return (
      <>
-        <main className= "contenedorCities">
+            <main className="contenedorCities">
                 
-         <div className="contenedorHeroImg">        
+             <h1>{props.ciudadBuscada.nombre}</h1> 
+                
+       {/*   <div className="contenedorHeroImg">        
                <div className="imgCity" style={{ backgroundImage: `url("${url}")` }}>
                         
                   <div className="ContenedortextoCiudad">
@@ -52,11 +55,24 @@ const City = (props) => {
                                </div>
                             </div>
                           </div>         
-                </div>
+                </div> */}
 
         </main>
     </>        
     )
 }
 
-export default City
+
+const mapStateToProps = state => {
+
+    return {
+       ciudadBuscada: state.cities.ciudadBuscada
+    }
+}
+
+const mapDispatchToProps = {
+
+    encontrarCiudad: citiesActions.encontrarCiudad
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(City)

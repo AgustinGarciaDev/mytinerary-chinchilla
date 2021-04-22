@@ -22,7 +22,6 @@ const Cities = (props) => {
     
   }, [])
   
-  
    return (
       <>
         <section className="heroSearch">

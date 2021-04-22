@@ -6,6 +6,7 @@
 const inicialState = {
     todasCiudades: [],
     copiaCiudades: [],
+    ciudadBuscada:{},
 }
 
 const citiesReducer = (state = inicialState, action) => {
@@ -13,10 +14,12 @@ const citiesReducer = (state = inicialState, action) => {
     switch (action.type) {
 
         case 'CARGAR_CIUDADES':
+
             return {
                 ...state,
                 todasCiudades: action.payload,
                 copiaCiudades: action.payload,
+               
             }
             break
         case 'FILTRAR_CIUDADES':
@@ -24,11 +27,21 @@ const citiesReducer = (state = inicialState, action) => {
                 ...state,
                 copiaCiudades: state.todasCiudades.filter(ciudad => action.payload.toLowerCase() === ciudad.nombre.slice(0,action.payload.length).toLowerCase()) 
             }
+            break
+        case 'BUSCAR_CIUDADES':
+          
+            return {
+                ...state,
+                ciudadBuscada:state.todasCiudades.find(ciudad => ciudad._id === action.payload )
+            }
+      
         default:
             return state
     }
     
 }
+
+
 
 export default citiesReducer
 
