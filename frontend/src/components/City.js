@@ -1,38 +1,44 @@
-import React, { useEffect} from 'react'
+import React, { useEffect , useState} from 'react'
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import citiesActions from '../Redux/Action/citiesActions'
+import itineraryActions from '../Redux/Action/itineraryActions'
 
 const City = (props) => {
 
-    
-/*     const [idCiudad, setIdCiudad] = useState({ ciudades: null, loading: true }) */
+    const [idCiudad, setIdCiudad] = useState({ ciudad: null, loading: true })
+ 
     
     useEffect(() => {   
         window.scroll(0,0)
-        const idCiudadRuta = props.match.params.id
-
-        console.log(idCiudadRuta)
-
-         props.encontrarCiudad(idCiudadRuta)
-     /*    let ciudadEncontrada = props.ciudadBuscada.find(ciudad => ciudad._id === idCiudadRuta) */
-
-    }, [] )
+       const idCiudadRuta = props.match.params.id
+       let ciudadEncontrada = props.buscarCiudad.find(ciudad => ciudad._id === idCiudadRuta) 
+       setIdCiudad({ ciudad: ciudadEncontrada, loading: false })
+        
+        props.obtenerItineraries(idCiudadRuta)
+        
+         
+    }, [])
     
-/*     const {  loading } = idCiudad
+    
+   const {  loading , ciudad} = idCiudad
 
     if (loading) {
         
         return <h1>Loading</h1>
     }
- */
-     
-     console.log( props.ciudadBuscada ) 
     return (
      <>
             <main className="contenedorCities">
                 
-             <h1>{props.ciudadBuscada.nombre}</h1> 
+                <h1>{ciudad.nombre}</h1>
+
+                {
+                
+                    props.mostrarItineraries.map(itinerary => <h1>{itinerary.nombreItinerary}</h1> )
+                
+                }
+                
                 
        {/*   <div className="contenedorHeroImg">        
                <div className="imgCity" style={{ backgroundImage: `url("${url}")` }}>
@@ -66,13 +72,18 @@ const City = (props) => {
 const mapStateToProps = state => {
 
     return {
-       ciudadBuscada: state.cities.ciudadBuscada
+        buscarCiudad: state.cities.todasCiudades,
+        mostrarItineraries: state.itinerary.itinerary
     }
+
 }
 
 const mapDispatchToProps = {
 
-    encontrarCiudad: citiesActions.encontrarCiudad
+    encontrarCiudad: citiesActions.encontrarCiudad,
+    obtenerItineraries : itineraryActions.obtenerItineraries
 }
+
+
 
 export default connect (mapStateToProps, mapDispatchToProps)(City)

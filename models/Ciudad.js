@@ -9,7 +9,7 @@ const ciudadSchema = new mongoose.Schema({
     url: { type: String, required: true },
     pais: {type:String, required: true},
     descripcion: {type: String}
-    
+
 })
 
 //Modelo la coleccion la ponemos en ingles en singular mongo

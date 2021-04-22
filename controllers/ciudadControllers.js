@@ -31,7 +31,6 @@ const ciudadControllers = {
                 pais: pais,
              
             })
-
             await ciudadACrear.save()
             const todasCiudades = await Ciudad.find()
             res.json({ success: true, respuesta: todasCiudades })
@@ -61,7 +60,6 @@ const ciudadControllers = {
 
         try {
             await Ciudad.findOneAndUpdate({ _id: id }, req.body )
-            console.log(req.body)
             const todasCiudades = await Ciudad.find()    
             res.json({ respuesta: todasCiudades, success: true })
         } catch (error) {
