@@ -11,6 +11,7 @@
   border-radius: 20px;
   margin-bottom: 50px;
   margin-top: 50px;
+  padding: 18px;
 }
 
 .hastag {
@@ -22,24 +23,26 @@
   margin-right: 10px;
 }
 
-.contenedorArriba {
-}
-
 .contenedorAbajo {
   display: flex;
 }
 
 .contenedorPrecioYMapa {
-  background: red;
+  /*  background: red; */
   display: flex;
+  justify-content: space-around;
 }
 
 .contenedorPrecioActividades {
   width: 84%;
 }
 
+.contenedorPicBanner {
+  margin-left: 30px;
+}
+
 .picBanner {
-  width: 20vw;
+  width: 18vw;
   height: 29vw;
   background-size: contain;
   background-repeat: no-repeat;
@@ -48,6 +51,10 @@
 .nombreFotoUsuario {
   display: flex;
   align-items: center;
+}
+
+.nombreFotoUsuario > h3 {
+  margin-left: 14px;
 }
 
 .fotoUser {
@@ -59,4 +66,10 @@
   font-size: 30px;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.fa-clock {
+  font-size: 30px;
+  margin-left: 11px;
+  margin-top: 9px;
 }
