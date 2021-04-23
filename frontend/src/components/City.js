@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import citiesActions from '../Redux/Action/citiesActions'
 import itineraryActions from '../Redux/Action/itineraryActions'
+import CardItinerary from './CardItinerary'
+
+import '../style/city.css'
 
 const City = (props) => {
 
@@ -16,12 +19,11 @@ const City = (props) => {
        setIdCiudad({ ciudad: ciudadEncontrada, loading: false })
         
         props.obtenerItineraries(idCiudadRuta)
-        
-         
+              
     }, [])
     
     
-   const {  loading , ciudad} = idCiudad
+    const { loading, ciudad } = idCiudad
 
     if (loading) {
         
@@ -29,22 +31,12 @@ const City = (props) => {
     }
     return (
      <>
-            <main className="contenedorCities">
-                
-                <h1>{ciudad.nombre}</h1>
-
-                {
-                
-                    props.mostrarItineraries.map(itinerary => <h1>{itinerary.nombreItinerary}</h1> )
-                
-                }
-                
-                
-       {/*   <div className="contenedorHeroImg">        
-               <div className="imgCity" style={{ backgroundImage: `url("${url}")` }}>
+      <main className="contenedorCities">        
+       <div className="contenedorHeroImg">        
+               <div className="imgCity" style={{ backgroundImage: `url("${ciudad.url}")` }}>
                         
                   <div className="ContenedortextoCiudad">
-                                <h1 className="textoCiudad" >{nombre}</h1>
+                                <h1 className="textoCiudad" >{ciudad.nombre}</h1>
                                 <div className="contenedorBotones">
                                     <Link to="/Cities">
                                          <div className="btn-city spaceBtn">
@@ -61,8 +53,10 @@ const City = (props) => {
                                </div>
                             </div>
                           </div>         
-                </div> */}
-
+                </div>  
+                <div className="grupoItineraries">
+                    { props.mostrarItineraries.map(itinerary =><CardItinerary itinerary={itinerary}/> )}
+             </div>
         </main>
     </>        
     )

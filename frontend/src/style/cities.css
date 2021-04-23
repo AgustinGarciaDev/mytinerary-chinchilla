@@ -149,23 +149,18 @@ input:focus {
 }
 
 .contenedorHeroImg {
-  width: 50%;
+  width: 100%;
   font-family: "poppins";
 }
 
 .imgCity {
-  height: 68vw;
+  height: 41vw;
   position: sticky;
   background-position: bottom;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.contenedorCities {
-  display: flex;
-  height: 100vw;
 }
 
 .ContenedortextoCiudad {
@@ -321,6 +316,11 @@ a,
   font-family: "poppins";
 }
 
+.photobg {
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+}
 @media (max-width: 768px) {
   .tituloBuscador {
     margin-top: 50vw;

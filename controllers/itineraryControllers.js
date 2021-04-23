@@ -17,7 +17,7 @@ const itineraryControllers = {
 
     crearItineraries: async (req, res) => {
       
-        const {nombreItinerary, authorName, authorPic ,precie ,likes , hastag , duracion ,idCity} = req.body
+        const {nombreItinerary, authorName, authorPic ,precie ,likes , hastag , duracion,  picBanner ,idCity} = req.body
 
         try {
             const itineraryACrear = new Itinerary({
@@ -30,6 +30,7 @@ const itineraryControllers = {
                 hastag: hastag,
                 idCity: idCity,
                 duracion: duracion,
+                picBanner:  picBanner,
             })
             await itineraryACrear.save()
             const todosItinerary  = await Itinerary.find()

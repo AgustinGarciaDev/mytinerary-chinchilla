@@ -1,0 +1,62 @@
+.grupoItineraries {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.cardItinerary {
+  width: 73vw;
+  height: 38vw;
+  background-color: #edf0ff;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.hastag {
+  display: flex;
+}
+
+.hastag > p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.contenedorArriba {
+}
+
+.contenedorAbajo {
+  display: flex;
+}
+
+.contenedorPrecioYMapa {
+  background: red;
+  display: flex;
+}
+
+.contenedorPrecioActividades {
+  width: 84%;
+}
+
+.picBanner {
+  width: 20vw;
+  height: 29vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.nombreFotoUsuario {
+  display: flex;
+  align-items: center;
+}
+
+.fotoUser {
+  border-radius: 50%;
+  width: 5vw;
+}
+
+.fa-money-bill-wave {
+  font-size: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
