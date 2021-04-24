@@ -16,16 +16,15 @@ class App extends React.Component {
     return (
     <BrowserRouter>
          <Header />
-    
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/cities" component={Cities} />
-          <Route exact path="/city/:id"  component={ City}  />
-          <Route exact path="/error" component={Error} />
-            <Route  path="/errorserver" component={ErrorServer} />
-          <Redirect to="/Error" />
-      </Switch>
-          <Footer />   
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/cities" component={Cities} />
+              <Route exact path="/city/:id"  component={ City}  />
+              <Route exact path="/error" component={Error} />
+                <Route  path="/errorserver" component={ErrorServer} />
+              <Redirect to="/Error" />
+            </Switch>
+        <Footer />   
      </BrowserRouter>
     )
   }

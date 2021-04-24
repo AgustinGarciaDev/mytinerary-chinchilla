@@ -6,8 +6,7 @@
 }
 .cardItinerary {
   width: 73vw;
-  height: 38vw;
-  background-color: #edf0ff;
+  background-color: #fdffed;
   border-radius: 20px;
   margin-bottom: 50px;
   margin-top: 50px;
@@ -23,22 +22,25 @@
   margin-right: 10px;
 }
 
+.contenedorArriba {
+  margin-left: 30px;
+}
+
 .contenedorAbajo {
   display: flex;
 }
 
+.contenedorPicBanner {
+  width: 40vw;
+}
+
 .contenedorPrecioYMapa {
-  /*  background: red; */
   display: flex;
   justify-content: space-around;
 }
 
 .contenedorPrecioActividades {
   width: 84%;
-}
-
-.contenedorPicBanner {
-  margin-left: 30px;
 }
 
 .picBanner {
@@ -70,6 +72,195 @@
 
 .fa-clock {
   font-size: 30px;
-  margin-left: 11px;
-  margin-top: 9px;
+  margin-right: 16px;
+}
+.fa-comments {
+  font-size: 30px;
+  margin-right: 16px;
+}
+
+.fa-coins {
+  font-size: 30px;
+  margin-right: 16px;
+}
+
+.fa-heart {
+  font-size: 30px;
+  margin-right: 16px;
+}
+
+.contenedorActividades {
+  margin-bottom: 3vw;
+  margin-top: 1vw;
+}
+
+.btnActividades {
+  background: #032e50;
+  color: white;
+  width: 16vw;
+  border-radius: 3px;
+  border: none;
+  height: 4vw;
+  font-family: "poppins";
+  font-weight: 700;
+}
+
+.tituloItinerary {
+  font-family: "poppins";
+  font-weight: 700;
+}
+
+.hastag > p {
+  color: #032e50;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contenedorActividades > p {
+  font-size: 20px;
+  display: flex;
+  font-family: "poppins";
+}
+
+.btn_heart {
+  background: #f33838;
+  width: 5vw;
+  border-radius: 10px;
+  padding: 6px;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #f33838;
+}
+
+.btn_heart:hover {
+  background-color: white;
+  color: #f33838;
+  border: 1px solid #f33838;
+}
+
+.nombreUser {
+  font-family: "poppins";
+}
+
+.iconoVerificado {
+  width: 3vw;
+  margin-left: 5px;
+}
+
+.rec-carousel-wrapper {
+  top: 0;
+}
+
+@media (max-width: 1024px) {
+  .btn_heart {
+    width: 9vw;
+  }
+
+  .btnActividades {
+    width: 21vw;
+    height: 5vw;
+  }
+}
+
+@media (max-width: 798px) {
+  .cardItinerary {
+    width: 95vw;
+  }
+  .contenedorPicBanner {
+    width: 81vw;
+  }
+  .picBanner {
+    width: 21vw;
+    height: 38vw;
+  }
+  .nombreFotoUsuario > h3 {
+    font-size: 2rem;
+  }
+  .btn_heart {
+    width: 11vw;
+  }
+  .btnActividades {
+    width: 24vw;
+    height: 6vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .contenedorAbajo {
+    flex-direction: column;
+  }
+
+  .contenedorHeroImg {
+    margin-bottom: 0;
+  }
+  .picBanner {
+    width: 33vw;
+    height: 58vw;
+  }
+
+  .nombreFotoUsuario {
+    margin-bottom: 5vw;
+    margin-top: 5vw;
+  }
+
+  .nombreFotoUsuario > h3 {
+    margin-left: 0;
+    font-size: 1.5rem;
+  }
+
+  .fotoUser {
+    width: 14vw;
+  }
+  .iconoVerificado {
+    width: 7vw;
+  }
+  .btn_heart {
+    width: 17vw;
+  }
+  .btnActividades {
+    width: 58vw;
+    height: 9vw;
+  }
+}
+
+@media (max-width: 375px) {
+  .tituloItinerary {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .hastag > p {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .contenedorPicBanner {
+    width: 88vw;
+  }
+  .picBanner {
+    width: 76vw;
+    height: 86vw;
+  }
+  .iconoVerificado {
+    width: 9vw;
+  }
+  .btn_heart {
+    width: 23vw;
+  }
+  .btnActividades {
+    width: 59vw;
+    height: 13vw;
+  }
+  .fotoUser {
+    margin-left: 16px;
+  }
+
+  .nombreFotoUsuario > h3 {
+    margin-left: 15px;
+    margin-bottom: 0;
+  }
+  .contenedorActividades {
+    margin-left: 20px;
+  }
+  .btnActividades {
+    margin-left: 20px;
+  }
 }
