@@ -213,7 +213,7 @@
 
 @media (max-width: 798px) {
   .fotoUser {
-    width: 7vw;
+    width: 9vw;
   }
 
   .cardItinerary {
@@ -228,6 +228,11 @@
   }
   .nombreFotoUsuario > h3 {
     font-size: 2rem;
+    margin-left: 41px;
+  }
+  .iconoVerificado {
+    width: 5vw;
+    margin-right: 20px;
   }
   .btn_heart {
     width: 11vw;
@@ -241,7 +246,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 620px) {
   .contenedorOffered {
     flex-wrap: wrap;
   }
