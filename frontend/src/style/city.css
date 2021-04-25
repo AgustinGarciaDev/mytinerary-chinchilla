@@ -161,6 +161,7 @@
 
 .nombreUser {
   font-family: "poppins";
+  margin-bottom: 0;
 }
 
 .iconoVerificado {
@@ -185,8 +186,6 @@
 .contenedorOffered {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
 }
 .contenedorOffered > .lenguage {
   margin-left: 5px;
