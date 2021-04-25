@@ -322,6 +322,14 @@ a,
   width: 100vw;
 }
 @media (max-width: 768px) {
+  .imgCity {
+    height: 65vw;
+  }
+  .textoCiudad {
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 9vw;
+  }
   .tituloBuscador {
     margin-top: 50vw;
   }
@@ -354,6 +362,11 @@ a,
 }
 
 @media (max-width: 520px) {
+  .textoCiudad {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 9vw;
+  }
   .contenedorImagenes {
     position: relative;
     top: 46vw;
@@ -387,7 +400,7 @@ a,
     margin-bottom: 7vw;
   }
   .imgCity {
-    height: 100vw;
+    height: 76vh;
   }
   .spaceBtn {
     margin-bottom: 10px;

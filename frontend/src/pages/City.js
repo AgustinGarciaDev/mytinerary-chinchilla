@@ -3,37 +3,42 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import citiesActions from '../Redux/Action/citiesActions'
 import itineraryActions from '../Redux/Action/itineraryActions'
-import CardItinerary from './CardItinerary'
+import CardItinerary from '../components/CardItinerary'
+import ItineryNotFound from '../components/ItineraryNotFound'
+
 
 import '../style/city.css'
 
 const City = (props) => {
 
     const [idCiudad, setIdCiudad] = useState({ ciudad: null, loading: true })
- 
-    
+  
     useEffect(() => {   
         window.scroll(0,0)
        const idCiudadRuta = props.match.params.id
-       let ciudadEncontrada = props.buscarCiudad.find(ciudad => ciudad._id === idCiudadRuta) 
-       setIdCiudad({ ciudad: ciudadEncontrada, loading: false })
-        
-        props.obtenerItineraries(idCiudadRuta)
+  
+       
+        let ciudadEncontrada = props.buscarCiudad.find(ciudad => ciudad._id === idCiudadRuta)
+        setIdCiudad({ ciudad: ciudadEncontrada, loading: false })
+     
+       props.obtenerItineraries(idCiudadRuta)
+       
               
     }, [])
-    
-    
-    const { loading, ciudad } = idCiudad
+
+
+     const { loading, ciudad } = idCiudad
 
     if (loading) {
         
         return <h1>Loading</h1>
     }
+
     return (
      <>
       <main className="contenedorCities">        
-       <div className="contenedorHeroImg">        
-               <div className="imgCity" style={{ backgroundImage: `url("${ciudad.url}")` }}>
+      <div className="contenedorHeroImg">        
+               <div className="imgCity" style={{ backgroundImage:`url("${ciudad.url}")` }}>
                         
                   <div className="ContenedortextoCiudad">
                                 <h1 className="textoCiudad" >{ciudad.nombre}</h1>
@@ -55,8 +60,13 @@ const City = (props) => {
                           </div>         
                 </div>  
                 <div className="grupoItineraries">
-                    { props.mostrarItineraries.map(itinerary =><CardItinerary itinerary={itinerary}/> )}
-             </div>
+                    {
+                         props.mostrarItineraries.length === 0
+                        ? <ItineryNotFound />
+                        : props.mostrarItineraries.map(itinerary => <CardItinerary key={itinerary._id} itinerary={itinerary}/> )
+                    
+                    }
+             </div> 
         </main>
     </>        
     )
@@ -65,17 +75,20 @@ const City = (props) => {
 
 const mapStateToProps = state => {
 
+
     return {
         buscarCiudad: state.cities.todasCiudades,
-        mostrarItineraries: state.itinerary.itinerary
+        mostrarItineraries: state.itinerary.itinerary,
+        ciudadBuscada: state.cities.ciudadBuscada
     }
 
 }
 
 const mapDispatchToProps = {
 
-    encontrarCiudad: citiesActions.encontrarCiudad,
-    obtenerItineraries : itineraryActions.obtenerItineraries
+    obtenerItineraries: itineraryActions.obtenerItineraries,
+    cargarCiudades: citiesActions.cargarCiudad,
+    encontrarCiudad: citiesActions.encontrarCiudad
 }
 
 

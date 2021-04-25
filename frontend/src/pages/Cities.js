@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import CardCities from '../components/CardCities';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/cities.css';
-
 import { connect } from 'react-redux';
 import citiesActions from '../Redux/Action/citiesActions'
 

@@ -1,3 +1,16 @@
+.cartelNotFound {
+  margin-top: 5vw;
+  width: 67vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #010118;
+  color: white;
+  border-radius: 2vw;
+  flex-direction: column;
+}
+
 .grupoItineraries {
   display: flex;
   justify-content: center;
@@ -120,6 +133,7 @@
   font-size: 20px;
   display: flex;
   font-family: "poppins";
+  align-items: center;
 }
 
 .btn_heart {
@@ -130,6 +144,7 @@
   color: white;
   cursor: pointer;
   border: 1px solid #f33838;
+  padding-left: 3px;
 }
 
 .btn_heart:hover {
@@ -150,7 +165,38 @@
 .rec-carousel-wrapper {
   top: 0;
 }
+.rec-arrow-right {
+  position: relative;
+  right: 15px;
+}
 
+.contenedorParaActividades {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedorActividades > p > div {
+  margin-left: 10px;
+  flex-wrap: wrap;
+}
+
+.contenedorActividades > p > div > img {
+  width: 3vw;
+}
+
+.contenedorOffered {
+  display: flex;
+  align-items: center;
+}
+.contenedorOffered > .lenguage {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+.rec-pagination {
+  margin-top: -15px;
+}
 @media (max-width: 1024px) {
   .btn_heart {
     width: 9vw;
@@ -160,9 +206,16 @@
     width: 21vw;
     height: 5vw;
   }
+  .contenedorActividades > p > img {
+    width: 5vw;
+  }
 }
 
 @media (max-width: 798px) {
+  .fotoUser {
+    width: 7vw;
+  }
+
   .cardItinerary {
     width: 95vw;
   }
@@ -183,9 +236,16 @@
     width: 24vw;
     height: 6vw;
   }
+  .contenedorActividades > p > div > img {
+    width: 4vw;
+  }
 }
 
 @media (max-width: 500px) {
+  .contenedorOffered {
+    flex-wrap: wrap;
+  }
+
   .contenedorAbajo {
     flex-direction: column;
   }
@@ -221,9 +281,25 @@
     width: 58vw;
     height: 9vw;
   }
+
+  .cartelNotFound {
+    font-size: 1.5rem;
+  }
+
+  .contenedorActividades > p > div > img {
+    width: 9vw;
+  }
 }
 
 @media (max-width: 375px) {
+  .cardItinerary {
+    padding: px;
+  }
+
+  .contenedorActividades > p {
+    font-size: 16px;
+  }
+
   .tituloItinerary {
     font-size: 1.5rem;
     font-weight: 700;
@@ -262,5 +338,8 @@
   }
   .btnActividades {
     margin-left: 20px;
+  }
+  .contenedorActividades > p > div > img {
+    width: 8vw;
   }
 }

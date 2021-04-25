@@ -3,7 +3,7 @@ import './style/style.css'
 import { BrowserRouter, Route , Switch , Redirect } from "react-router-dom";
 import Home from './pages/Home'
 import Cities from './pages/Cities'
-import City from './components/City'
+import City from './pages/City'
 import Error from './pages/Error'
 import ErrorServer from './pages/ErrorServer'
 import Footer from './components/Footer'
@@ -19,7 +19,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/cities" component={Cities} />
-              <Route exact path="/city/:id"  component={ City}  />
+              <Route exact path="/city/:id"  component={City}  />
               <Route exact path="/error" component={Error} />
                 <Route  path="/errorserver" component={ErrorServer} />
               <Redirect to="/Error" />

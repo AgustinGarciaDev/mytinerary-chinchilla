@@ -11,7 +11,9 @@ const itinerarySchema = new mongoose.Schema({
     hastag: [{ type: String, required: true}],
     idCity: { type:mongoose.Types.ObjectId, ref:'city'  },
     comments: [{ userId:{type:mongoose.Types.ObjectId, ref:'user' }, comment: { type: String } }],
-    picBanner: {type:String , required: true}
+    picBanner: [{ type: String, required: true }],
+    countryCoin:[{ type: String, required: true }],
+    offered:[{ type: String, required: true }],
 })
 
 

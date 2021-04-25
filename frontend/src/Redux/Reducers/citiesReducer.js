@@ -14,7 +14,6 @@ const citiesReducer = (state = inicialState, action) => {
     switch (action.type) {
 
         case 'CARGAR_CIUDADES':
-
             return {
                 ...state,
                 todasCiudades: action.payload,
@@ -29,10 +28,10 @@ const citiesReducer = (state = inicialState, action) => {
             }
             break
         case 'BUSCAR_CIUDADES':
-          
+           
             return {
                 ...state,
-                ciudadBuscada:state.todasCiudades.find(ciudad => ciudad._id === action.payload )
+                ciudadBuscada:action.payload,
             }
       
         default:

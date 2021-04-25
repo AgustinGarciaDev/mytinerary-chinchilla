@@ -7,7 +7,7 @@ import axios from 'axios';
 const citiesActions = {
 
     cargarCiudad: () => {
-        
+
         return (dispatch, getState) => {
 
             axios.get('http://localhost:4000/api/ciudades')
@@ -19,8 +19,6 @@ const citiesActions = {
 
     filtrarCiudades: (e) => {     
     const valorInput = e.target.value.trim()                               
-    console.log(valorInput)
-
          return (dispatch, getState) => { 
             dispatch({ type: 'FILTRAR_CIUDADES', payload: valorInput } )
         } 
@@ -28,10 +26,12 @@ const citiesActions = {
     },
 
     encontrarCiudad: (id) => {
- 
 
-        return (dispatch, getState) => { 
-            dispatch({ type: 'BUSCAR_CIUDADES', payload: id} )
+        return (dispatch, getState) => {
+             axios.get('http://localhost:4000/api/ciudad/' + id )
+            .then(response => dispatch({ type: 'BUSCAR_CIUDADES', payload: response.data.respuesta }))
+            .catch(error => console.log("tenemos un errror"))
+
         } 
     }
 
