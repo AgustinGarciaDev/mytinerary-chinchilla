@@ -12,7 +12,7 @@ const citiesActions = {
 
             axios.get('http://localhost:4000/api/ciudades')
                 .then(response => dispatch({ type: 'CARGAR_CIUDADES', payload: response.data.respuesta }))
-                .catch(error => console.log("tenemos un errror"))
+                .catch(error => dispatch({ type: 'ERROR_SERVER', payload: true }))
         }
 
     },
@@ -30,7 +30,7 @@ const citiesActions = {
         return (dispatch, getState) => {
              axios.get('http://localhost:4000/api/ciudad/' + id )
             .then(response => dispatch({ type: 'BUSCAR_CIUDADES', payload: response.data.respuesta }))
-            .catch(error => console.log("tenemos un errror"))
+            .catch(error => console.log("Ciudad no encontrada"))
 
         } 
     }

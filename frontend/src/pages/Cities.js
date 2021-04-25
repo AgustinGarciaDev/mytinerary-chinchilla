@@ -22,6 +22,16 @@ const Cities = (props) => {
     
   }, [])
   
+
+     if (props.errorServer) {
+       props.history.push('/errorserver')
+           window.scroll({
+         top: 0,
+         left: 0,
+         behavior: 'smooth'
+        });
+    }
+
    return (
       <>
         <section className="heroSearch">
@@ -69,7 +79,8 @@ const Cities = (props) => {
 const mapStateToProps = state => {
   return {
     ciudades: state.cities.todasCiudades,
-    copiaCiudades: state.cities.copiaCiudades
+    copiaCiudades: state.cities.copiaCiudades,
+    errorServer: state.cities.errorServer
   }
 }
 

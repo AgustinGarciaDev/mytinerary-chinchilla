@@ -6,7 +6,8 @@
 const inicialState = {
     todasCiudades: [],
     copiaCiudades: [],
-    ciudadBuscada:{},
+    ciudadBuscada: {},
+    errorServer: false,
 }
 
 const citiesReducer = (state = inicialState, action) => {
@@ -32,6 +33,13 @@ const citiesReducer = (state = inicialState, action) => {
             return {
                 ...state,
                 ciudadBuscada:action.payload,
+            }
+            break
+        case 'ERROR_SERVER':
+
+            return {
+                ...state,
+                errorServer:action.payload,
             }
       
         default:

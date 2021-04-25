@@ -27,13 +27,10 @@ const City = (props) => {
            /*  setIdCiudad({ ciudad: props.ciudadBuscada,  loading: false }) */
         }
 
-    
-     
        props.obtenerItineraries(idCiudadRuta)
        
               
     }, [])
-
 
      const { loading, ciudad } = idCiudad
 
@@ -87,7 +84,7 @@ const mapStateToProps = state => {
     return {
         buscarCiudad: state.cities.todasCiudades,
         mostrarItineraries: state.itinerary.itinerary,
-        ciudadBuscada: state.cities.ciudadBuscada
+        ciudadBuscada: state.cities.ciudadBuscada,
     }
 
 }
