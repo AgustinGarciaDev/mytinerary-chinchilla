@@ -15,11 +15,19 @@ const City = (props) => {
   
     useEffect(() => {   
         window.scroll(0,0)
-       const idCiudadRuta = props.match.params.id
-  
-       
-        let ciudadEncontrada = props.buscarCiudad.find(ciudad => ciudad._id === idCiudadRuta)
+        const idCiudadRuta = props.match.params.id
+        
+        if (!(props.buscarCiudad.length === 0)) {
+             let ciudadEncontrada = props.buscarCiudad.find(ciudad => ciudad._id === idCiudadRuta)
         setIdCiudad({ ciudad: ciudadEncontrada, loading: false })
+        } else {
+            
+           props.history.push('/cities')
+            /* props.encontrarCiudad(idCiudadRuta) */
+           /*  setIdCiudad({ ciudad: props.ciudadBuscada,  loading: false }) */
+        }
+
+    
      
        props.obtenerItineraries(idCiudadRuta)
        

@@ -165,7 +165,7 @@ input:focus {
 
 .ContenedortextoCiudad {
   background-color: rgb(19 105 224 / 3%);
-  backdrop-filter: blur(5px);
+  backdrop-filter: brightness(0.5);
   width: 100%;
   height: 100%;
   display: flex;
@@ -176,6 +176,7 @@ input:focus {
 .textoCiudad {
   color: white;
   font-size: 7rem;
+  font-weight: 700;
 }
 
 .pageLoader {

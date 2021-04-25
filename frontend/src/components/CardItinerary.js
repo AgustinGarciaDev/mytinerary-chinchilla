@@ -17,7 +17,7 @@ const CardItinerary = ({ itinerary:{nombreItinerary, _id, authorName , duration 
                     <div className="contenedorAbajo">
                         <div className="contenedorPicBanner">
                          <Carousel   enableAutoPlay autoPlaySpeed={5000} >
-                            {picBanner.map(foto =>  <div className="picBanner" style={{ backgroundImage: `url("${foto}")` }}></div>)}
+                            {picBanner.map((foto, index)=> <div key={index} className="picBanner" style={{ backgroundImage: `url("${foto}")` }}></div>)}
                         </Carousel>
                         </div>
                         <div className="contenedorPrecioActividades">
@@ -30,9 +30,15 @@ const CardItinerary = ({ itinerary:{nombreItinerary, _id, authorName , duration 
                                     </div>
                                     <div className="contenedorActividades">
                                         <p>{Array(precie).fill(precie).map((billete, index) => <i key={index} className="fas fa-money-bill-wave"></i> )}</p>
-                                        <p><i className="fas fa-clock"></i>{duration} hours(Approx.)</p>       
-                                        <p><i className="fas fa-comments"></i>Offered in: <div className="contenedorOffered">{offered.map(lenguage => <p className="lenguage">{lenguage} </p> ) }</div> </p>
-                                        <p><i className="fas fa-coins"></i>Currency:  <div>{countryCoin.map(coin => <img src={coin} alt=""/>) }</div></p>
+                                        <p><i className="fas fa-clock"></i>{duration} hours(Approx.)</p>
+                                        <div className="offeredText"><i className="fas fa-comments"></i><p>Offered in:</p><span className="contenedorOffered">{offered.map(lenguage => <p className="lenguage">{lenguage} </p> ) }</span> </div>
+
+                                    <div className="contenedorCoins">
+                                            <i className="fas fa-coins"></i>
+                                            <p>Currency:</p>
+                                            <span>{countryCoin.map((coin, index) => <img key={index } src={coin} alt=""/>) }</span>
+                                        </div>
+
                                         <p className="btn_heart"><i className="far fa-heart"></i>{likes}</p>
                                     </div>
                                         <button className="btnActividades" id={_id} onClick={() => setBtn(!btnVisible)}>{btnVisible?'View Lees': 'View More' }</button>

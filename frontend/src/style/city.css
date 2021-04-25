@@ -26,6 +26,10 @@
   padding: 18px;
 }
 
+.cardItinerary > p {
+  margin: 0;
+}
+
 .hastag {
   display: flex;
 }
@@ -134,6 +138,8 @@
   display: flex;
   font-family: "poppins";
   align-items: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .btn_heart {
@@ -176,27 +182,47 @@
   align-items: center;
 }
 
-.contenedorActividades > p > div {
-  margin-left: 10px;
-  flex-wrap: wrap;
-}
-
-.contenedorActividades > p > div > img {
-  width: 3vw;
-}
-
 .contenedorOffered {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .contenedorOffered > .lenguage {
-  margin-bottom: 0;
   margin-left: 5px;
+  font-family: "poppins";
 }
 
 .rec-pagination {
   margin-top: -15px;
 }
+
+.offeredText {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.offeredText > p {
+  font-family: "poppins";
+  font-size: 20px;
+}
+
+.contenedorCoins {
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.contenedorCoins > span > img {
+  width: 3vw;
+}
+
+.contenedorCoins > p {
+  font-family: "poppins";
+  font-size: 20px;
+}
+
 @media (max-width: 1024px) {
   .btn_heart {
     width: 9vw;
@@ -241,16 +267,12 @@
     width: 24vw;
     height: 6vw;
   }
-  .contenedorActividades > p > div > img {
+  .contenedorCoins > span > img {
     width: 4vw;
   }
 }
 
 @media (max-width: 620px) {
-  .contenedorOffered {
-    flex-wrap: wrap;
-  }
-
   .contenedorAbajo {
     flex-direction: column;
   }
@@ -291,7 +313,7 @@
     font-size: 1.5rem;
   }
 
-  .contenedorActividades > p > div > img {
+  .contenedorCoins > span > img {
     width: 9vw;
   }
 }
@@ -344,7 +366,10 @@
   .btnActividades {
     margin-left: 20px;
   }
-  .contenedorActividades > p > div > img {
+  .contenedorCoins > span > img {
     width: 8vw;
+  }
+  .textoCiudad {
+    font-size: 2rem;
   }
 }
