@@ -31,7 +31,7 @@ const CardItinerary = ({ itinerary:{nombreItinerary, _id, authorName , duration 
                                     <div className="contenedorActividades">
                                         <p>{Array(precie).fill(precie).map((billete, index) => <i key={index} className="fas fa-money-bill-wave"></i> )}</p>
                                         <p><i className="fas fa-clock"></i>{duration} hours(Approx.)</p>
-                                        <div className="offeredText"><i className="fas fa-comments"></i><p>Offered in:</p><span className="contenedorOffered">{offered.map(lenguage => <p className="lenguage">{lenguage} </p> ) }</span> </div>
+                                    <div className="offeredText"><i className="fas fa-comments"></i><p>Offered in:</p><span className="contenedorOffered">{offered.map(lenguage => <p key={lenguage} className="lenguage">{lenguage} </p> ) }</span> </div>
 
                                     <div className="contenedorCoins">
                                             <i className="fas fa-coins"></i>

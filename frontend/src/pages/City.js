@@ -79,7 +79,8 @@ const City = (props) => {
 
 
 const mapStateToProps = state => {
-
+ 
+    console.log(state.itinerary.itinerary)
 
     return {
         buscarCiudad: state.cities.todasCiudades,
