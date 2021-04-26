@@ -18,7 +18,8 @@ const citiesActions = {
     },
 
     filtrarCiudades: (e) => {     
-    const valorInput = e.target.value.trim()                               
+        const valorInput = e.target.value.trim()
+        
          return (dispatch, getState) => { 
             dispatch({ type: 'FILTRAR_CIUDADES', payload: valorInput } )
         } 

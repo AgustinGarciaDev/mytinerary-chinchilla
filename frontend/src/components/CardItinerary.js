@@ -36,7 +36,7 @@ const CardItinerary = ({ itinerary:{nombreItinerary, _id, authorName , duration 
                                     <div className="contenedorCoins">
                                             <i className="fas fa-coins"></i>
                                             <p>Currency:</p>
-                                            <span>{countryCoin.map((coin, index) => <img key={index } src={coin} alt=""/>) }</span>
+                                            <span>{countryCoin.map((coin, index) => <img key={index} src={coin} alt=""/>) }</span>
                                         </div>
 
                                         <p className="btn_heart"><i className="far fa-heart"></i>{likes}</p>
