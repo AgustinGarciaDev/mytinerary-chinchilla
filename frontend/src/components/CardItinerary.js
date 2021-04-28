@@ -41,7 +41,7 @@ const CardItinerary = ({ itinerary:{nombreItinerary, _id, authorName , duration 
 
                                         <p className="btn_heart"><i className="far fa-heart"></i>{likes}</p>
                                     </div>
-                                        <button className="btnActividades" id={_id} onClick={() => setBtn(!btnVisible)}>{btnVisible?'View Lees': 'View More' }</button>
+                                        <button className="btnActividades" id={_id} onClick={() => setBtn(!btnVisible)}>{btnVisible?'View less': 'View More' }</button>
                                 </div>
                          
                             </div>   

@@ -22,10 +22,10 @@ const Header = () => {
                <LinkContainer  to="/Cities">
               <Nav.Link  >Cities</Nav.Link>
               </LinkContainer>
-               <LinkContainer   to="/Cities">
+               <LinkContainer   to="/signin">
                <Nav.Link >Sign in</Nav.Link>
               </LinkContainer>
-               <LinkContainer to="/Cities">
+               <LinkContainer to="/signup">
                <Nav.Link >Sign up</Nav.Link>
               </LinkContainer>
               <LinkContainer  to="/Cities">

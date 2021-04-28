@@ -2,17 +2,17 @@ const express = require('express')
 const router = express.Router()
 const ciudadControllers = require('../controllers/ciudadControllers')
 const itineraryControllers = require('../controllers/itineraryControllers')
+const usuarioControllers = require('../controllers/usuarioControllers')
 
 
 const { obtenerCiudades, crearCiudad , buscarCiudad ,  actualizarCiudad , borrarCiudad } = ciudadControllers
-
 const {obtenerItineraries,crearItineraries , buscarItinerary , actualizarItinerary , borrarItinerary , itineraryforCity} = itineraryControllers
-/* Hacemos un llamo tipo GET para imprimir los datos desde el backend */
+const {crearUsuario , logearUsuario} = usuarioControllers
+
+/* Ciudades */
 router.route('/ciudades')
     .get(obtenerCiudades)
     .post(crearCiudad)
-
-
 
 router.route('/ciudad/:id')    
     .get(buscarCiudad)
@@ -20,10 +20,10 @@ router.route('/ciudad/:id')
     .delete(borrarCiudad)
 
 
+/* Itineraries */
 router.route('/itineraries')
     .get(obtenerItineraries)
     .post(crearItineraries)
-  
 
 router.route('/itinerary/:id')
     .get(buscarItinerary)
@@ -31,8 +31,16 @@ router.route('/itinerary/:id')
     .delete(borrarItinerary)
  
 router.route('/itinerary/city/:id')
-    .get(itineraryforCity) 
+    .get(itineraryforCity)
+    
+/* Usuarios */
 
+router.route('/user/signUp')
+    .post(crearUsuario)
+
+router.route('/user/signIn')
+    .post(logearUsuario)
+ 
 
 module.exports = router
 
