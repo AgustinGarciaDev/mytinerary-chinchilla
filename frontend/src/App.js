@@ -1,5 +1,6 @@
 import React from 'react'
 import './style/style.css'
+import './style/formularioSign.css'
 import { BrowserRouter, Route , Switch , Redirect } from "react-router-dom";
 import Home from './pages/Home'
 import Cities from './pages/Cities'

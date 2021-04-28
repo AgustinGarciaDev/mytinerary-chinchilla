@@ -1,0 +1,242 @@
+.imgFondo {
+  background-image: url("http://baravdg.com/wp-content/uploads/2021/04/pexels-harvey-1790573-scaled.jpg");
+  width: 59vw;
+  height: 43vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contenedorFotoyFormulario {
+  display: flex;
+
+}
+
+
+.contenedorFormulario{
+   width: 40vw;
+       display: flex;
+    justify-content: center;
+   
+}
+
+.formularioRegistro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px -1px 12px 0px #0000008f;
+  margin-top: 10px;
+  height: 37vw;
+  padding: 2vw;
+      border-radius: 9px;
+
+}
+
+.inputStyle {
+  height: 2.5vw;
+  background: #eff4fb;
+  border-radius: 7px;
+  border: 1px solid #00000059;
+  font-family: "poppins";
+  padding-left: 8px;
+}
+.correo{
+     width: 28.5vw;
+         display: flex;
+    align-items: center;
+}
+
+.contenedorPassword{
+     
+    display: flex;
+    align-items: center;
+}
+
+.fa-eye{
+   margin-right: 10px;
+}
+
+.inputConIcono{
+      border: none;
+    background: #eff4fb;
+
+    width: 100%;
+}
+.inputSeparador{
+  margin-right: 4px;
+}
+
+.nombreInput{
+    font-family: "poppins";
+    margin-bottom: 0.3rem;
+}
+
+.btnFormRegister{
+      margin-top: 10px;
+    width: 16vw;
+    border: none;
+    background: #024a83;
+    height: 3vw;
+    color: white;
+}
+
+@media(max-width:1110px ){
+ 
+  .imgFondo{
+        height: 57vw;
+  }
+
+
+  .formularioRegistro{
+        height: 42vw;
+  }
+
+  .inputStyle{
+        height: 3.0vw;
+            width: 14vw;
+  }
+  
+  .correo{
+        width: 28vw;
+  }
+
+  .formularioSignIn{
+        height: 21vw;
+  }
+
+}
+
+@media(max-width:997px){
+  .imgFondo{
+        width: 64vw;
+    height: 46vw;
+  }
+  .inputStyle{
+        height: 3.5vw;
+        width: 14.5vw;
+  }
+  .formularioRegistro{
+        height: 45vw;
+  }
+  .correo{
+        width: 29.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .nombreInput{
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .imgFondo{
+        width: 100vw;
+  }
+
+  .contenedorFotoyFormulario{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formularioRegistro{
+      margin-top: -83px;
+    height: 72vw;
+    padding: 2vw;
+    background: white;
+  }
+
+  .inputStyle{
+        height: 4.5vw;
+        width: 30vw;
+  }
+
+  .contenedorFormulario{
+    width: 56vw;
+  }
+  .btnFormRegister{
+    margin-top: 18px;
+    width: 22vw;
+    height: 5vw;
+
+  }
+
+}
+
+@media (max-width: 520px) {
+
+ .contenedorFormulario {
+    width: 75vw;
+}
+
+.formularioRegistro{
+      height: 107vw;
+}
+
+.inputStyle {
+    height: 6.5vw;
+    width: 48vw;
+}
+.btnFormRegister {
+    margin-top: 18px;
+    width: 33vw;
+    height: 8vw;
+}
+
+}
+
+@media (max-width: 420px) {
+
+ .contenedorFormulario {
+    width: 75vw;
+}
+
+.formularioRegistro{
+      height: 107vw;
+}
+
+.inputStyle {
+    height: 6.5vw;
+    width: 48vw;
+}
+.btnFormRegister {
+    margin-top: 18px;
+    width: 33vw;
+    height: 8vw;
+}
+
+}
+
+
+@media (max-width: 320px) {
+
+
+  .imgFondo {
+    width: 100vw;
+    height: 72vw;
+}
+
+  .contenedorFormulario {
+       width: 86vw;
+}
+
+.formularioRegistro {
+    height: 85vh;
+}
+
+.inputStyle {
+    height: 8.5vw;
+    width: 68vw;
+}
+.btnFormRegister {
+    margin-top: 22px;
+    width: 45vw;
+    height: 11vw;
+}
+
+.nombreInput {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+}
