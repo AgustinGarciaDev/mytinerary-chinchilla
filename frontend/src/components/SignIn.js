@@ -4,7 +4,7 @@ import userActions from "../Redux/Action/userActions"
 import { Link } from "react-router-dom";
 
 
-const SingIn = () => {
+const SingIn = (props) => {
 
 
 
@@ -17,10 +17,6 @@ const SingIn = () => {
 
         const campo = e.target.name
         const valor = e.target.value
-
-        console.log(campo)
-        console.log(valor)
-
         setDatosUsuario({
 
             ...datosUsuario,
@@ -30,9 +26,12 @@ const SingIn = () => {
 
     }
 
-    const enviarFormulario = () => {
+    const enviarFormulario = (e) => {
 
-        console.log("estas por enviar un formulario")
+        e.preventDefault()
+
+        props.loguearUsuario(datosUsuario)
+
     }
 
     return (
@@ -60,7 +59,7 @@ const SingIn = () => {
                                 </div>
                             </label>
                         </div>
-                        <button className="btnFormRegister" onclick={enviarFormulario}>Sign In</button>
+                        <button className="btnFormRegister" onClick={enviarFormulario}>Sign In</button>
                         <br />
                         <div>
                             <p>If you don't have an account  <Link to="/signup">Create count</Link></p>
@@ -74,4 +73,11 @@ const SingIn = () => {
     )
 }
 
-export default SingIn
+
+
+const mapDispatchToProps = {
+
+    loguearUsuario: userActions.loguearUsuario
+}
+
+export default connect(null, mapDispatchToProps)(SingIn)

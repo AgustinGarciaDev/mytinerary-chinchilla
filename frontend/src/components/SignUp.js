@@ -9,13 +9,12 @@ const SingUp = (props) => {
     const [btnVisible, setBtnVisible] = useState(false)
 
     const [datosUsuario, setDatosUsuario] = useState({
-        nombre: "",
-        apellido: "",
+        firstName: "",
+        lastName: "",
         email: "",
         password: "",
-        urlFoto: "",
-        pais: "",
-
+        userPic: "",
+        country: "",
     })
 
     useEffect(() => {
@@ -26,11 +25,9 @@ const SingUp = (props) => {
 
     const cambioValor = (e) => {
 
+
         const campo = e.target.name
         const valor = e.target.value
-
-        console.log(campo)
-        console.log(valor)
 
         setDatosUsuario({
 
@@ -40,9 +37,11 @@ const SingUp = (props) => {
         })
 
     }
-    const enviarFormulario = () => {
+    const enviarFormulario = (e) => {
 
-        console.log("estas por enviar un formulario")
+        e.preventDefault()
+
+        props.crearUsuario(datosUsuario)
     }
 
     return (
@@ -57,11 +56,11 @@ const SingUp = (props) => {
                         <div className="labelInfo">
                             <label >
                                 <div><p className="nombreInput">First Name:</p></div>
-                                <input className="inputStyle inputSeparador" onChange={cambioValor} name="nombre" value={datosUsuario.nombre} type="text" />
+                                <input className="inputStyle inputSeparador" onChange={cambioValor} name="firstName" value={datosUsuario.firstName} type="text" />
                             </label>
                             <label >
                                 <div><p className="nombreInput">Last Name:</p></div>
-                                <input className="inputStyle" onChange={cambioValor} name="apellido" value={datosUsuario.apellido} type="text" />
+                                <input className="inputStyle" onChange={cambioValor} name="lastName" value={datosUsuario.lastName} type="text" />
                             </label>
                         </div>
 
@@ -76,7 +75,7 @@ const SingUp = (props) => {
                             <label >
                                 <div><p className="nombreInput">Password:</p></div>
                                 <div className="inputStyle correo">
-                                    <i placeholder="Password" onClick={() => setBtnVisible(!btnVisible)} class="fas fa-eye"></i>
+                                    <i placeholder="Password" onClick={() => setBtnVisible(!btnVisible)} className="fas fa-eye"></i>
                                     <input className="inputConIcono" onChange={cambioValor} name="password" value={datosUsuario.password} type={btnVisible ? 'text' : 'password'} id="" />
                                 </div>
                             </label>
@@ -85,19 +84,19 @@ const SingUp = (props) => {
                         <div className="labelInfo">
                             <label >
                                 <div><p className="nombreInput">Url Photo:</p></div>
-                                <input required className="inputStyle correo" onChange={cambioValor} name="urlFoto" value={datosUsuario.urlFoto} type="text" id="" />
+                                <input required className="inputStyle correo" onChange={cambioValor} name="userPic" value={datosUsuario.userPic} type="text" id="" />
                             </label>
                         </div>
                         <div className="labelInfo">
                             <label >
                                 <div><p className="nombreInput">Select Country:</p></div>
-                                <select className="inputStyle correo" name="pais" value={datosUsuario.pais} onChange={cambioValor} id="">
+                                <select className="inputStyle correo" name="country" value={datosUsuario.country} onChange={cambioValor} id="">
                                     <option value="">Pais</option>
-                                    {props.paises.map(paises => <option value={paises.name} id={paises.id} > {paises.name}</option>)}
+                                    {props.paises.map(paises => <option value={paises.name} key={paises.id} > {paises.name}</option>)}
                                 </select>
                             </label>
                         </div>
-                        <button className="btnFormRegister" onclick={enviarFormulario}>Sign In</button>
+                        <button className="btnFormRegister" onClick={enviarFormulario}>Sign In</button>
 
                         <div>
                             <p>If you already have an account: <Link to="/signin">Sign In</Link></p>
@@ -111,7 +110,6 @@ const SingUp = (props) => {
 
 const mapStateToProps = state => {
 
-    console.log(state.user.paises)
 
     return {
         paises: state.user.paises
@@ -120,7 +118,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
 
-    fetchearPaises: userActions.fetchearPaises
+    fetchearPaises: userActions.fetchearPaises,
+    crearUsuario: userActions.crearUsuario
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingUp)
