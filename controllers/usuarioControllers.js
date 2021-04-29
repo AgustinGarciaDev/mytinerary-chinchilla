@@ -1,5 +1,6 @@
 const User = require("../models/User")
 const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const usuarioControllers = {
 
@@ -11,17 +12,19 @@ const usuarioControllers = {
 
         //Hasgeamos la password
         password = bcryptjs.hashSync(password, 10)
-
+        var grabarUsuario
         let respuesta;
         let error;
 
         if (!emailExistente) {
 
             try {
-                console.log(req.body)
-                const grabarUsuario = new User({ firstName, lastName, email, country, password, userPic })
+
+                grabarUsuario = new User({ firstName, lastName, email, country, password, userPic })
                 await grabarUsuario.save()
-                respuesta = grabarUsuario
+                //Creamos el token
+                const token = jwt.sign({ ...grabarUsuario }, process.env.SECRET_OR_KEY)
+                respuesta = token
 
             } catch {
 
@@ -31,11 +34,10 @@ const usuarioControllers = {
 
             error = "Este usuario ya esta existente en la base de datos"
         }
-
         res.json({
 
             success: !error ? true : false,
-            respuesta: respuesta,
+            respuesta: { token: respuesta, foto: grabarUsuario.userPic },
             error: error
 
         })
@@ -54,7 +56,9 @@ const usuarioControllers = {
 
             const passwordCorrecta = bcryptjs.compareSync(password, usuarioExistente.password)
             if (passwordCorrecta) {
-                respuesta = usuarioExistente
+                //Creamos el token
+                const token = jwt.sign({ ...usuarioExistente }, process.env.SECRET_OR_KEY)
+                respuesta = token
             } else {
                 error = "Usuario o password incorrecta"
             }
@@ -65,11 +69,16 @@ const usuarioControllers = {
         res.json({
 
             success: !error ? true : false,
-            respuesta: respuesta,
+            respuesta: { token: respuesta, foto: usuarioExistente.userPic },
             error: error
 
         })
 
+    },
+
+    loginForzado: (req, res) => {
+        console.log(req)
+        res.json({ success: true, respuesta: { req } })
     }
 }
 

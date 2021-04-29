@@ -19,13 +19,22 @@ const userActions = {
     crearUsuario: (datosUsuario) => {
 
 
-        console.log(datosUsuario)
+        return async (dispatch, getState) => {
 
-        return (dispatch, getState) => {
+            try {
+                const response = await axios.post("http://localhost:4000/api/user/signUp", datosUsuario)
 
-            axios.post("http://localhost:4000/api/user/signUp", datosUsuario)
-                .then(response => dispatch({ type: 'LOGUEAR_USUARIO', payload: response.data.success ? response.data.respuesta : null }))
-                .catch(error => console.log(error))
+                console.log(response)
+                if (!response.data.success) {
+
+                    return response.data.errores
+                }
+
+                dispatch({ type: 'LOGUEAR_USUARIO', payload: response.data.success ? response.data.respuesta : null })
+            } catch (error) {
+
+                console.log(error)
+            }
         }
     },
 
@@ -50,8 +59,12 @@ const userActions = {
         }
     },
 
-    forzarLoginLocalStore: () => {
+    forzarLoginLocalStore: (usuarioLocalStore) => {
 
+        return (dispatch, getState) => {
+
+            dispatch({ type: 'LOGUEAR_USUARIO', payload: usuarioLocalStore })
+        }
     }
 }
 

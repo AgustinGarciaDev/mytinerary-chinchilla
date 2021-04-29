@@ -8,6 +8,8 @@ const SingUp = (props) => {
 
     const [btnVisible, setBtnVisible] = useState(false)
 
+    const [errores, setErrores] = useState([])
+
     const [datosUsuario, setDatosUsuario] = useState({
         firstName: "",
         lastName: "",
@@ -37,11 +39,18 @@ const SingUp = (props) => {
         })
 
     }
-    const enviarFormulario = (e) => {
+    const enviarFormulario = async (e) => {
 
         e.preventDefault()
 
-        props.crearUsuario(datosUsuario)
+        const respuesta = await props.crearUsuario(datosUsuario)
+
+        if (respuesta) {
+
+            setErrores(respuesta.details)
+        } else {
+            props.history.push('/')
+        }
     }
 
     return (
@@ -102,6 +111,7 @@ const SingUp = (props) => {
                             <p>If you already have an account: <Link to="/signin">Sign In</Link></p>
                         </div>
                     </form>
+                    {errores.map(error => <h1>{error.message}</h1>)}
                 </div>
             </section>
         </>
