@@ -16,14 +16,15 @@ const userReducer = (state = initialState, action) => {
             break
         case 'LOGUEAR_USUARIO':
 
-            localStorage.setItem('userLogged', JSON.stringify(action.payload))
+            localStorage.setItem('userLogged', JSON.stringify({ foto: action.payload.foto }))
+            localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
                 usuarioStatus: action.payload
             }
             break
         case 'DESLOGUEAR_USUARIO':
-            localStorage.removeItem('userLogged')
+            localStorage.clear()
             return {
                 ...state,
                 usuarioStatus: null

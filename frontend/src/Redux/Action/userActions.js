@@ -24,13 +24,15 @@ const userActions = {
             try {
                 const response = await axios.post("http://localhost:4000/api/user/signUp", datosUsuario)
 
-                console.log(response)
                 if (!response.data.success) {
 
                     return response.data.errores
                 }
 
+                console.log(response)
+
                 dispatch({ type: 'LOGUEAR_USUARIO', payload: response.data.success ? response.data.respuesta : null })
+
             } catch (error) {
 
                 console.log(error)
@@ -39,14 +41,15 @@ const userActions = {
     },
 
     loguearUsuario: (datosUsuario) => {
-
         console.log(datosUsuario)
-
-        return (dispatch, getState) => {
-
-            axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
-                .then(response => dispatch({ type: 'LOGUEAR_USUARIO', payload: response.data.success ? response.data.respuesta : null }))
-                .catch(error => console.log(error))
+        return async (dispatch, getState) => {
+            try {
+                const respuesta = await axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
+                dispatch({ type: 'LOGUEAR_USUARIO', payload: respuesta.data.success ? respuesta.data.respuesta : null })
+                console.log(respuesta)
+            } catch (error) {
+                alert("passIncorrecta")
+            }
         }
 
     },
@@ -59,11 +62,26 @@ const userActions = {
         }
     },
 
-    forzarLoginLocalStore: (usuarioLocalStore) => {
+    forzarLoginLocalStore: (usuarioLoguedo) => {
+        return async (dispatch, getState) => {
+            try {
+                const respuesta = await axios.get("http://localhost:4000/api/user/loginLocalStore", {
+                    headers: {
+                        'Authorization': 'Bearer ' + usuarioLoguedo.token
+                    }
+                })
+                dispatch({
+                    type: 'LOGUEAR_USUARIO', payload: {
+                        ...respuesta.data.respuesta,
+                        token: usuarioLoguedo.token
+                    }
+                })
+            }
+            catch (error) {
+                alert("Me parece que me queres mentir")
+            }
 
-        return (dispatch, getState) => {
 
-            dispatch({ type: 'LOGUEAR_USUARIO', payload: usuarioLocalStore })
         }
     }
 }

@@ -19,15 +19,12 @@ const usuarioControllers = {
         if (!emailExistente) {
 
             try {
-
                 grabarUsuario = new User({ firstName, lastName, email, country, password, userPic })
                 await grabarUsuario.save()
                 //Creamos el token
                 const token = jwt.sign({ ...grabarUsuario }, process.env.SECRET_OR_KEY)
                 respuesta = token
-
             } catch {
-
                 error = "Tuvimos un problema para grabar este usuario"
             }
         } else {
@@ -78,7 +75,7 @@ const usuarioControllers = {
 
     loginForzado: (req, res) => {
         console.log(req)
-        res.json({ success: true, respuesta: { req } })
+        res.json({ success: true, respuesta: { foto: req.user.userPic } })
     }
 }
 

@@ -18,9 +18,17 @@ class App extends React.Component {
 
   render() {
 
-    if (!this.props.userActions && localStorage.getItem('userLogged')) {
+    if (!this.props.usuarioStatus && localStorage.getItem('token')) {
 
-      this.props.forzarLoginLocalStore(JSON.parse(localStorage.getItem('userLogged')))
+      const datosUsuario = JSON.parse(localStorage.getItem('userLogged'))
+
+      const usuarioLoguedo = {
+        token: localStorage.getItem('token'),
+        ...datosUsuario
+      }
+
+      this.props.forzarLoginLocalStore(usuarioLoguedo)
+
     }
 
 
@@ -46,7 +54,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
 
   return {
-    userActions: state.userActions
+    usuarioStatus: state.user.usuarioStatus
   }
 }
 

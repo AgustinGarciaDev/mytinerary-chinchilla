@@ -7,15 +7,11 @@ import userActions from '../Redux/Action/userActions';
 
 
 const Header = (props) => {
-
   const fotoUser = props.usuarioStatus
-    ? props.usuarioStatus.userPic
+    ? props.usuarioStatus.foto
     : null
-
   const desloguear = () => {
-
     props.desloguearUsuario()
-
   }
 
   return (
@@ -62,7 +58,7 @@ const Header = (props) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state.user.usuarioStatus)
+
   return {
     usuarioStatus: state.user.usuarioStatus
   }

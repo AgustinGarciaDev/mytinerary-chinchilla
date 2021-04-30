@@ -46,7 +46,7 @@ const SingIn = (props) => {
                         <div className="labelInfo">
                             <label >
                                 <div><p className="nombreInput">Email:</p></div>
-                                <input className="inputStyle correo" onChange={cambioValor} name="email" value={datosUsuario.email} type="email" id="" />
+                                <input className="inputStyle correo" onChange={cambioValor} name="email" value={datosUsuario.email} type="email" />
                             </label>
                         </div>
 
@@ -54,8 +54,8 @@ const SingIn = (props) => {
                             <label >
                                 <div><p className="nombreInput">Password:</p></div>
                                 <div className="inputStyle correo">
-                                    <i class="fas fa-eye"></i>
-                                    <input className="inputConIcono" onChange={cambioValor} name="password" value={datosUsuario.password} type="password" id="" />
+                                    <i className="fas fa-eye"></i>
+                                    <input className="inputConIcono" onChange={cambioValor} name="password" value={datosUsuario.password} type="password" />
                                 </div>
                             </label>
                         </div>
