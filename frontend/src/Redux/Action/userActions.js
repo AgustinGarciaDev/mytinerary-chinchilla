@@ -1,54 +1,46 @@
 import axios from "axios";
-
+import { toast } from 'react-toastify';
 
 const userActions = {
 
     fetchearPaises: () => {
 
         return (dispatch, getState) => {
-
-
             axios.get("https://restcountries.eu/rest/v2/all")
                 .then(response => dispatch({ type: "CARGAR_PAISES", payload: response.data }))
                 .catch(error => console.log(error))
-
         }
 
     },
 
     crearUsuario: (datosUsuario) => {
-
-
         return async (dispatch, getState) => {
 
             try {
                 const response = await axios.post("http://localhost:4000/api/user/signUp", datosUsuario)
-
                 if (!response.data.success) {
-
                     return response.data.errores
                 }
-
-                console.log(response)
-
                 dispatch({ type: 'LOGUEAR_USUARIO', payload: response.data.success ? response.data.respuesta : null })
-
             } catch (error) {
-
                 console.log(error)
             }
         }
     },
 
     loguearUsuario: (datosUsuario) => {
-        console.log(datosUsuario)
+
         return async (dispatch, getState) => {
             try {
                 const respuesta = await axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
+                if (!respuesta.data.success) {
+                    console.log(respuesta)
+                    return respuesta.data.errores
+                }
                 dispatch({ type: 'LOGUEAR_USUARIO', payload: respuesta.data.success ? respuesta.data.respuesta : null })
-                console.log(respuesta)
+
             } catch (error) {
-                alert("passIncorrecta")
+                toast.warn("Usuario o Pass incorrecta intente nuevamente")
             }
         }
 

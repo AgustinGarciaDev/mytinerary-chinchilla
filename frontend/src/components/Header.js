@@ -30,17 +30,21 @@ const Header = (props) => {
             <LinkContainer to="/Cities">
               <Nav.Link  >Cities</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/signin">
-              <Nav.Link >Sign in</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/signup">
-              <Nav.Link >Sign up</Nav.Link>
-            </LinkContainer>
+            {
+              !props.usuarioStatus &&
+              <>
+                <LinkContainer to="/signin">
+                  <Nav.Link >Sign in</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/signup">
+                  <Nav.Link >Sign up</Nav.Link>
+                </LinkContainer>
+              </>
+            }
             {
               fotoUser
-                ? <img src={fotoUser} style={{ width: "20vw" }} alt="" />
+                ? <img src={fotoUser} style={{ width: "5vw" }} alt="" />
                 : <i className="fas fa-user"></i>
-
             }
             {
 

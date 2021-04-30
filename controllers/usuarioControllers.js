@@ -66,7 +66,7 @@ const usuarioControllers = {
         res.json({
 
             success: !error ? true : false,
-            respuesta: { token: respuesta, foto: usuarioExistente.userPic },
+            respuesta: !error && { token: respuesta, foto: usuarioExistente.userPic },
             error: error
 
         })
@@ -74,7 +74,6 @@ const usuarioControllers = {
     },
 
     loginForzado: (req, res) => {
-        console.log(req)
         res.json({ success: true, respuesta: { foto: req.user.userPic } })
     }
 }

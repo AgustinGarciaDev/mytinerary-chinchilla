@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import userActions from "../Redux/Action/userActions"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import { GoogleLogin } from 'react-google-login'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const SingUp = (props) => {
@@ -26,32 +30,60 @@ const SingUp = (props) => {
     }, [])
 
     const cambioValor = (e) => {
-
-
         const campo = e.target.name
         const valor = e.target.value
-
         setDatosUsuario({
-
             ...datosUsuario,
             [campo]: valor
-
         })
 
     }
-    const enviarFormulario = async (e) => {
+    const enviarFormulario = async (e = null, googleUser = null) => {
 
-        e.preventDefault()
+        console.log(googleUser)
+        e && e.preventDefault()
 
-        const respuesta = await props.crearUsuario(datosUsuario)
+        let usuario = e ? datosUsuario : googleUser
+
+        const respuesta = await props.crearUsuario(usuario)
 
         if (respuesta) {
-
             setErrores(respuesta.details)
         } else {
-            props.history.push('/')
+            toast.success("bienvenido", {
+                onClose: () => {
+                    props.history.push('/')
+                }
+            })
         }
     }
+    const responseGoogle = (response) => {
+
+        console.log(response.profileObj)
+        const { givenName, familyName, email, imageUrl } = response.profileObj
+
+        enviarFormulario(null, { firstName: givenName, lastName: familyName, email: email, password: "hola1235", userPic: imageUrl, country: "Argentina" })
+    }
+
+    useEffect(() => {
+        notificacionesToast()
+    }, [errores])
+
+    const notificacionesToast = () => {
+        errores.map(error => {
+            toast.error(error.message, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+
+            });
+        })
+    }
+
 
     return (
         <>
@@ -61,6 +93,13 @@ const SingUp = (props) => {
                 </div>
                 <div className="contenedorFormulario">
 
+                    <GoogleLogin
+                        clientId="780474747059-kjbfva78hf1ar7gfssbr3bj67pdc6e44.apps.googleusercontent.com"
+                        buttonText="Login"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />,
                     <form className="formularioRegistro" >
                         <div className="labelInfo">
                             <label >
@@ -111,7 +150,17 @@ const SingUp = (props) => {
                             <p>If you already have an account: <Link to="/signin">Sign In</Link></p>
                         </div>
                     </form>
-                    {errores.map(error => <h1>{error.message}</h1>)}
+                    < ToastContainer
+                        position="top-center"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                    />
                 </div>
             </section>
         </>
