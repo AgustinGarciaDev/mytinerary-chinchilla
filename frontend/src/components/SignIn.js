@@ -42,18 +42,6 @@ const SingIn = (props) => {
         }
 
         props.loguearUsuario(usuario)
-
-        /*   if (usuario) {
-              props.loguearUsuario(usuario)
-              toast.success("WENAS KRAKEN", {
-                  onClose: () => {
-                      props.history.push('/')
-                  }
-              })
-          }
-  
-   */
-
     }
     const responseGoogle = (response) => {
         const { givenName, familyName, email, imageUrl } = response.profileObj

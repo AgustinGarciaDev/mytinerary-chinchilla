@@ -18,7 +18,7 @@ const Header = (props) => {
     <header>
       <Navbar sticky="top" bg="light" expand="lg">
         <LinkContainer to="/">
-          <Navbar.Brand > <img className="logo" src="http://baravdg.com/wp-content/uploads/2021/04/logo.png" alt="" /></Navbar.Brand>
+          <Navbar.Brand > <img className="logo" src="http://baravdg.com/wp-content/uploads/2021/05/logo-removebg-preview-1.png" alt="" /></Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -43,14 +43,16 @@ const Header = (props) => {
             }
             {
               fotoUser
-                ? <img className="fotoUser" src={fotoUser} style={{ width: "5vw" }} alt="" />
+                ? <>
+                  <div className="contenedorLogout" onClick={desloguear} >
+                    <img className="fotoUserHeader" src={fotoUser} alt="" />
+                    <p className="logout">LOGOUT</p>
+                    <i class="fas fa-sign-out-alt"></i>
+                  </div>
+                </>
                 : <i className="fas fa-user"></i>
             }
-            {
 
-              props.usuarioStatus && <i onClick={desloguear} class="fas fa-sign-out-alt"></i>
-
-            }
           </Nav>
 
         </Navbar.Collapse>

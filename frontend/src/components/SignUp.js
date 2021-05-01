@@ -50,7 +50,7 @@ const SingUp = (props) => {
         if (respuesta) {
             setErrores(respuesta.details)
         } else {
-            toast.success("bienvenido", {
+            toast.success("👋 Welcome", {
                 onClose: () => {
                     props.history.push('/')
                 }
@@ -153,7 +153,7 @@ const SingUp = (props) => {
             </form>
             < ToastContainer
                 position="top-center"
-                autoClose={5000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

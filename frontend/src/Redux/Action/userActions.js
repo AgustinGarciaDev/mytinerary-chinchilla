@@ -38,7 +38,10 @@ const userActions = {
                     toast.error(respuesta.data.error)
                 }
                 dispatch({ type: 'LOGUEAR_USUARIO', payload: respuesta.data.success ? respuesta.data.respuesta : null })
-
+                toast.success("👋 Welcome", {
+                    autoClose: 1000,
+                    position: "top-center",
+                })
             } catch (error) {
                 console.log(error)
             }
@@ -51,7 +54,10 @@ const userActions = {
         return (dispatch, getState) => {
 
             dispatch({ type: 'DESLOGUEAR_USUARIO' })
-            toast.success("Hasta la proxima")
+            toast.success("👋Bye", {
+                autoClose: 1000,
+                position: "top-center",
+            })
         }
     },
 
