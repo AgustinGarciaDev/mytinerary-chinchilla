@@ -34,12 +34,13 @@ const userActions = {
             try {
                 const respuesta = await axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
 
-                console.log(respuesta)
+                if (respuesta) {
+                    toast.error(respuesta.data.error)
+                }
                 dispatch({ type: 'LOGUEAR_USUARIO', payload: respuesta.data.success ? respuesta.data.respuesta : null })
 
             } catch (error) {
-                console.log("pass incorrecta")
-                toast.warn("Usuario o Pass incorrecta intente nuevamente")
+                console.log(error)
             }
         }
 

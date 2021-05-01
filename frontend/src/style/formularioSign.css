@@ -76,9 +76,9 @@
 }
 
 .formularioRegistro{
-display: flex;
-    flex-direction: column;
-    height: 33vw;
+  display: flex;
+  flex-direction: column;
+    height: 38vw;
     border-radius: 9px;
     background: #ffffff45;
     width: 22vw;
@@ -107,7 +107,6 @@ display: flex;
   font-size: 3vw;
   font-family: "poppins";
   font-weight: bold;
-  margin-top: 1vw;
   margin-bottom: 1vw;
 }
 
@@ -121,163 +120,206 @@ display: flex;
     color: white;
 }
 
+.contenedorTextoSign > p{
+  margin: 0;
+}
+
+.btnGoogle{
+    display: inline-flex;
+    align-items: center;
+    border: 0px solid transparent;
+    font-size: 14px;
+    font-family: "poppins";
+    width: 15vw;
+    margin: 2vw 0px;
+    background: #3F7BF0;
+    color: white;
+    height: 3vw;
+    border-radius: 1vw;
+    padding: 1vw;
+}
+
+.fa-google{
+      margin-left: 10px;
+    margin-right: 10px;
+}
+.sectionSignUp{
+      height: 54vw;
+}
+
+.formularioSignUp{
+      height: 51vw;
+}
+
+.contenedorTextoSignUp{
+      width: 6vw;
+}
+
+.btnGoogleSignUp{
+     margin: 1vw 0px;
+}
+
 @media(max-width:1110px ){
+
  
-  .imgFondo{
-        height: 57vw;
+ 
+  .btnGoogle{
+    width: 19vw;
+  }
+  .contenedorFormularioyTexto {
+    height: 68vw;
+}
+.formularioRegistro{
+      height: 63vw;
+      width: 28vw;
+}
+.correo{
+      width: 22.5vw;
+}
+
+.inputStyle{
+      height: 3.5vw;
+}
+ .formularioSignIn{
+     height: 40vw;
   }
 
-
-  .formularioRegistro{
-        height: 42vw;
-  }
-
-  .inputStyle{
-        height: 3.0vw;
-            width: 14vw;
-  }
-  
-  .correo{
-        width: 28vw;
-  }
-
-  .formularioSignIn{
-        height: 21vw;
+  .contenedorTextoSignIn{
+       left: 15vw;
+    width: 10vw;
   }
 
 }
 
-@media(max-width:997px){
-  .imgFondo{
-        width: 64vw;
-    height: 46vw;
-  }
-  .inputStyle{
-        height: 3.5vw;
-        width: 14.5vw;
-  }
-  .formularioRegistro{
-        height: 45vw;
-  }
-  .correo{
-        width: 29.5vw;
-  }
-}
 
 @media (max-width: 768px) {
 
-  .nombreInput{
-    font-size: 20px;
-    font-weight: 700;
+  .formularioSignIn{
+        height: 49vw;
   }
 
-  .imgFondo{
-        width: 100vw;
-  }
-
-  .contenedorFotoyFormulario{
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .formularioRegistro{
-      margin-top: -83px;
-    height: 72vw;
-    padding: 2vw;
-    background: white;
-  }
-
-  .inputStyle{
-        height: 4.5vw;
-        width: 30vw;
-  }
-
-  .contenedorFormulario{
-    width: 56vw;
-  }
-  .btnFormRegister{
-    margin-top: 18px;
-    width: 22vw;
-    height: 5vw;
-
-  }
-
+  .sectionSignUp {
+    height: 76vw;
+    align-items: flex-start;
 }
 
-@media (max-width: 520px) {
-
- .contenedorFormulario {
-    width: 75vw;
+.contenedorTextoSign{
+      left: 19vw;
 }
 
 .formularioRegistro{
-      height: 107vw;
+    width: 31vw;
 }
-
-.inputStyle {
-    height: 6.5vw;
-    width: 48vw;
-}
-.btnFormRegister {
-    margin-top: 18px;
-    width: 33vw;
-    height: 8vw;
-}
-
-}
-
-@media (max-width: 420px) {
-
- .contenedorFormulario {
-    width: 75vw;
-}
-
-.formularioRegistro{
-      height: 107vw;
-}
-
-.inputStyle {
-    height: 6.5vw;
-    width: 48vw;
-}
-.btnFormRegister {
-    margin-top: 18px;
-    width: 33vw;
-    height: 8vw;
-}
-
-}
-
-
-@media (max-width: 320px) {
-
-
-  .imgFondo {
-    width: 100vw;
+.formularioSignUp {
     height: 72vw;
 }
-
-  .contenedorFormulario {
-       width: 86vw;
+.correo {
+    width: 26.5vw;
 }
 
-.formularioRegistro {
-    height: 85vh;
+.inputStyle{
+  height: 3.5vw;
+}
+.btnGoogle{
+      width: 25vw;
+      height: 5vw;
 }
 
+.btnFormRegister{
+    width: 12vw;
+    height: 7vw;
+}
+
+.nombreInput{
+      text-align: left;
+      margin-bottom: 0;
+}
+
+}
+
+
+@media (max-width: 605px) {
+
+  .contenedorSignIn{
+        height: 130vw;
+  }
+
+  .formularioSignIn{
+        height: 95vw;
+    width: 62vw;
+  }
+
+.formularioSignUp {
+   height: 144vw;
+    width: 60vw;
+
+}
+
+.SignInText {
+     font-size: 8vw;
+}
 .inputStyle {
-    height: 8.5vw;
-    width: 68vw;
+    height: 7.5vw;
+}
+.correo {
+    width: 55.5vw;
+}
+.sectionSignUp {
+    height: 150vw;
+
+}
+
+.btnGoogle{
+  width: 45vw;
+  height: 9vw;
+  margin: 7vw 0px;
+  padding: 2vw;
+}
+.contenedorTextoSign {
+    left: 41vw;
 }
 .btnFormRegister {
-    margin-top: 22px;
-    width: 45vw;
+    width: 24vw;
+    height: 9vw;
+    margin-top: 20px;
+}
+.contenedorFormularioyTexto{
+  justify-content: center;
+}
+}
+
+
+@media (max-width: 390px) {
+
+  .btnGoogle{
+    width: 58vw;
     height: 11vw;
+  }
+  .inputStyle {
+    height: 8.5vw;
+}
+.correo {
+    width: 66.5vw;
+}
+.formularioSignUp {
+    height: 167vw;
+    width: 72vw;
+}
+.sectionSignUp {
+    height: 181vw;
+}
+.contenedorTextoSign {
+    left: 53vw;
 }
 
-.nombreInput {
-    font-size: 16px;
-    font-weight: 700;
-}
+
+  .formularioSignIn{
+     height: 117vw;
+    width: 70vw;
+  }
+  .contenedorTextoSignIn{
+        width: 28vw;
+        left: 35vw;
+  }
 
 }

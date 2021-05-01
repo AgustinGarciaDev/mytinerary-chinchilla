@@ -57,10 +57,10 @@ const usuarioControllers = {
                 const token = jwt.sign({ ...usuarioExistente }, process.env.SECRET_OR_KEY)
                 respuesta = token
             } else {
-                error = "Usuario o password incorrecta"
+                error = "Incorrect user or password"
             }
         } else {
-            error = "Usuario o password incorrecta"
+            error = "Incorrect user or password"
         }
 
         res.json({

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { connect } from "react-redux"
 import userActions from "../Redux/Action/userActions"
 import { Link } from "react-router-dom";
@@ -10,22 +10,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SingIn = (props) => {
 
-
-    const [errores, setErrores] = useState([])
     const [datosUsuario, setDatosUsuario] = useState({
         email: "",
         password: "",
     })
 
     const cambioValor = (e) => {
-
         const campo = e.target.name
         const valor = e.target.value
         setDatosUsuario({
-
             ...datosUsuario,
             [campo]: valor
-
         })
 
     }
@@ -34,16 +29,30 @@ const SingIn = (props) => {
 
         e && e.preventDefault()
         let usuario = e ? datosUsuario : googleUser
-        if (usuario) {
-            props.loguearUsuario(usuario)
-            toast.success("WENAS KRAKEN", {
-                onClose: () => {
-                    props.history.push('/')
-                }
-            })
+
+        //Falta hacer validaciones!!
+
+        if (usuario.email.length === 0) {
+            toast.warn("Your email is a required field")
+
+        }
+        if (usuario.password.length === 0) {
+            toast.warn("Your password is a required field")
+            return false
         }
 
+        props.loguearUsuario(usuario)
 
+        /*   if (usuario) {
+              props.loguearUsuario(usuario)
+              toast.success("WENAS KRAKEN", {
+                  onClose: () => {
+                      props.history.push('/')
+                  }
+              })
+          }
+  
+   */
 
     }
     const responseGoogle = (response) => {
@@ -52,17 +61,20 @@ const SingIn = (props) => {
     }
     return (
 
-        <section className="contenedorFormularioyTexto">
+        <section className="contenedorFormularioyTexto contenedorSignIn">
 
             <form className="formularioRegistro formularioSignIn" >
-                <div className="contenedorTextoSign">
+                <div className="contenedorTextoSign contenedorTextoSignIn">
                     <p>No account? <Link to="/signup">Sign Up</Link></p>
 
                 </div>
                 <h1 className="SignInText">Sign In</h1>
                 <GoogleLogin
                     clientId="780474747059-kjbfva78hf1ar7gfssbr3bj67pdc6e44.apps.googleusercontent.com"
-                    buttonText="Sign in with Google"
+                    render={renderProps => (
+                        <button className="btnGoogle" onClick={renderProps.onClick} disabled={renderProps.disabled}><i className="fab fa-google"></i>Sign in with Google</button>
+                    )}
+                    buttonText="Login"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}

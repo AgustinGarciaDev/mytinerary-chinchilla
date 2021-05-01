@@ -1,56 +1,33 @@
 const Joi = require('joi')
-
-
-
 const validator = (req, res, next) => {
 
     const schema = Joi.object({
 
-        firstName: Joi.string().trim().min(3).max(20).required().messages({
-            'string.base': 'No te pase de gato',
-            'string.min': 'Este campo necesita un minimo de 3 caracteres-NOMBRE',
-            'string.max': 'WOW tan largo el nombre pa? No me kieras cagar EH',
-            'any.required': 'Este es un campo requerido',
+        firstName: Joi.string().trim().min(3).pattern(new RegExp('[a-zA-Z]$')).required().messages({
+            'string.min': 'You first name must have at least 3 letters',
             'string.empty': 'Your first name is a required field',
-
+            'string.pattern.base': 'The input first name only supports letters'
         }),
-        lastName: Joi.string().trim().min(2).max(20).required().messages({
-            'string.base': 'No te pase de gato',
-            'string.min': 'Este campo necesita un minimo de 3 caracteres-Apellido',
+        lastName: Joi.string().trim().min(2).pattern(new RegExp('[a-zA-Z]$')).required().messages({
+            'string.min': 'You last name must have at least 3 letters',
             'string.max': 'WOW tan largo el nombre pa? No me kieras cagar EH',
-            'any.required': 'Este es un campo requerido',
             'string.empty': 'Your last name is a required field',
-
+            'string.pattern.base': 'The input first name only supports letters'
         }),
         email: Joi.string().trim().required().email().messages({
-            'string.base': 'No te pase de gato',
-            'any.required': 'Este es un campo requerido',
             'string.empty': 'Your mail address is a required field',
-
         }),
-        password: Joi.string().trim().min(6).max(20).required().pattern(/(?=.*\d)(?=.*[A-z]{3,30})/).messages({
-            'string.base': 'No te pase de gato',
-            'string.min': 'Este campo necesita un minimo de 6 caracteres',
-            'string.max': 'WOW tan largo el nombre pa? No me kieras cagar EH',
-            'any.required': 'Este es un campo requerido',
+        password: Joi.string().trim().min(6).required().pattern(new RegExp('[a-zA-Z0-9]{6,30}')).messages({
+            'string.min': 'Your passwrod must contain at least 6 characters',
             'string.empty': 'Your password is a required field',
-            'string.pattern.base': 'pone una contra correcta maestro'
-
+            'string.pattern.base': 'Your password must contain a letter and a number'
         }),
         userPic: Joi.string().trim().required().uri().messages({
-            'string.base': 'No te pase de gato',
             'string.uri': 'este URL no es valido',
-            'any.required': 'Este es un campo requerido',
             'string.empty': 'You should use a valid URL',
-
         }),
         country: Joi.string().required().messages({
-            'string.base': 'No te pase de gato',
-            'string.min': 'Este campo necesita un minimo de 3 caracteres',
-            'string.max': 'WOW tan largo el nombre pa? No me kieras cagar EH',
-            'any.required': 'Este es un campo requerido',
             'string.empty': 'Please, choose a country',
-
         })
     })
 
