@@ -41,7 +41,7 @@ router.route('/user/signUp')
     .post(validator, crearUsuario)
 
 router.route('/user/signIn')
-    .post(validator, logearUsuario)
+    .post(logearUsuario)
 
 router.route('/user/loginLocalStore')
     .get(passport.authenticate('jwt', { session: false }), loginForzado)

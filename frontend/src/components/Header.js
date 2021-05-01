@@ -43,12 +43,12 @@ const Header = (props) => {
             }
             {
               fotoUser
-                ? <img src={fotoUser} style={{ width: "5vw" }} alt="" />
+                ? <img className="fotoUser" src={fotoUser} style={{ width: "5vw" }} alt="" />
                 : <i className="fas fa-user"></i>
             }
             {
 
-              props.usuarioStatus && <h2 onClick={desloguear}>Desloguear</h2>
+              props.usuarioStatus && <i onClick={desloguear} class="fas fa-sign-out-alt"></i>
 
             }
           </Nav>

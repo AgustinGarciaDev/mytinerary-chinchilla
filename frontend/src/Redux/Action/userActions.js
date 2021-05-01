@@ -33,13 +33,12 @@ const userActions = {
         return async (dispatch, getState) => {
             try {
                 const respuesta = await axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
-                if (!respuesta.data.success) {
-                    console.log(respuesta)
-                    return respuesta.data.errores
-                }
+
+                console.log(respuesta)
                 dispatch({ type: 'LOGUEAR_USUARIO', payload: respuesta.data.success ? respuesta.data.respuesta : null })
 
             } catch (error) {
+                console.log("pass incorrecta")
                 toast.warn("Usuario o Pass incorrecta intente nuevamente")
             }
         }
@@ -51,6 +50,7 @@ const userActions = {
         return (dispatch, getState) => {
 
             dispatch({ type: 'DESLOGUEAR_USUARIO' })
+            toast.success("Hasta la proxima")
         }
     },
 
@@ -70,7 +70,7 @@ const userActions = {
                 })
             }
             catch (error) {
-                alert("Me parece que me queres mentir")
+                toast.error("OJO NO TE HAGAS EL PIKARO EH")
             }
 
 

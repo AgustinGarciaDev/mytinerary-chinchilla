@@ -1,11 +1,3 @@
-.imgFondo {
-  background-image: url("http://baravdg.com/wp-content/uploads/2021/04/pexels-harvey-1790573-scaled.jpg");
-  width: 59vw;
-  height: 43vw;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
 .contenedorFotoyFormulario {
   display: flex;
@@ -35,11 +27,11 @@
 
 .inputStyle {
   height: 2.5vw;
-  background: #eff4fb;
   border-radius: 7px;
   border: 1px solid #00000059;
   font-family: "poppins";
   padding-left: 8px;
+  background-color: white;
 }
 .correo{
      width: 28.5vw;
@@ -58,10 +50,9 @@
 }
 
 .inputConIcono{
-      border: none;
-    background: #eff4fb;
-
+    border: none;
     width: 100%;
+    background: none;
 }
 .inputSeparador{
   margin-right: 4px;
@@ -70,14 +61,63 @@
 .nombreInput{
     font-family: "poppins";
     margin-bottom: 0.3rem;
+        color: white;
+    font-weight: 900;
 }
 
-.btnFormRegister{
-      margin-top: 10px;
-    width: 16vw;
+.contenedorFormularioyTexto{
+  background-image: url("http://baravdg.com/wp-content/uploads/2021/04/Diseno-sin-titulo-9.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 42vw;
+  display: flex;
+  align-items: center;
+}
+
+.formularioRegistro{
+display: flex;
+    flex-direction: column;
+    height: 33vw;
+    border-radius: 9px;
+    background: #ffffff45;
+    width: 22vw;
+    margin-left: 4vw;
+    -webkit-backdrop-filter: blur(34px);
+    backdrop-filter: blur(34px);
+    align-items: end;
+}
+
+.correo{
+      width: 17.5vw;
+}
+
+.btnFormRegister {
+    margin-top: 33px;
+    width: 8vw;
     border: none;
-    background: #024a83;
+    background: #000e19;
     height: 3vw;
+    color: white;
+    border-radius: 14px;
+    font-family: "poppins";
+}
+.SignInText{
+  color: white;
+  font-size: 3vw;
+  font-family: "poppins";
+  font-weight: bold;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+.contenedorTextoSign{
+      width: 9vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 12vw;
     color: white;
 }
 
