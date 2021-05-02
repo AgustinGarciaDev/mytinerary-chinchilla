@@ -32,16 +32,19 @@ const SingIn = (props) => {
 
         //Falta hacer validaciones!!
 
-        if (usuario.email.length === 0) {
-            toast.warn("Your email is a required field")
-
+        if (usuario.email === "" || usuario.password === "") {
+            toast.error("😬 All fields must be completed")
+        } else {
+            const respuesta = await props.loguearUsuario(usuario)
+            respuesta
+                ? toast.error(respuesta)
+                : toast.success("👋 Welcome", {
+                    onClose: () => {
+                        props.history.push('/')
+                    }
+                })
         }
-        if (usuario.password.length === 0) {
-            toast.warn("Your password is a required field")
-            return false
-        }
 
-        props.loguearUsuario(usuario)
     }
     const responseGoogle = (response) => {
         const { givenName, familyName, email, imageUrl } = response.profileObj
@@ -70,7 +73,7 @@ const SingIn = (props) => {
                 <div className="labelInfo">
                     <label >
                         <div><p className="nombreInput">Email:</p></div>
-                        <input className="inputStyle correo" onChange={cambioValor} name="email" value={datosUsuario.email} type="email" />
+                        <input placeholder="Email" className="inputStyle correo" onChange={cambioValor} name="email" value={datosUsuario.email} type="email" />
                     </label>
                 </div>
 
@@ -79,7 +82,7 @@ const SingIn = (props) => {
                         <div><p className="nombreInput">Password:</p></div>
                         <div className="inputStyle correo">
                             <i className="fas fa-eye"></i>
-                            <input className="inputConIcono" onChange={cambioValor} name="password" value={datosUsuario.password} type="password" />
+                            <input placeholder="Password" className="inputConIcono" onChange={cambioValor} name="password" value={datosUsuario.password} type="password" />
                         </div>
                     </label>
                 </div>
@@ -87,7 +90,7 @@ const SingIn = (props) => {
             </form>
             < ToastContainer
                 position="top-center"
-                autoClose={5000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

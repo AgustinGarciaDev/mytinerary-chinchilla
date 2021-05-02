@@ -7,6 +7,8 @@ import userActions from '../Redux/Action/userActions';
 
 
 const Header = (props) => {
+
+  console.log(props.usuarioStatus)
   const fotoUser = props.usuarioStatus
     ? props.usuarioStatus.foto
     : null
@@ -44,10 +46,10 @@ const Header = (props) => {
             {
               fotoUser
                 ? <>
-                  <div className="contenedorLogout" onClick={desloguear} >
+                  <div className="contenedorLogout" >
                     <img className="fotoUserHeader" src={fotoUser} alt="" />
-                    <p className="logout">LOGOUT</p>
-                    <i class="fas fa-sign-out-alt"></i>
+                    <p onClick={desloguear} className="logout">SIGN OUT</p>
+                    <i onClick={desloguear} className="fas fa-sign-out-alt"></i>
                   </div>
                 </>
                 : <i className="fas fa-user"></i>

@@ -32,16 +32,14 @@ const userActions = {
 
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
+                const response = await axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
 
-                if (respuesta) {
-                    toast.error(respuesta.data.error)
+                if (!response.data.success) {
+
+                    return response.data.error
                 }
-                dispatch({ type: 'LOGUEAR_USUARIO', payload: respuesta.data.success ? respuesta.data.respuesta : null })
-                toast.success("👋 Welcome", {
-                    autoClose: 1000,
-                    position: "top-center",
-                })
+                dispatch({ type: 'LOGUEAR_USUARIO', payload: response.data.success ? response.data.respuesta : null })
+
             } catch (error) {
                 console.log(error)
             }
@@ -64,14 +62,14 @@ const userActions = {
     forzarLoginLocalStore: (usuarioLoguedo) => {
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get("http://localhost:4000/api/user/loginLocalStore", {
+                const response = await axios.get("http://localhost:4000/api/user/loginLocalStore", {
                     headers: {
                         'Authorization': 'Bearer ' + usuarioLoguedo.token
                     }
                 })
                 dispatch({
                     type: 'LOGUEAR_USUARIO', payload: {
-                        ...respuesta.data.respuesta,
+                        ...response.data.respuesta,
                         token: usuarioLoguedo.token
                     }
                 })

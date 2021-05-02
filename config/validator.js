@@ -10,7 +10,6 @@ const validator = (req, res, next) => {
         }),
         lastName: Joi.string().trim().min(2).pattern(new RegExp('[a-zA-Z]$')).required().messages({
             'string.min': 'You last name must have at least 3 letters',
-            'string.max': 'WOW tan largo el nombre pa? No me kieras cagar EH',
             'string.empty': 'Your last name is a required field',
             'string.pattern.base': 'The input first name only supports letters'
         }),

@@ -6,8 +6,6 @@ import { GoogleLogin } from 'react-google-login'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 const SingUp = (props) => {
 
     const [btnVisible, setBtnVisible] = useState(false)
@@ -38,6 +36,8 @@ const SingUp = (props) => {
         })
 
     }
+
+
     const enviarFormulario = async (e = null, googleUser = null) => {
 
         console.log(googleUser)
@@ -45,17 +45,26 @@ const SingUp = (props) => {
 
         let usuario = e ? datosUsuario : googleUser
 
-        const respuesta = await props.crearUsuario(usuario)
+        if (usuario.firstName === "" || usuario.lastName === "" || usuario.email === "" || usuario.password === "" || usuario.userPic === "" || usuario.country === "") {
 
-        if (respuesta) {
-            setErrores(respuesta.details)
+            toast.error("😬 All fields must be completed")
+
         } else {
-            toast.success("👋 Welcome", {
-                onClose: () => {
-                    props.history.push('/')
-                }
-            })
+            const respuesta = await props.crearUsuario(usuario)
+
+            if (respuesta) {
+                setErrores(respuesta.details)
+            } else {
+                toast.success("👋 Welcome", {
+                    onClose: () => {
+                        props.history.push('/')
+                    },
+
+                })
+            }
         }
+
+
     }
     const responseGoogle = (response) => {
 
@@ -73,7 +82,7 @@ const SingUp = (props) => {
         errores.map(error => {
             toast.error(error.message, {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: false,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -92,7 +101,7 @@ const SingUp = (props) => {
         <section className="contenedorFormularioyTexto sectionSignUp">
             <form className="formularioRegistro formularioSignUp" >
                 <div className="contenedorTextoSign contenedorTextoSignUp">
-                    <p>Account? <Link to="/signup">Sign in</Link></p>
+                    <p>Account? <Link to="/signin">Sign in</Link></p>
 
                 </div>
                 <h1 className="SignInText">Sign Up</h1>
@@ -109,18 +118,18 @@ const SingUp = (props) => {
                 <div className="labelInfo">
                     <label >
                         <div><p className="nombreInput">First Name:</p></div>
-                        <input className="inputStyle correo" onChange={cambioValor} name="firstName" value={datosUsuario.firstName} type="text" />
+                        <input placeholder="First Name" className="inputStyle correo" onChange={cambioValor} name="firstName" value={datosUsuario.firstName} type="text" />
                     </label>
                     <label >
                         <div><p className="nombreInput">Last Name:</p></div>
-                        <input className="inputStyle correo" onChange={cambioValor} name="lastName" value={datosUsuario.lastName} type="text" />
+                        <input placeholder="Last Name" className="inputStyle correo" onChange={cambioValor} name="lastName" value={datosUsuario.lastName} type="text" />
                     </label>
                 </div>
 
                 <div className="labelInfo">
                     <label >
                         <div><p className="nombreInput">Email:</p></div>
-                        <input className="inputStyle correo" onChange={cambioValor} name="email" value={datosUsuario.email} type="email" />
+                        <input placeholder="Email" className="inputStyle correo" onChange={cambioValor} name="email" value={datosUsuario.email} type="email" />
                     </label>
                 </div>
 
@@ -129,7 +138,7 @@ const SingUp = (props) => {
                         <div><p className="nombreInput">Password:</p></div>
                         <div className="inputStyle correo">
                             <i placeholder="Password" onClick={() => setBtnVisible(!btnVisible)} className="fas fa-eye"></i>
-                            <input className="inputConIcono" onChange={cambioValor} name="password" value={datosUsuario.password} type={btnVisible ? 'text' : 'password'} />
+                            <input placeholder="Password" className="inputConIcono" onChange={cambioValor} name="password" value={datosUsuario.password} type={btnVisible ? 'text' : 'password'} />
                         </div>
                     </label>
                 </div>
@@ -137,7 +146,7 @@ const SingUp = (props) => {
                 <div className="labelInfo">
                     <label >
                         <div><p className="nombreInput">Url Photo:</p></div>
-                        <input required className="inputStyle correo" onChange={cambioValor} name="userPic" value={datosUsuario.userPic} type="text" />
+                        <input placeholder="Url Foto" required className="inputStyle correo" onChange={cambioValor} name="userPic" value={datosUsuario.userPic} type="text" />
                     </label>
                 </div>
                 <div className="labelInfo">

@@ -5,6 +5,7 @@ const initialState = {
     usuarioStatus: null,
 }
 
+
 const userReducer = (state = initialState, action) => {
 
     switch (action.type) {
