@@ -39,7 +39,6 @@ const usuarioControllers = {
 
         })
 
-
     },
 
     logearUsuario: async (req, res) => {

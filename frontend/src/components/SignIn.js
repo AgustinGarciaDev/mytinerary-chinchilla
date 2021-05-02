@@ -41,7 +41,7 @@ const SingIn = (props) => {
                 : toast.success("👋 Welcome", {
                     onClose: () => {
                         props.history.push('/')
-                    }
+                    },
                 })
         }
 
@@ -98,6 +98,7 @@ const SingIn = (props) => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
+
             />
 
         </section>

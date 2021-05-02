@@ -146,14 +146,14 @@ const SingUp = (props) => {
                 <div className="labelInfo">
                     <label >
                         <div><p className="nombreInput">Url Photo:</p></div>
-                        <input placeholder="Url Foto" required className="inputStyle correo" onChange={cambioValor} name="userPic" value={datosUsuario.userPic} type="text" />
+                        <input placeholder="Url Photo" required className="inputStyle correo" onChange={cambioValor} name="userPic" value={datosUsuario.userPic} type="text" />
                     </label>
                 </div>
                 <div className="labelInfo">
                     <label >
                         <div><p className="nombreInput">Select Country:</p></div>
                         <select className="inputStyle correo" name="country" value={datosUsuario.country} onChange={cambioValor} >
-                            <option value="">Pais</option>
+                            <option selected disabled value="">Country</option>
                             {props.paises.map(paises => <option value={paises.name} key={paises.id} > {paises.name}</option>)}
                         </select>
                     </label>
