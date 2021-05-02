@@ -33,15 +33,20 @@ const SingIn = (props) => {
         //Falta hacer validaciones!!
 
         if (usuario.email === "" || usuario.password === "") {
-            toast.error("😬 All fields must be completed")
+            toast.error("😬 All fields must be completed", {
+                toastId: "errorFields"
+            })
         } else {
             const respuesta = await props.loguearUsuario(usuario)
             respuesta
-                ? toast.error(respuesta)
+                ? toast.error(respuesta, {
+                    toastId: respuesta
+                })
                 : toast.success("👋 Welcome", {
                     onClose: () => {
                         props.history.push('/')
                     },
+
                 })
         }
 

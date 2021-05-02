@@ -88,15 +88,11 @@ const SingUp = (props) => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
+                toastId: error.message
 
             });
         })
     }
-
-
-
-
-
     return (
         <section className="contenedorFormularioyTexto sectionSignUp">
             <form className="formularioRegistro formularioSignUp" >
