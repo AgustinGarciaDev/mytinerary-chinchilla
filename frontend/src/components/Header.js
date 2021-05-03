@@ -8,7 +8,7 @@ import userActions from '../Redux/Action/userActions';
 
 const Header = (props) => {
 
-  console.log(props.usuarioStatus)
+
   const fotoUser = props.usuarioStatus
     ? props.usuarioStatus.foto
     : null

@@ -39,14 +39,9 @@ const SingUp = (props) => {
 
 
     const enviarFormulario = async (e = null, googleUser = null) => {
-
-        console.log(googleUser)
         e && e.preventDefault()
-
         let usuario = e ? datosUsuario : googleUser
-
         if (usuario.firstName === "" || usuario.lastName === "" || usuario.email === "" || usuario.password === "" || usuario.userPic === "" || usuario.country === "") {
-
             toast.error("😬 All fields must be completed")
 
         } else {
@@ -67,10 +62,7 @@ const SingUp = (props) => {
 
     }
     const responseGoogle = (response) => {
-
-        console.log(response.profileObj)
         const { givenName, familyName, email, imageUrl } = response.profileObj
-
         enviarFormulario(null, { firstName: givenName, lastName: familyName, email: email, password: "hola1235", userPic: imageUrl, country: "Argentina" })
     }
 
