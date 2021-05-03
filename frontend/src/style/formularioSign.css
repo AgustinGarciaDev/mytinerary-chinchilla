@@ -130,7 +130,7 @@
     border: 0px solid transparent;
     font-size: 14px;
     font-family: "poppins";
-    width: 15vw;
+    width: 17vw;
     margin: 2vw 0px;
     background: #3F7BF0;
     color: white;
@@ -168,7 +168,7 @@
  
  
   .btnGoogle{
-    width: 19vw;
+       width: 23vw;
   }
   .contenedorFormularioyTexto {
     height: 68vw;

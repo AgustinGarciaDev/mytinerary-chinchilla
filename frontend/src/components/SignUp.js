@@ -146,7 +146,7 @@ const SingUp = (props) => {
                         </select>
                     </label>
                 </div>
-                <button className="btnFormRegister" onClick={enviarFormulario}>Sign In</button>
+                <button className="btnFormRegister" onClick={enviarFormulario}>Sign Up</button>
             </form>
             < ToastContainer
                 position="top-center"
