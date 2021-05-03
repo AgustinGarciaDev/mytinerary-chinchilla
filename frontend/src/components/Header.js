@@ -33,28 +33,24 @@ const Header = (props) => {
               <Nav.Link  >Cities</Nav.Link>
             </LinkContainer>
             {
-              !props.usuarioStatus &&
-              <>
-                <LinkContainer to="/signin">
-                  <Nav.Link >Sign in</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/signup">
-                  <Nav.Link >Sign up</Nav.Link>
-                </LinkContainer>
-              </>
-            }
-            {
-              fotoUser
+              !props.usuarioStatus
                 ? <>
+                  <LinkContainer to="/signin">
+                    <Nav.Link >Sign in</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to="/signup">
+                    <Nav.Link >Sign up</Nav.Link>
+                  </LinkContainer>
+                  <i className="fas fa-user"></i>
+                </>
+                : <>
                   <div className="contenedorLogout" >
                     <img className="fotoUserHeader" src={fotoUser} alt="" />
                     <p onClick={desloguear} className="logout">SIGN OUT</p>
                     <i onClick={desloguear} className="fas fa-sign-out-alt"></i>
                   </div>
                 </>
-                : <i className="fas fa-user"></i>
             }
-
           </Nav>
 
         </Navbar.Collapse>

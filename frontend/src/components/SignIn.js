@@ -30,7 +30,7 @@ const SingIn = (props) => {
         e && e.preventDefault()
         let usuario = e ? datosUsuario : googleUser
 
-        //Falta hacer validaciones!!
+        //Falta hacer validaciones!
 
         if (usuario.email === "" || usuario.password === "") {
             toast.error("😬 All fields must be completed", {
@@ -53,7 +53,7 @@ const SingIn = (props) => {
     }
     const responseGoogle = (response) => {
         const { email } = response.profileObj
-        enviarFormulario(null, { email: email, password: "Hola1235", })
+        enviarFormulario(null, { email: email, password: "Hola1235!" })
     }
     return (
 
