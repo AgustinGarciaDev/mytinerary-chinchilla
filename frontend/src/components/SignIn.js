@@ -52,8 +52,8 @@ const SingIn = (props) => {
 
     }
     const responseGoogle = (response) => {
-        const { givenName, familyName, email, imageUrl } = response.profileObj
-        enviarFormulario(null, { firstName: givenName, lastName: familyName, email: email, password: "hola1235", userPic: imageUrl, country: "Argentina" })
+        const { email } = response.profileObj
+        enviarFormulario(null, { email: email, password: "Hola1235", })
     }
     return (
 

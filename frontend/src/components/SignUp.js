@@ -63,7 +63,7 @@ const SingUp = (props) => {
     }
     const responseGoogle = (response) => {
         const { givenName, familyName, email, imageUrl } = response.profileObj
-        enviarFormulario(null, { firstName: givenName, lastName: familyName, email: email, password: "hola1235", userPic: imageUrl, country: "Argentina" })
+        enviarFormulario(null, { firstName: givenName, lastName: familyName, email: email, password: "Hola1235", userPic: imageUrl, country: "Argentina" })
     }
 
     useEffect(() => {
