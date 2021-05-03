@@ -17,6 +17,7 @@ module.exports = passport.use(new jwtStrategy({
             }
         })
         .catch(error => {
+            console.log(error)
             return done(error, false)
         })
 }

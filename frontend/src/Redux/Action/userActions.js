@@ -73,9 +73,12 @@ const userActions = {
                         token: usuarioLoguedo.token
                     }
                 })
-            }
-            catch (error) {
-                toast.error("OJO NO TE HAGAS EL PIKARO EH")
+            } catch (error) {
+                if (error.response.status === 401) {
+                    alert("HACKING ALERT")
+
+                }
+
             }
 
 
