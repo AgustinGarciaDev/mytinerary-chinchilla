@@ -68,6 +68,7 @@ const SingUp = (props) => {
 
     useEffect(() => {
         notificacionesToast()
+        console.log(errores)
     }, [errores])
 
     const notificacionesToast = () => {

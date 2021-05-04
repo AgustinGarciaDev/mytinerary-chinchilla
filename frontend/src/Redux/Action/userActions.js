@@ -33,8 +33,6 @@ const userActions = {
         return async (dispatch, getState) => {
             try {
                 const response = await axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
-
-                console.log(response)
                 if (!response.data.success) {
 
                     return response.data.error

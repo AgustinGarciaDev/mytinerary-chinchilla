@@ -1,12 +1,11 @@
 import { useState } from "react"
 import Carousel from 'react-elastic-carousel';
-
+import Comments from './Comments'
+import Activities from './Activities'
 
 const CardItinerary = ({ itinerary: { nombreItinerary, _id, authorName, duration, authorPic, hastag, precie, picBanner, offered, countryCoin, likes } }) => {
 
-
     const [btnVisible, setBtn] = useState(false)
-
     return (
         <>
             <div className="cardItinerary">
@@ -52,8 +51,8 @@ const CardItinerary = ({ itinerary: { nombreItinerary, _id, authorName, duration
                     btnVisible
                     &&
                     <div className="contenedorParaActividades">
-                        <h2>under construction</h2>
-                        <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_8uHQ7s.json" style={{ width: "30vw" }} loop autoplay></lottie-player>
+                        <Activities btnVisible={btnVisible} idItinerary={_id} />
+                        <Comments idItinerary={_id} />
                     </div>
                 }
             </div>

@@ -5,11 +5,13 @@ const itineraryControllers = require('../controllers/itineraryControllers')
 const usuarioControllers = require('../controllers/usuarioControllers')
 const passport = require('passport')
 const validator = require('../config/validator')
+const activityControllers = require('../controllers/activityControllers')
 
 
 const { obtenerCiudades, crearCiudad, buscarCiudad, actualizarCiudad, borrarCiudad } = ciudadControllers
 const { obtenerItineraries, crearItineraries, buscarItinerary, actualizarItinerary, borrarItinerary, itineraryforCity } = itineraryControllers
 const { crearUsuario, logearUsuario, loginForzado } = usuarioControllers
+const { obtenerActivities, crearActivity, actualizarActividades, activityForItinerary, buscarActivity } = activityControllers
 
 /* Ciudades */
 router.route('/ciudades')
@@ -45,6 +47,17 @@ router.route('/user/signIn')
 
 router.route('/user/loginLocalStore')
     .get(passport.authenticate('jwt', { session: false }), loginForzado)
+
+/* Activity */
+router.route('/activity')
+    .get(obtenerActivities)
+    .post(crearActivity)
+
+router.route('/activity/:id')
+    .put(actualizarActividades)
+
+router.route('/activity/itinerary/:id')
+    .get(activityForItinerary)
 
 module.exports = router
 

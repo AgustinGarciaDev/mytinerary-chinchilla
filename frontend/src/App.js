@@ -9,8 +9,8 @@ import Error from './pages/Error'
 import ErrorServer from './pages/ErrorServer'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import SignIn from './components/SignIn'
-import SignUp from './components/SignUp'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 import { connect } from 'react-redux';
 import userActions from './Redux/Action/userActions'
 

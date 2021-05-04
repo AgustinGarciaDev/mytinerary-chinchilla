@@ -236,6 +236,23 @@
   }
 }
 
+.contenedorActividadesItinerary{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.contenedorActividades > .cuadro{
+  width: 17vw;
+  height: 20vw;
+}
+
+.contenedorActividades > h1 {
+  text-align: center;
+   font-size: 1.5rem;
+}
+
 @media (max-width: 798px) {
   .fotoUser {
     width: 9vw;
