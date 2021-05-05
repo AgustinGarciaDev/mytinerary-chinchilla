@@ -9,9 +9,9 @@ const activityControllers = require('../controllers/activityControllers')
 
 
 const { obtenerCiudades, crearCiudad, buscarCiudad, actualizarCiudad, borrarCiudad } = ciudadControllers
-const { obtenerItineraries, crearItineraries, buscarItinerary, actualizarItinerary, borrarItinerary, itineraryforCity } = itineraryControllers
+const { obtenerItineraries, crearItineraries, buscarItinerary, actualizarItinerary, borrarItinerary, itineraryforCity, cargarComentarios, borrarComentario, editarComentarios } = itineraryControllers
 const { crearUsuario, logearUsuario, loginForzado } = usuarioControllers
-const { obtenerActivities, crearActivity, actualizarActividades, activityForItinerary, buscarActivity } = activityControllers
+const { obtenerActivities, crearActivity, actualizarActividades, activityForItinerary } = activityControllers
 
 /* Ciudades */
 router.route('/ciudades')
@@ -36,6 +36,12 @@ router.route('/itinerary/:id')
 
 router.route('/itinerary/city/:id')
     .get(itineraryforCity)
+
+
+router.route('/itinerary/comentario/:id')
+    .post(passport.authenticate('jwt', { session: false }), cargarComentarios)
+    .delete(borrarComentario)
+    .put(editarComentarios)
 
 /* Usuarios */
 

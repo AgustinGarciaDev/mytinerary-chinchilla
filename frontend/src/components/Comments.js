@@ -1,33 +1,53 @@
 import Comment from './Comment'
 import { connect } from "react-redux";
 import itineraryActions from '../Redux/Action/itineraryActions'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const Comments = (props) => {
 
-    const [comentario, setComentario] = useState("")
 
+    const id = props.idItinerary
+
+    const [comentariosActualizados, setComentariosActualizados] = useState({
+        comentariosNuevos: props.comments,
+        loading: true
+    })
+    const [comentario, setComentario] = useState({
+        mensaje: "",
+        token: localStorage.getItem('token')
+    })
 
     const datosInput = (e) => {
-        setComentario(e.target.value)
-        console.log(comentario)
+        setComentario({
+            ...comentario,
+            mensaje: e.target.value
+        })
     }
 
-    const enviarComentario = (e) => {
-        e.preventDefault()
-        props.cargarComentarios()
-        console.log(comentario)
+    const enviarComentario = async (e) => {
+        e && e.preventDefault()
+        const respuesta = await props.cargarComentarios(comentario, id)
+        setComentariosActualizados({ comentariosNuevos: respuesta, loading: false })
+
+    }
+
+    if (comentariosActualizados.loading) {
+        <h1>loading</h1>
     }
 
     return (
         <>
-            <h1>lista de comentarios</h1>
+            <h1>Lista de comentarios</h1>
             <div>
-                <Comment />
+                {
+                    !comentario.token
+                        ? props.comments.map(comment => <Comment id={id} comment={comment} />)
+                        : comentariosActualizados.comentariosNuevos.map(comment => <Comment id={id} comment={comment} />)
+                }
             </div>
             <div>
                 <form>
-                    <input onChange={datosInput} value={comentario} name="comentario" placeholder="deja tu comentario" type="text" />
-                    <input type="submit" onClick={enviarComentario} />
+                    <input onChange={datosInput} value={comentario.mensaje} name="comentario" placeholder="deja tu comentario" type="text" />
+                    <button className="btnFormRegister" onClick={enviarComentario} >SEND</button>
                 </form>
             </div>
         </>

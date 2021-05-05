@@ -3,8 +3,9 @@ import Carousel from 'react-elastic-carousel';
 import Comments from './Comments'
 import Activities from './Activities'
 
-const CardItinerary = ({ itinerary: { nombreItinerary, _id, authorName, duration, authorPic, hastag, precie, picBanner, offered, countryCoin, likes } }) => {
+const CardItinerary = ({ itinerary: { comments, nombreItinerary, _id, authorName, duration, authorPic, hastag, precie, picBanner, offered, countryCoin, likes } }) => {
 
+    /*   console.log(comments) */
     const [btnVisible, setBtn] = useState(false)
     return (
         <>
@@ -52,7 +53,7 @@ const CardItinerary = ({ itinerary: { nombreItinerary, _id, authorName, duration
                     &&
                     <div className="contenedorParaActividades">
                         <Activities btnVisible={btnVisible} idItinerary={_id} />
-                        <Comments idItinerary={_id} />
+                        <Comments comments={comments} idItinerary={_id} />
                     </div>
                 }
             </div>

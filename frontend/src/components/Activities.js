@@ -24,9 +24,6 @@ const Activities = (props) => {
     if (loading) {
         <h1>loading</h1>
     }
-
-
-    console.log(actividades)
     return (
         <div className="contenedorActividadesItinerary">
             {

@@ -6,7 +6,7 @@ const itineraryControllers = {
 
         try {
 
-            const todosItinerary = await Itinerary.find()
+            const todosItinerary = await Itinerary.find().populate('comments.userId')
             res.json({ success: true, respuesta: todosItinerary })
 
 
@@ -21,7 +21,6 @@ const itineraryControllers = {
 
         try {
             const itineraryACrear = new Itinerary({
-
                 nombreItinerary: nombreItinerary,
                 authorName: authorName,
                 authorPic: authorPic,
@@ -57,11 +56,8 @@ const itineraryControllers = {
     },
 
     actualizarItinerary: async (req, res) => {
-
         let id = req.params.id
-
         try {
-
             await Itinerary.findOneAndUpdate({ _id: id }, { ...req.body })
             const todosItinerary = await Itinerary.find()
             res.json({ success: true, respuesta: todosItinerary })
@@ -92,8 +88,45 @@ const itineraryControllers = {
         } catch (error) {
             res.json({ success: false, respuesta: "No tiene itinerarios asociados a este   " + id })
         }
-    }
+    },
 
+    cargarComentarios: async (req, res) => {
+
+        const idItinerari = req.params.id
+        const idUsuario = req.user._id
+        const { mensaje } = req.body
+
+        try {
+            const comentarioNuevo = await Itinerary.findOneAndUpdate(
+                { _id: idItinerari },
+                { $push: { comments: { userId: idUsuario, comment: mensaje } } },
+                { new: true }).populate('comments.userId')
+
+            comentarioNuevo.save()
+            res.json({ success: true, respuesta: comentarioNuevo })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    borrarComentario: async (req, res) => {
+
+        console.log(req.body)
+
+        try {
+
+
+            /*   await Itinerary.findOneAndRemove() */
+
+        } catch (error) {
+
+            console.log(error)
+        }
+
+    },
+    editarComentarios: async (req, res) => {
+
+    },
 
 }
 
