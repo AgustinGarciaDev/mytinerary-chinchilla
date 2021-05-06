@@ -103,20 +103,24 @@ const itineraryControllers = {
                 { new: true }).populate('comments.userId')
 
             comentarioNuevo.save()
-            res.json({ success: true, respuesta: comentarioNuevo })
+            res.json({ success: true, respuesta: comentarioNuevo.comments })
         } catch (error) {
             console.log(error)
         }
     },
 
     borrarComentario: async (req, res) => {
+        const idItinerari = req.params.id
+        console.log(idItinerari)
 
-        console.log(req.body)
-
+        const { id } = req.body
         try {
-
-
-            /*   await Itinerary.findOneAndRemove() */
+            const borrarComentario = await Itinerary.findOneAndUpdate(
+                { _id: idItinerari },
+                { $pull: { comments: { _id: id } } },
+                { new: true })
+            borrarComentario.save()
+            res.json({ success: true, respuesta: borrarComentario.comments })
 
         } catch (error) {
 
@@ -125,7 +129,23 @@ const itineraryControllers = {
 
     },
     editarComentarios: async (req, res) => {
+        const idItinerari = req.params.id
 
+        const idUsuario = req.user._id
+
+        const { idComentario, comment } = req.body
+        try {
+            const editarComentario = await Itinerary.findOneAndUpdate(
+                { _id: idItinerari, "comments._id": idComentario },
+                { $set: { "comments.$.comment": comment } },
+                { new: true }
+            )
+            editarComentario.save()
+            res.json({ success: true, respuesta: editarComentario.comments })
+
+        } catch (error) {
+            console.log(error)
+        }
     },
 
 }

@@ -24,8 +24,18 @@ const Comments = (props) => {
     }
 
     const enviarComentario = async (e) => {
-        e && e.preventDefault()
+        e.preventDefault()
         const respuesta = await props.cargarComentarios(comentario, id)
+        setComentariosActualizados({ comentariosNuevos: respuesta, loading: false })
+    }
+
+    const deleteComentario = async (idComentario) => {
+        const respuesta = await props.borrarComentario(idComentario, id)
+        setComentariosActualizados({ comentariosNuevos: respuesta, loading: false })
+    }
+
+    const editComentario = async (idComentario, comment,) => {
+        const respuesta = await props.editarComentario(id, idComentario, comment, comentario.token)
         setComentariosActualizados({ comentariosNuevos: respuesta, loading: false })
 
     }
@@ -40,8 +50,8 @@ const Comments = (props) => {
             <div>
                 {
                     !comentario.token
-                        ? props.comments.map(comment => <Comment id={id} comment={comment} />)
-                        : comentariosActualizados.comentariosNuevos.map(comment => <Comment id={id} comment={comment} />)
+                        ? props.comments.map(comment => <Comment comment={comment} />)
+                        : comentariosActualizados.comentariosNuevos.map(comment => <Comment key={comment._id} borrarComentario={deleteComentario} editarComentario={editComentario} comment={comment} />)
                 }
             </div>
             <div>
@@ -56,7 +66,9 @@ const Comments = (props) => {
 
 }
 const mapStateToProps = {
-    cargarComentarios: itineraryActions.cargarComentarios
+    cargarComentarios: itineraryActions.cargarComentarios,
+    borrarComentario: itineraryActions.borrarComentario,
+    editarComentario: itineraryActions.editarComentario
 }
 
 

@@ -41,7 +41,7 @@ router.route('/itinerary/city/:id')
 router.route('/itinerary/comentario/:id')
     .post(passport.authenticate('jwt', { session: false }), cargarComentarios)
     .delete(borrarComentario)
-    .put(editarComentarios)
+    .put(passport.authenticate('jwt', { session: false }), editarComentarios)
 
 /* Usuarios */
 

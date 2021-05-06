@@ -27,7 +27,7 @@ const Activities = (props) => {
     return (
         <div className="contenedorActividadesItinerary">
             {
-                actividades.map(actividad => <Activity actividad={actividad} />)
+                actividades.map(actividad => <Activity key={actividad._id} actividad={actividad} />)
             }
         </div>
     )

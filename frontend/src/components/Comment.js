@@ -1,35 +1,24 @@
-import { connect } from "react-redux"
-import itineraryActions from '../Redux/Action/itineraryActions'
+import { useEffect, useState } from 'react';
 const Comment = (props) => {
-
-
-    console.log()
-    const deleteComentario = (e) => {
-        e && e.preventDefault()
-        const btnData = e.target.dataset.borrar
-        props.borrarComentario(props.comment._id, props.id)
+    const { borrarComentario, editarComentario, comment: { comment, _id }, cambiarElementoInput } = props
+    const [comentario, setComentario] = useState({
+        mensaje: comment,
+    })
+    const datosInput = (e) => {
+        setComentario({
+            mensaje: e.target.value
+        })
     }
-
-    const editComentario = (e) => {
-        e && e.preventDefault()
-        const btnData = e.target.dataset.borrar
-        props.editarComentario(props.comment._id, props.id)
-    }
-
 
     return (
         <div>
-            <h4>{props.comment.comment}</h4>
-            <button data-borrar="1" onClick={deleteComentario}>Borrar</button>
-            <button data-editar="2" onClick={editComentario}>Editar</button>
+            <h4>{comment}</h4>
+            <input onChange={datosInput} value={comentario.mensaje} name="comentario" type="text" />
+            <button data-borrar="1" onClick={() => borrarComentario(_id)}>Borrar</button>
+            <button data-editar="1" onClick={() => editarComentario(_id, comentario.mensaje)}>Editar</button>
         </div>
     )
 }
 
-const mapDispatchToProps = {
 
-    borrarComentario: itineraryActions.borrarComentario,
-    editarComentario: itineraryActions.editarComentario
-}
-
-export default connect(null, mapDispatchToProps)(Comment)
+export default Comment

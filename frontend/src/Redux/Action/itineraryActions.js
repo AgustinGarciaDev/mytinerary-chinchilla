@@ -37,7 +37,7 @@ const itineraryActions = {
                     }
                 })
 
-                return response.data.respuesta.comments
+                return response.data.respuesta
 
             } catch (error) {
                 console.log(error)
@@ -46,14 +46,11 @@ const itineraryActions = {
     },
 
     borrarComentario: (idComentario, id) => {
-        console.log("idItinerary" + id)
-        console.log("idComentario" + idComentario)
-
         return async (dispatch, getState) => {
 
             try {
-                const response = await axios.delete('http://localhost:4000/api/itinerary/comentario/' + id)
-                console.log(response)
+                const response = await axios.delete('http://localhost:4000/api/itinerary/comentario/' + id, { data: { id: idComentario } })
+                return response.data.respuesta
             } catch (error) {
                 console.log(error)
             }
@@ -62,9 +59,26 @@ const itineraryActions = {
 
     },
 
-    editarComentario: (id) => {
+    editarComentario: (id, idComentario, comment, comentarioToken) => {
+
+
+        const datosComentario = {
+            idComentario: idComentario,
+            comment: comment,
+        }
+
         return async (dispatch, getState) => {
 
+            try {
+                const response = await axios.put('http://localhost:4000/api/itinerary/comentario/' + id, datosComentario, {
+                    headers: {
+                        'Authorization': 'Bearer ' + comentarioToken
+                    }
+                })
+                return response.data.respuesta
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 }
