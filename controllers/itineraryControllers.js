@@ -5,11 +5,8 @@ const itineraryControllers = {
     obtenerItineraries: async (req, res) => {
 
         try {
-
-            const todosItinerary = await Itinerary.find().populate('comments.userId')
+            const todosItinerary = await Itinerary.find()
             res.json({ success: true, respuesta: todosItinerary })
-
-
         } catch (error) {
             res.json({ success: false, respuesta: "No pudimos obtener los itineraries" })
         }
@@ -83,7 +80,7 @@ const itineraryControllers = {
     itineraryforCity: async (req, res) => {
         const id = req.params.id
         try {
-            const coincidenciasCiudad = await Itinerary.find({ idCity: id })
+            const coincidenciasCiudad = await Itinerary.find({ idCity: id }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1 } } })
             res.json({ success: true, respuesta: coincidenciasCiudad })
         } catch (error) {
             res.json({ success: false, respuesta: "No tiene itinerarios asociados a este   " + id })
@@ -100,7 +97,7 @@ const itineraryControllers = {
             const comentarioNuevo = await Itinerary.findOneAndUpdate(
                 { _id: idItinerari },
                 { $push: { comments: { userId: idUsuario, comment: mensaje } } },
-                { new: true }).populate('comments.userId')
+                { new: true }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1 } } })
 
             comentarioNuevo.save()
             res.json({ success: true, respuesta: comentarioNuevo.comments })
@@ -118,7 +115,7 @@ const itineraryControllers = {
             const borrarComentario = await Itinerary.findOneAndUpdate(
                 { _id: idItinerari },
                 { $pull: { comments: { _id: id } } },
-                { new: true })
+                { new: true }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1 } } })
             borrarComentario.save()
             res.json({ success: true, respuesta: borrarComentario.comments })
 
@@ -139,7 +136,7 @@ const itineraryControllers = {
                 { _id: idItinerari, "comments._id": idComentario },
                 { $set: { "comments.$.comment": comment } },
                 { new: true }
-            )
+            ).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1 } } })
             editarComentario.save()
             res.json({ success: true, respuesta: editarComentario.comments })
 
@@ -147,6 +144,49 @@ const itineraryControllers = {
             console.log(error)
         }
     },
+
+    likeItinerario: async (req, res) => {
+        const idItinerari = req.params.id
+        const { data: { email } } = req.body
+
+        const usuarioEmail = await Itinerary.findOne({ _id: idItinerari, "userLiked": email })
+        try {
+
+            if (usuarioEmail) {
+                const likeComentario = await Itinerary.findOneAndUpdate(
+                    { _id: idItinerari },
+                    { $pull: { userLiked: email } },
+                    { new: true }
+                )
+                const id = await Itinerary.findById(idItinerari)
+                const aumetarLike = await Itinerary.findOneAndUpdate(
+                    { _id: idItinerari },
+                    { likes: id.userLiked.length },
+                    { new: true }
+                )
+                res.json({ success: true, respuesta: { btnStatus: false, usuariosLikes: likeComentario.userLiked, likes: aumetarLike.likes } })
+            } else {
+                const likeComentario = await Itinerary.findOneAndUpdate(
+                    { _id: idItinerari },
+                    { $push: { userLiked: email } },
+                    { new: true }
+                )
+
+                const id = await Itinerary.findById(idItinerari)
+                const aumetarLike = await Itinerary.findOneAndUpdate(
+                    { _id: idItinerari },
+                    { likes: id.userLiked.length },
+                    { new: true }
+                )
+                res.json({ success: true, respuesta: { btnStatus: true, usuariosLikes: likeComentario.userLiked, likes: aumetarLike.likes } })
+            }
+
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
 
 }
 

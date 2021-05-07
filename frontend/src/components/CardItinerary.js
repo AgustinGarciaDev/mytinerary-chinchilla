@@ -1,12 +1,51 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Carousel from 'react-elastic-carousel';
 import Comments from './Comments'
 import Activities from './Activities'
+import itineraryActions from '../Redux/Action/itineraryActions'
+import { connect } from "react-redux";
 
-const CardItinerary = ({ itinerary: { comments, nombreItinerary, _id, authorName, duration, authorPic, hastag, precie, picBanner, offered, countryCoin, likes } }) => {
+const CardItinerary = (props) => {
 
-    /*   console.log(comments) */
+    const { itinerary: { comments, nombreItinerary, _id, authorName, duration, authorPic, hastag, precie, picBanner, offered, countryCoin, likes, userLiked } } = props
+
+    console.log(comments)
+
     const [btnVisible, setBtn] = useState(false)
+    const [user, setUser] = useState('')
+    const [corazonLike, setCorazonLike] = useState(false)
+    const [usersLikes, setUsersLikes] = useState(userLiked)
+    const [like, setLike] = useState(likes)
+    const [comentariosActualizados, setComentariosActualizados] = useState(comments)
+
+    const actualizadoBtn = () => {
+        setBtn(!btnVisible)
+    }
+    const likeBtn = async () => {
+        if (props.usuarioStatus) {
+            setUser(props.usuarioStatus.name)
+            const respuesta = await props.likearCorazon(_id, props.usuarioStatus.name)
+            console.log(respuesta)
+            setLike(respuesta.likes)
+            setUsersLikes(respuesta.usuariosLikes)
+            setCorazonLike(respuesta.btnStatus)
+        } else {
+            alert("KAPO NO SOS USUARIO")
+        }
+    }
+
+    useEffect(() => {
+        if (props.usuarioStatus) {
+            if (usersLikes.includes(props.usuarioStatus.name)) {
+                setCorazonLike(true)
+            } else {
+                setCorazonLike(false)
+            }
+        } else {
+            setCorazonLike(false)
+        }
+    }, [props.usuarioStatus])
+
     return (
         <>
             <div className="cardItinerary">
@@ -39,9 +78,11 @@ const CardItinerary = ({ itinerary: { comments, nombreItinerary, _id, authorName
                                         <span>{countryCoin.map((coin, index) => <img key={index} src={coin} alt="" />)}</span>
                                     </div>
 
-                                    <p className="btn_heart"><i className="far fa-heart"></i>{likes}</p>
+                                    <button id={_id + "a"} onClick={likeBtn}> <p className="btn_heart">
+                                        {corazonLike ? <i class="fas fa-heart"></i> : <i className="far fa-heart"></i>}
+                                        {like}</p></button>
                                 </div>
-                                <button className="btnActividades" id={_id} onClick={() => setBtn(!btnVisible)}> {btnVisible ? 'View less' : 'View More'}</button>
+                                <button className="btnActividades" id={_id} onClick={actualizadoBtn}> {btnVisible ? 'View less' : 'View More'}</button>
                             </div>
 
                         </div>
@@ -53,7 +94,7 @@ const CardItinerary = ({ itinerary: { comments, nombreItinerary, _id, authorName
                     &&
                     <div className="contenedorParaActividades">
                         <Activities btnVisible={btnVisible} idItinerary={_id} />
-                        <Comments comments={comments} idItinerary={_id} />
+                        <Comments comentariosActualizados={comentariosActualizados} setComentariosActualizados={setComentariosActualizados} idItinerary={_id} />
                     </div>
                 }
             </div>
@@ -62,4 +103,15 @@ const CardItinerary = ({ itinerary: { comments, nombreItinerary, _id, authorName
     )
 }
 
-export default CardItinerary
+const mapStateToProps = state => {
+    return {
+        usuarioStatus: state.user.usuarioStatus
+    }
+}
+
+const mapDispatchToProps = {
+    likearCorazon: itineraryActions.likearCorazon,
+    deslikearCorazon: itineraryActions.deslikearCorazon
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardItinerary)

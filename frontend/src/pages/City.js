@@ -43,8 +43,7 @@ const City = (props) => {
         <>
             <main className="contenedorCities">
                 <div className="contenedorHeroImg">
-                    <div className="imgCity" style={{ backgroundImage: `url("${ciudad.url}")` }}>
-
+                    <div className="imgCity" style={{ backgroundImage: `url(${ciudad.url})` }}>
                         <div className="ContenedortextoCiudad">
                             <h1 className="textoCiudad" >{ciudad.nombre}</h1>
 

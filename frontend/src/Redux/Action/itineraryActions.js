@@ -29,6 +29,8 @@ const itineraryActions = {
 
     cargarComentarios: (comentario, id) => {
 
+        console.log(comentario)
+
         return async (dispatch, getState) => {
             try {
                 const response = await axios.post('http://localhost:4000/api/itinerary/comentario/' + id, comentario, {
@@ -60,13 +62,10 @@ const itineraryActions = {
     },
 
     editarComentario: (id, idComentario, comment, comentarioToken) => {
-
-
         const datosComentario = {
             idComentario: idComentario,
             comment: comment,
         }
-
         return async (dispatch, getState) => {
 
             try {
@@ -80,7 +79,19 @@ const itineraryActions = {
                 console.log(error)
             }
         }
-    }
+    },
+
+    likearCorazon: (id, name) => {
+
+        return async (dispatch, getState) => {
+            try {
+                const respuesta = await axios.post('http://localhost:4000/api/itinerary/like/' + id, { data: { email: name } })
+                return respuesta.data.respuesta
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    },
 }
 
 export default itineraryActions
