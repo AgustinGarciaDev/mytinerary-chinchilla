@@ -1,6 +1,6 @@
-import React from 'react'
 import './style/style.css'
 import './style/formularioSign.css'
+import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from './pages/Home'
 import Cities from './pages/Cities'
@@ -13,6 +13,7 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import { connect } from 'react-redux';
 import userActions from './Redux/Action/userActions'
+import { ToastContainer } from 'react-toastify';
 
 class App extends React.Component {
 
@@ -47,6 +48,17 @@ class App extends React.Component {
           <Route path="/errorserver" component={ErrorServer} />
           <Redirect to="/Error" />
         </Switch>
+        < ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <Footer />
       </BrowserRouter>
     )

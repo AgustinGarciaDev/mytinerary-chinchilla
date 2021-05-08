@@ -66,7 +66,7 @@
 }
 
 .contenedorFormularioyTexto{
-  background-image: url("http://baravdg.com/wp-content/uploads/2021/05/pexels-james-wheeler-417074.png");
+  background-image: url("http://baravdg.com/wp-content/uploads/2021/05/fotoActualizada-scaled.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -156,7 +156,8 @@
 }
 
 .contenedorSignIn{
-    background-image: url("http://baravdg.com/wp-content/uploads/2021/05/Diseno-sin-titulo-13.png");
+    background-image: url("http://baravdg.com/wp-content/uploads/2021/05/SignIn.jpg");
+    background-position: bottom;
 }
 
 .btnGoogleSignUp{

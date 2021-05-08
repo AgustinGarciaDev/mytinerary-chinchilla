@@ -252,8 +252,234 @@
   text-align: center;
    font-size: 1.5rem;
 }
+.activityCuadro{
+      width: 20vw;
+    height: 19vw;
+    background-position: center;
+    background-size: cover;
+    margin: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    	position: relative;
+	overflow: hidden;
+      border-radius: 13px;
+      box-shadow: 3px 10px 20px 0px #0000004d;
+}
+
+@keyframes hover-img {
+	from {transform: scale(1);filter:blur(0px);}
+	to {transform: scale(1);filter:blur(0px);}
+}
+@keyframes fade-in {
+	from {opacity:0;}
+	to {opacity:1;}
+}
+
+.activityCuadro:hover  >.textActivity{
+	cursor: pointer;	
+	animation: hover-img 0.5s forwards;
+}
+
+.activityCuadro:hover  {
+	cursor: pointer;	
+	animation: hover-img 0.5s forwards;
+}
+
+.textActivity{
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  color: #fff;
+  background: #0d518870;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+}
+
+.textActivity > h1{
+      font-size: 1.5rem;
+}
+
+.activityCuadro:hover > .textActivity{
+  animation: fade-in 1s forwards;
+	opacity: 1;
+} 
+
+.contenedorComentarios{
+  background-color: rgb(240, 240, 240);
+  width: 92%;
+  padding: 33px;
+  box-shadow: 3px 10px 20px 0px #0000004d;
+  margin-top: 3vw;
+}
+
+.contenedorComentarioUnico{
+  display: flex;
+  margin-top: 9px;
+  margin-bottom: 23px;
+      align-items: center;
+}
+
+.contenedorComentarioUnico > .fa-ellipsis-h {
+  margin-left: 10px;
+}
+.textoContenedor{
+      background: white;
+    border-radius: 1vw;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.textoContenedor > h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "poppins";
+        padding: 2px;
+}
+
+.textoContenedor > h4{
+      font-size: 1.2rem;
+       font-family: "poppins";
+}
+
+.contenedorComentarioUnico > .fotoUser {
+  position: relative;
+  bottom: 29px;
+      width: 4vw;
+    height: 4vw;
+}
+
+.contenedorInputFotoUser{
+  display: flex;
+  align-items: center;
+}
+.contenedorInputFotoUser > .fotoUserHeader {
+    width: 3vw;
+    height: 3vw;
+}
+
+.inputSendComment{
+    height: 3vw;
+    width: 45vw;
+    border: none;
+    border-radius: 3vw;
+    padding: 18px;
+    font-family: "poppins";
+}
+.btnEmoji{
+      border: none;
+    font-size: 2vw;
+    position: relative;
+    bottom: -15px;
+    left: -1px;
+}
+
+.btnLikeHeart{
+      border: none;
+    background: #fdffed;
+    height: 46px;
+}
+.popover{
+  z-index: 0;
+}
+.btnOpciones{
+        background: none;
+    color: black;
+    border: none;
+    box-shadow: none;
+        margin-left: 10px;
+}
+
+.btnOpciones:focus{
+
+    background: none;
+    color: black;
+    border: none;
+     box-shadow: none;
+}
+.popover-body{
+  display: flex;
+    flex-direction: column;
+}
+.btnOpcionED{
+  border: none;
+  background: white;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.btnOpcionED:hover{
+  background: #F2F2F2;
+  width: 100%;
+}
+
+.inputEdit{
+    width: 100%;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 3vw;
+    padding-left: 13px;
+}
+  
+  .emoji-picker-react{
+    position: absolute!important;
+    right: 54vw;
+    z-index: 2;
+    height: 262px!important;
+    width: 279px!important;
+  margin-top: 0px !important;
+}
+
 
 @media (max-width: 798px) {
+
+  
+  .emoji-picker-react{
+  position: absolute!important;
+    right: 41vw;
+    z-index: 2;
+    height: 262px!important;
+    width: 279px!important;
+    margin-top: 27px !important;
+}
+
+  
+.activityCuadro{
+      width: 32vw;
+    height: 26vw;
+}
+
+  .inputSendComment{
+        width: 47vw;
+  }
+  .contenedorInputFotoUser > .fotoUserHeader {
+    width: 7vw;
+    height: 7vw;
+  }
+    .fa-grin-squint{
+    font-size: 31px;
+    }
+  .contenedorSendCommentForm{
+    flex-direction: row;
+    margin: 0;
+  }
+  .btnEmoji{
+    font-size: 2vw;
+      position: relative;
+    position: relative;
+      bottom: 0px;
+      left: -3px;
+      background: none;
+  }
+
+  .contenedorSendCommentForm > .btnFormRegister{
+        width: 12vw;
+    height: 5vw;
+    margin: 0;
+  }
   .fotoUser {
     width: 9vw;
   }
@@ -289,6 +515,20 @@
 }
 
 @media (max-width: 620px) {
+
+  .emoji-picker-react{
+   position: absolute!important;
+    right: 41vw;
+    z-index: 2;
+    height: 262px!important;
+    width: 279px!important;
+    margin-top: 27px !important;
+}
+
+  .contenedorComentarios {
+  width: 102%;
+  }
+
   .contenedorAbajo {
     flex-direction: column;
   }
@@ -333,8 +573,71 @@
     width: 9vw;
   }
 }
+@media (max-width:430px) {
+  
+  .emoji-picker-react{
+    position: absolute!important;
+    right: 16vw;
+    z-index: 2;
+    height: 262px!important;
+    width: 279px!important;
+    margin-top: 16px !important;
+}
+
+
+      .activityCuadro {
+        width: 73vw;
+        height: 47vw;
+    }
+
+    .contenedorComentarios{
+      padding: 0;
+    }
+    .textoContenedor > h2 {
+        font-size: 1rem;
+    }
+    .textoContenedor > h4 {
+    font-size: 0.9rem;
+    }
+    .contenedorSendCommentForm > .btnFormRegister {
+    width: 10vw;
+    height: 7vw;
+    margin-left: 9px;
+    margin-top: 0;
+}
+
+  .contenedorSendCommentForm{
+    margin-bottom: 3vw;
+  }
+
+  .fa-grin-squint {
+    font-size: 24px;
+}
+
+.btnEmoji {
+    bottom: 5px;
+}
+}
 
 @media (max-width: 375px) {
+
+  .emoji-picker-react{
+      position: absolute!important;
+      right: 6px;
+      z-index: 2;
+    height: 232px!important;
+    width: 252px!important;
+    margin-top: 17px !important;
+}
+
+
+  .contenedorComentarios {
+      width: 107%;
+  }
+  .contenedorSendCommentForm > .btnFormRegister{
+        width: 12vw;
+    height: 9vw;
+  }
   .cardItinerary {
     padding: px;
   }

@@ -1,17 +1,43 @@
 import Comment from './Comment'
 import { connect } from "react-redux";
 import itineraryActions from '../Redux/Action/itineraryActions'
+import Picker from 'emoji-picker-react';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 const Comments = (props) => {
 
+    const [chosenEmoji, setChosenEmoji] = useState(null);
+    const [emojiVisible, setEmojiVisible] = useState(false)
     const { comentariosActualizados, setComentariosActualizados } = props
     const id = props.idItinerary
 
     console.log(comentariosActualizados)
+
     const [comentario, setComentario] = useState({
         mensaje: "",
         token: localStorage.getItem('token')
     })
+
+    const onEmojiClick = (event, emojiObject) => {
+        setChosenEmoji(emojiObject);
+
+    };
+
+
+    useEffect(() => {
+        if (chosenEmoji) {
+            setComentario({
+                ...comentario,
+                mensaje: comentario.mensaje + chosenEmoji.emoji
+            })
+        }
+    }, [chosenEmoji])
+
+    const actualizadoBtn = (e) => {
+        e.preventDefault()
+        setEmojiVisible(!emojiVisible)
+    }
+
 
     const datosInput = (e) => {
         setComentario({
@@ -20,13 +46,17 @@ const Comments = (props) => {
         })
     }
 
+
+
     const enviarComentario = async (e) => {
         e.preventDefault()
         if (props.usuarioStatus) {
             const respuesta = await props.cargarComentarios(comentario, id)
             setComentariosActualizados(respuesta)
         } else {
-            alert("no sos usuario")
+            toast.error("no sos usuario", {
+                toastId: "error"
+            })
         }
 
     }
@@ -34,18 +64,11 @@ const Comments = (props) => {
     const deleteComentario = async (idComentario, email) => {
 
         if (props.usuarioStatus) {
-            console.log(email)
-
             if (email === props.usuarioStatus.name) {
                 const respuesta = await props.borrarComentario(idComentario, id)
-                console.log(respuesta)
                 setComentariosActualizados(respuesta)
-            } else {
-                console.log("no podes editar aka ojito")
             }
 
-        } else {
-            console.log("No podes borrar no sos usuario")
         }
 
 
@@ -57,21 +80,40 @@ const Comments = (props) => {
     }
 
 
+    const fotoUser = props.usuarioStatus
+        ? props.usuarioStatus.foto
+        : null
 
 
     return (
-        <>
-            <h1>Lista de comentarios</h1>
+        <div className="contenedorComentarios">
             <div>
                 {comentariosActualizados.map(comment => <Comment key={comment._id} borrarComentario={deleteComentario} editarComentario={editComentario} comment={comment} />)}
             </div>
-            <div>
-                <form>
-                    <input onChange={datosInput} value={comentario.mensaje} name="comentario" placeholder="deja tu comentario" type="text" />
-                    <button className="btnFormRegister" onClick={enviarComentario} >SEND</button>
+            <div className="contenedorInputFotoUser">
+                {props.usuarioStatus && <img className="fotoUserHeader" src={fotoUser} alt="" />}
+                <button className="btnEmoji" onClick={actualizadoBtn} ><i class="far fa-grin-squint"></i></button>
+                <form className="contenedorSendCommentForm">
+                    <input className="inputSendComment"
+                        onChange={datosInput}
+                        value={comentario.mensaje}
+                        name="comentario"
+                        placeholder="deja tu comentario"
+                        type="text" />
+                    <button className="btnFormRegister" onClick={enviarComentario} ><i class="fas fa-paper-plane"></i></button>
+                    {emojiVisible &&
+                        <div className="contenedorBloqueEmoji" >
+                            <Picker
+                                disableAutoFocus={true}
+                                onEmojiClick={onEmojiClick}
+                            />
+                        </div>
+                    }
+
                 </form>
+
             </div>
-        </>
+        </div>
 
     )
 

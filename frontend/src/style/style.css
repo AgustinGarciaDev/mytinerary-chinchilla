@@ -328,6 +328,12 @@ header {
   font-family: "poppins";
 }
 
+
+.contenedorImgCarrusel{
+  background-image: url(http://baravdg.com/wp-content/uploads/2021/04/Mesa-de-trabajo-2.png);
+  background-position: center;
+}
+
 @media (max-width: 1024px) {
   img {
     width: 44vw;
@@ -421,6 +427,8 @@ header {
     font-size: 2vw;
   }
 }
+
+
 @media (max-width: 768px) {
   .logo {
     width: 36vw;
@@ -575,6 +583,11 @@ header {
 }
 
 @media (max-width: 576px) {
+
+  .contenedorImgCarrusel{
+    
+    background-position: inherit;
+  }
   img {
     width: 44vw;
   }

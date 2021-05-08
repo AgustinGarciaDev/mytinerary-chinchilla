@@ -4,16 +4,13 @@ const Activity = require('../models/Activity')
 const activityControllers = {
 
     obtenerActivities: async (req, res) => {
-
         try {
-
             const todasLasActividades = await Activity.find()
             res.json({ sucesses: true, respuesta: todasLasActividades })
 
         } catch {
             res.json({ success: false, respuesta: "No pudimos obtener todas las actividades" })
         }
-
     },
 
 

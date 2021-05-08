@@ -4,13 +4,11 @@ import Comments from './Comments'
 import Activities from './Activities'
 import itineraryActions from '../Redux/Action/itineraryActions'
 import { connect } from "react-redux";
+import { toast } from 'react-toastify';
 
 const CardItinerary = (props) => {
 
     const { itinerary: { comments, nombreItinerary, _id, authorName, duration, authorPic, hastag, precie, picBanner, offered, countryCoin, likes, userLiked } } = props
-
-    console.log(comments)
-
     const [btnVisible, setBtn] = useState(false)
     const [user, setUser] = useState('')
     const [corazonLike, setCorazonLike] = useState(false)
@@ -20,6 +18,7 @@ const CardItinerary = (props) => {
 
     const actualizadoBtn = () => {
         setBtn(!btnVisible)
+        setComentariosActualizados(comments)
     }
     const likeBtn = async () => {
         if (props.usuarioStatus) {
@@ -30,14 +29,16 @@ const CardItinerary = (props) => {
             setUsersLikes(respuesta.usuariosLikes)
             setCorazonLike(respuesta.btnStatus)
         } else {
-            alert("KAPO NO SOS USUARIO")
+            toast.error("no sos usuario")
         }
     }
 
     useEffect(() => {
         if (props.usuarioStatus) {
+
             if (usersLikes.includes(props.usuarioStatus.name)) {
                 setCorazonLike(true)
+
             } else {
                 setCorazonLike(false)
             }
@@ -45,6 +46,8 @@ const CardItinerary = (props) => {
             setCorazonLike(false)
         }
     }, [props.usuarioStatus])
+
+
 
     return (
         <>
@@ -78,7 +81,7 @@ const CardItinerary = (props) => {
                                         <span>{countryCoin.map((coin, index) => <img key={index} src={coin} alt="" />)}</span>
                                     </div>
 
-                                    <button id={_id + "a"} onClick={likeBtn}> <p className="btn_heart">
+                                    <button className="btnLikeHeart" id={_id + "a"} onClick={likeBtn}> <p className="btn_heart">
                                         {corazonLike ? <i class="fas fa-heart"></i> : <i className="far fa-heart"></i>}
                                         {like}</p></button>
                                 </div>

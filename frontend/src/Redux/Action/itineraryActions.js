@@ -28,9 +28,6 @@ const itineraryActions = {
     },
 
     cargarComentarios: (comentario, id) => {
-
-        console.log(comentario)
-
         return async (dispatch, getState) => {
             try {
                 const response = await axios.post('http://localhost:4000/api/itinerary/comentario/' + id, comentario, {

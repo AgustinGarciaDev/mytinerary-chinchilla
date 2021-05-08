@@ -80,7 +80,7 @@ const itineraryControllers = {
     itineraryforCity: async (req, res) => {
         const id = req.params.id
         try {
-            const coincidenciasCiudad = await Itinerary.find({ idCity: id }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1 } } })
+            const coincidenciasCiudad = await Itinerary.find({ idCity: id }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1, "userPic": 1 } } })
             res.json({ success: true, respuesta: coincidenciasCiudad })
         } catch (error) {
             res.json({ success: false, respuesta: "No tiene itinerarios asociados a este   " + id })
@@ -97,7 +97,7 @@ const itineraryControllers = {
             const comentarioNuevo = await Itinerary.findOneAndUpdate(
                 { _id: idItinerari },
                 { $push: { comments: { userId: idUsuario, comment: mensaje } } },
-                { new: true }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1 } } })
+                { new: true }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1, "userPic": 1 } } })
 
             comentarioNuevo.save()
             res.json({ success: true, respuesta: comentarioNuevo.comments })
@@ -115,7 +115,7 @@ const itineraryControllers = {
             const borrarComentario = await Itinerary.findOneAndUpdate(
                 { _id: idItinerari },
                 { $pull: { comments: { _id: id } } },
-                { new: true }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1 } } })
+                { new: true }).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1, "userPic": 1 } } })
             borrarComentario.save()
             res.json({ success: true, respuesta: borrarComentario.comments })
 
@@ -136,7 +136,7 @@ const itineraryControllers = {
                 { _id: idItinerari, "comments._id": idComentario },
                 { $set: { "comments.$.comment": comment } },
                 { new: true }
-            ).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1 } } })
+            ).populate({ path: "comments", populate: { path: "userId", select: { "firstName": 1, "lastName": 1, "email": 1, "userPic": 1 } } })
             editarComentario.save()
             res.json({ success: true, respuesta: editarComentario.comments })
 
