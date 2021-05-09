@@ -7,11 +7,11 @@ import { connect } from "react-redux";
 
 const Comment = (props) => {
     const { borrarComentario, editarComentario, comment: { userId: { email, firstName, lastName, userPic }, comment, _id } } = props
+    const [editInput, setEditInput] = useState(false);
     const [comentario, setComentario] = useState({
         mensaje: comment,
     })
     const [show, setShow] = useState(false);
-    const [editInput, setEditInput] = useState(false);
     const [usuarioComentario, setUsuarioComentario] = useState(false)
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -21,10 +21,23 @@ const Comment = (props) => {
             mensaje: e.target.value
         })
     }
-
     const changeInput = () => {
         setEditInput(!editInput)
     }
+
+
+    const editComentario = (e) => {
+        if (e.key === "Enter") {
+
+            if (comentario.mensaje === "") {
+                alert("no ")
+            } else {
+                editarComentario(_id, comentario.mensaje, props.comment.userId.email)
+                changeInput()
+            }
+        }
+    }
+
 
 
     useEffect(() => {
@@ -36,7 +49,7 @@ const Comment = (props) => {
     }, [props.usuarioStatus])
 
     const popover = (
-        <Popover rootClose={true} id={_id} delay={{ show: 250, hide: 400 }}>
+        <Popover /* rootClose={true}  */ id={_id} delay={{ show: 250, hide: 400 }}>
             <Popover.Content>
                 <button className="btnOpcionED" onClick={handleShow}>delete</button>
                 <Modal show={show} onHide={handleClose}>
@@ -54,11 +67,9 @@ const Comment = (props) => {
                     </Modal.Footer>
                 </Modal>
                 <button className="btnOpcionED" onClick={changeInput}>Edit</button>
-
             </Popover.Content>
         </Popover>
     )
-
 
     return (
         <div className="contenedorComentarioUnico">
@@ -73,12 +84,7 @@ const Comment = (props) => {
                             onChange={datosInput}
                             value={comentario.mensaje}
                             name="comentario" type="text"
-                            onKeyPress={(e) => {
-                                if (e.key === "Enter") {
-                                    editarComentario(_id, comentario.mensaje, props.comment.userId.email)
-                                    changeInput()
-                                }
-                            }}
+                            onKeyPress={editComentario}
                         />
 
                     </div>
@@ -86,13 +92,10 @@ const Comment = (props) => {
             </div>
             { usuarioComentario &&
                 <OverlayTrigger rootClose={true} trigger="click" placement="right" overlay={popover}>
-                    <Button className="btnOpciones" id={_id} ><i class="fas fa-ellipsis-h"></i></Button>
+                    <Button className="btnOpciones" id={_id} ><i className="fas fa-ellipsis-h"></i></Button>
                 </OverlayTrigger>
             }
 
-            {/*   <input onChange={datosInput} value={comentario.mensaje} name="comentario" type="text" />
-            <button data-borrar="1" onClick={() => borrarComentario(_id, props.comment.userId.email)}>Borrar</button>
-            <button data-editar="1" onClick={() => editarComentario(_id, comentario.mensaje, props.comment.userId.email)}>Editar</button> */}
         </div>
     )
 }

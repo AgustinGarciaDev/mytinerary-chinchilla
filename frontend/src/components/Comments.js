@@ -4,15 +4,14 @@ import itineraryActions from '../Redux/Action/itineraryActions'
 import Picker from 'emoji-picker-react';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { Link } from "react-router-dom";
 const Comments = (props) => {
 
     const [chosenEmoji, setChosenEmoji] = useState(null);
-    const [emojiVisible, setEmojiVisible] = useState(false)
+    const [loading, setLoading] = useState(true)
+    const [emojiVisible, setEmojiVisible] = useState(false);
     const { comentariosActualizados, setComentariosActualizados } = props
     const id = props.idItinerary
-
-    console.log(comentariosActualizados)
-
     const [comentario, setComentario] = useState({
         mensaje: "",
         token: localStorage.getItem('token')
@@ -22,7 +21,6 @@ const Comments = (props) => {
         setChosenEmoji(emojiObject);
 
     };
-
 
     useEffect(() => {
         if (chosenEmoji) {
@@ -38,7 +36,6 @@ const Comments = (props) => {
         setEmojiVisible(!emojiVisible)
     }
 
-
     const datosInput = (e) => {
         setComentario({
             ...comentario,
@@ -46,15 +43,21 @@ const Comments = (props) => {
         })
     }
 
-
-
     const enviarComentario = async (e) => {
         e.preventDefault()
+
+        const quitarEspacios = comentario.mensaje.charAt(0)
         if (props.usuarioStatus) {
-            const respuesta = await props.cargarComentarios(comentario, id)
-            setComentariosActualizados(respuesta)
+            if (quitarEspacios === " " || comentario.mensaje === "") {
+                toast.error("You must be logged in to comment", {
+                    toastId: "sendComment"
+                })
+            } else {
+                const respuesta = await props.cargarComentarios(comentario, id)
+                setComentariosActualizados(respuesta)
+            }
         } else {
-            toast.error("no sos usuario", {
+            toast.error("You must be logged in to comment", {
                 toastId: "error"
             })
         }
@@ -62,57 +65,63 @@ const Comments = (props) => {
     }
 
     const deleteComentario = async (idComentario, email) => {
-
         if (props.usuarioStatus) {
             if (email === props.usuarioStatus.name) {
                 const respuesta = await props.borrarComentario(idComentario, id)
                 setComentariosActualizados(respuesta)
+                toast.success("Comment deleted successfully", {
+                    toastId: "delete"
+                })
             }
-
         }
-
-
     }
 
-    const editComentario = async (idComentario, comment,) => {
-        const respuesta = await props.editarComentario(id, idComentario, comment, comentario.token)
-        setComentariosActualizados(respuesta)
+    const editComentario = async (idComentario, comment, email) => {
+        if (email === props.usuarioStatus.name) {
+            const respuesta = await props.editarComentario(id, idComentario, comment)
+            setLoading(!loading)
+            setComentariosActualizados(respuesta)
+        }
     }
-
-
     const fotoUser = props.usuarioStatus
         ? props.usuarioStatus.foto
         : null
 
-
     return (
         <div className="contenedorComentarios">
             <div>
-                {comentariosActualizados.map(comment => <Comment key={comment._id} borrarComentario={deleteComentario} editarComentario={editComentario} comment={comment} />)}
+                {comentariosActualizados.map(comment => <Comment loading={loading} key={comment._id} borrarComentario={deleteComentario} editarComentario={editComentario} comment={comment} />)}
             </div>
-            <div className="contenedorInputFotoUser">
-                {props.usuarioStatus && <img className="fotoUserHeader" src={fotoUser} alt="" />}
-                <button className="btnEmoji" onClick={actualizadoBtn} ><i class="far fa-grin-squint"></i></button>
-                <form className="contenedorSendCommentForm">
-                    <input className="inputSendComment"
-                        onChange={datosInput}
-                        value={comentario.mensaje}
-                        name="comentario"
-                        placeholder="deja tu comentario"
-                        type="text" />
-                    <button className="btnFormRegister" onClick={enviarComentario} ><i class="fas fa-paper-plane"></i></button>
-                    {emojiVisible &&
-                        <div className="contenedorBloqueEmoji" >
-                            <Picker
-                                disableAutoFocus={true}
-                                onEmojiClick={onEmojiClick}
-                            />
-                        </div>
-                    }
+            {props.usuarioStatus
+                ? <div className="contenedorInputFotoUser">
+                    <img className="fotoUserHeader" src={fotoUser} alt="" />
+                    <button className="btnEmoji" onClick={actualizadoBtn} ><i className="far fa-grin-squint"></i></button>
+                    <form className="contenedorSendCommentForm">
+                        <input className="inputSendComment"
+                            onChange={datosInput}
+                            value={comentario.mensaje}
+                            name="comentario"
+                            placeholder="deja tu comentario"
+                            type="text" />
+                        <button className="btnFormRegister" onClick={enviarComentario} ><i className="fas fa-paper-plane"></i></button>
+                        {emojiVisible &&
+                            <div className="contenedorBloqueEmoji" >
+                                <Picker
+                                    disableAutoFocus={true}
+                                    onEmojiClick={onEmojiClick}
+                                />
+                            </div>
+                        }
 
-                </form>
+                    </form>
+                </div>
+                : <div className="contenedorBtnSp">
+                    <div className="contenedorBtnSp_SignUp"><Link to="/signin">Sign in</Link></div>
+                    <div className="contenedorBtnSp_SignIp"> <Link to="/signup">Sign Up</Link></div>
+                </div>
+            }
 
-            </div>
+
         </div>
 
     )

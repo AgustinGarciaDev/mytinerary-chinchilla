@@ -187,6 +187,11 @@
   display: flex;
   align-items: center;
 }
+.contenedorOffered > p{
+
+  margin: 0;
+
+}
 .contenedorOffered > .lenguage {
   margin-left: 5px;
   font-family: "poppins";
@@ -211,6 +216,7 @@
   display: flex;
   margin-bottom: 10px;
   margin-top: 10px;
+  align-items: center;
 }
 
 .contenedorCoins > span > img {
@@ -220,6 +226,7 @@
 .contenedorCoins > p {
   font-family: "poppins";
   font-size: 20px;
+  margin: 0;
 }
 
 @media (max-width: 1024px) {
@@ -424,15 +431,28 @@
     padding-left: 13px;
 }
   
-  .emoji-picker-react{
-    position: absolute!important;
-    right: 54vw;
-    z-index: 2;
-    height: 262px!important;
-    width: 279px!important;
-  margin-top: 0px !important;
-}
+      .emoji-picker-react{
+        position: absolute!important;
+        right: 54vw;
+        z-index: 2;
+        height: 262px!important;
+        width: 279px!important;
+      margin-top: 0px !important;
+    }
 
+    .contenedorBtnSp{
+      display: flex;
+      justify-content:center;
+      margin: 20px;
+    }
+
+    .contenedorBtnSp_SignUp{
+          margin-right: 10px;
+    }
+
+    .contenedorBtnSp_SignIp{
+        margin-left: 10px;
+    }
 
 @media (max-width: 798px) {
 

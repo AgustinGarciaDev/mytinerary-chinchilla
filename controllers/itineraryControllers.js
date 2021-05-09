@@ -127,9 +127,6 @@ const itineraryControllers = {
     },
     editarComentarios: async (req, res) => {
         const idItinerari = req.params.id
-
-        const idUsuario = req.user._id
-
         const { idComentario, comment } = req.body
         try {
             const editarComentario = await Itinerary.findOneAndUpdate(

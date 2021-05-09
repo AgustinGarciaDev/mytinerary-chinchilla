@@ -40,7 +40,7 @@ router.route('/itinerary/city/:id')
 router.route('/itinerary/comentario/:id')
     .post(passport.authenticate('jwt', { session: false }), cargarComentarios)
     .delete(borrarComentario)
-    .put(passport.authenticate('jwt', { session: false }), editarComentarios)
+    .put(editarComentarios)
 
 
 router.route('/itinerary/like/:id')

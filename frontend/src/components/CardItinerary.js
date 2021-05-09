@@ -82,7 +82,7 @@ const CardItinerary = (props) => {
                                     </div>
 
                                     <button className="btnLikeHeart" id={_id + "a"} onClick={likeBtn}> <p className="btn_heart">
-                                        {corazonLike ? <i class="fas fa-heart"></i> : <i className="far fa-heart"></i>}
+                                        {corazonLike ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
                                         {like}</p></button>
                                 </div>
                                 <button className="btnActividades" id={_id} onClick={actualizadoBtn}> {btnVisible ? 'View less' : 'View More'}</button>

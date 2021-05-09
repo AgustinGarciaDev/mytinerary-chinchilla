@@ -58,7 +58,7 @@ const itineraryActions = {
 
     },
 
-    editarComentario: (id, idComentario, comment, comentarioToken) => {
+    editarComentario: (id, idComentario, comment) => {
         const datosComentario = {
             idComentario: idComentario,
             comment: comment,
@@ -66,11 +66,7 @@ const itineraryActions = {
         return async (dispatch, getState) => {
 
             try {
-                const response = await axios.put('http://localhost:4000/api/itinerary/comentario/' + id, datosComentario, {
-                    headers: {
-                        'Authorization': 'Bearer ' + comentarioToken
-                    }
-                })
+                const response = await axios.put('http://localhost:4000/api/itinerary/comentario/' + id, datosComentario)
                 return response.data.respuesta
             } catch (error) {
                 console.log(error)
