@@ -14,6 +14,7 @@ const CardItinerary = (props) => {
     const [corazonLike, setCorazonLike] = useState(false)
     const [usersLikes, setUsersLikes] = useState(userLiked)
     const [like, setLike] = useState(likes)
+    const [loadingCorazon, setLoadingCorazon] = useState(true)
     const [comentariosActualizados, setComentariosActualizados] = useState(comments)
 
     const actualizadoBtn = () => {
@@ -22,12 +23,13 @@ const CardItinerary = (props) => {
     }
     const likeBtn = async () => {
         if (props.usuarioStatus) {
+            setLoadingCorazon(false)
             setUser(props.usuarioStatus.name)
             const respuesta = await props.likearCorazon(_id, props.usuarioStatus.name)
-            console.log(respuesta)
             setLike(respuesta.likes)
             setUsersLikes(respuesta.usuariosLikes)
             setCorazonLike(respuesta.btnStatus)
+            setLoadingCorazon(true)
         } else {
             toast.error("no sos usuario")
         }
@@ -81,16 +83,14 @@ const CardItinerary = (props) => {
                                         <span>{countryCoin.map((coin, index) => <img key={index} src={coin} alt="" />)}</span>
                                     </div>
 
-                                    <button className="btnLikeHeart" id={_id + "a"} onClick={likeBtn}> <p className="btn_heart">
+                                    <button className="btnLikeHeart" id={_id + "a"} onClick={loadingCorazon ? likeBtn : null}> <p className="btn_heart">
                                         {corazonLike ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
                                         {like}</p></button>
                                 </div>
                                 <button className="btnActividades" id={_id} onClick={actualizadoBtn}> {btnVisible ? 'View less' : 'View More'}</button>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
                 {
                     btnVisible

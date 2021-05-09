@@ -338,13 +338,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+     width: 66%;
 }
 
 .textoContenedor > h2 {
     font-size: 1.5rem;
     font-weight: bold;
     font-family: "poppins";
-        padding: 2px;
+    padding: 2px;
+   
 }
 
 .textoContenedor > h4{

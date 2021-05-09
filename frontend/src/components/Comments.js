@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Comments = (props) => {
 
     const [chosenEmoji, setChosenEmoji] = useState(null);
-    const [loading, setLoading] = useState(true)
+    const [loadingComment, setLoadingComment] = useState(true)
     const [emojiVisible, setEmojiVisible] = useState(false);
     const { comentariosActualizados, setComentariosActualizados } = props
     const id = props.idItinerary
@@ -45,7 +45,6 @@ const Comments = (props) => {
 
     const enviarComentario = async (e) => {
         e.preventDefault()
-
         const quitarEspacios = comentario.mensaje.charAt(0)
         if (props.usuarioStatus) {
             if (quitarEspacios === " " || comentario.mensaje === "") {
@@ -53,8 +52,13 @@ const Comments = (props) => {
                     toastId: "sendComment"
                 })
             } else {
+                setLoadingComment(false)
                 const respuesta = await props.cargarComentarios(comentario, id)
                 setComentariosActualizados(respuesta)
+                setComentario({
+                    mensaje: ""
+                })
+                setLoadingComment(true)
             }
         } else {
             toast.error("You must be logged in to comment", {
@@ -79,7 +83,6 @@ const Comments = (props) => {
     const editComentario = async (idComentario, comment, email) => {
         if (email === props.usuarioStatus.name) {
             const respuesta = await props.editarComentario(id, idComentario, comment)
-            setLoading(!loading)
             setComentariosActualizados(respuesta)
         }
     }
@@ -90,20 +93,20 @@ const Comments = (props) => {
     return (
         <div className="contenedorComentarios">
             <div>
-                {comentariosActualizados.map(comment => <Comment loading={loading} key={comment._id} borrarComentario={deleteComentario} editarComentario={editComentario} comment={comment} />)}
+                {comentariosActualizados.map(comment => <Comment key={comment._id} borrarComentario={deleteComentario} editarComentario={editComentario} comment={comment} />)}
             </div>
             {props.usuarioStatus
                 ? <div className="contenedorInputFotoUser">
                     <img className="fotoUserHeader" src={fotoUser} alt="" />
                     <button className="btnEmoji" onClick={actualizadoBtn} ><i className="far fa-grin-squint"></i></button>
-                    <form className="contenedorSendCommentForm">
+                    <div className="contenedorSendCommentForm">
                         <input className="inputSendComment"
                             onChange={datosInput}
                             value={comentario.mensaje}
                             name="comentario"
-                            placeholder="deja tu comentario"
+                            placeholder="Write a comment..."
                             type="text" />
-                        <button className="btnFormRegister" onClick={enviarComentario} ><i className="fas fa-paper-plane"></i></button>
+                        <button className="btnFormRegister" onClick={loadingComment ? enviarComentario : null} ><i className="fas fa-paper-plane"></i></button>
                         {emojiVisible &&
                             <div className="contenedorBloqueEmoji" >
                                 <Picker
@@ -113,7 +116,7 @@ const Comments = (props) => {
                             </div>
                         }
 
-                    </form>
+                    </div>
                 </div>
                 : <div className="contenedorBtnSp">
                     <div className="contenedorBtnSp_SignUp"><Link to="/signin">Sign in</Link></div>
