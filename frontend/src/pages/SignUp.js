@@ -89,10 +89,6 @@ const SingUp = (props) => {
     return (
         <section className="contenedorFormularioyTexto sectionSignUp">
             <form className="formularioRegistro formularioSignUp" >
-                <div className="contenedorTextoSign contenedorTextoSignUp">
-                    <p>Account? <Link to="/signin">Sign in</Link></p>
-
-                </div>
                 <h1 className="SignInText">Sign Up</h1>
                 <GoogleLogin
                     clientId="780474747059-kjbfva78hf1ar7gfssbr3bj67pdc6e44.apps.googleusercontent.com"
@@ -148,6 +144,9 @@ const SingUp = (props) => {
                     </label>
                 </div>
                 <button className="btnFormRegister" onClick={enviarFormulario}>Sign Up</button>
+                <div className="contenedorTextoSign contenedorTextoSignUp">
+                    <p>Already have an account?<br /><Link to="/signin"><span className="nameBtnForm">Sign in</span></Link></p>
+                </div>
             </form>
             < ToastContainer
                 position="top-center"

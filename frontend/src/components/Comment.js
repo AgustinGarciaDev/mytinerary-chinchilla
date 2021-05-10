@@ -75,7 +75,10 @@ const Comment = (props) => {
         <div className="contenedorComentarioUnico">
             <img className="fotoUserHeader" src={userPic} alt="" />
             <div className="textoContenedor">
-                <h2>{firstName}{lastName}</h2>
+                <div className="commentNameUser">
+                    <h2>{firstName}</h2>
+                    <h2 className="commentLastName">{lastName}</h2>
+                </div>
                 {!editInput
                     ? <h4>{comment}</h4>
                     : <div>
@@ -90,11 +93,12 @@ const Comment = (props) => {
                     </div>
                 }
             </div>
-            { usuarioComentario &&
+            {usuarioComentario &&
                 <OverlayTrigger rootClose={true} trigger="click" placement="right" overlay={popover}>
                     <Button className="btnOpciones" id={_id} ><i className="fas fa-ellipsis-h"></i></Button>
                 </OverlayTrigger>
             }
+
 
         </div>
     )

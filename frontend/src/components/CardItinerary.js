@@ -31,7 +31,9 @@ const CardItinerary = (props) => {
             setCorazonLike(respuesta.btnStatus)
             setLoadingCorazon(true)
         } else {
-            toast.error("no sos usuario")
+            toast.error("You must be logged in to  like an itinerary", {
+                toastId: "noLogued"
+            })
         }
     }
 

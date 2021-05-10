@@ -397,7 +397,7 @@ a,
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 700px) {
 
   .fotoUserHeader{
   width: 12vw;
@@ -441,7 +441,7 @@ a,
     margin-bottom: 7vw;
   }
   .imgCity {
-    height: 76vh;
+ height: 81vw;
   }
   .spaceBtn {
     margin-bottom: 10px;
@@ -466,6 +466,12 @@ a,
   .btn-cities {
     width: 59vw;
   }
+}
+
+@media (max-width: 430px) {
+    .contenedorImagenes {
+      top: 93vw;
+    }
 }
 
 @media (max-width: 375px) {

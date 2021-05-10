@@ -32,6 +32,7 @@
 
 .hastag {
   display: flex;
+      flex-wrap: wrap;
 }
 
 .hastag > p {
@@ -229,19 +230,23 @@
   margin: 0;
 }
 
-@media (max-width: 1024px) {
-  .btn_heart {
-    width: 9vw;
-  }
-
-  .btnActividades {
-    width: 21vw;
-    height: 5vw;
-  }
-  .contenedorActividades > p > img {
-    width: 5vw;
-  }
+.commentNameUser{
+  display: flex;
+  flex-wrap: wrap;
 }
+
+.commentLastName{
+     margin-left: 5px;
+}
+
+.commentNameUser> h2{
+    font-size: 1.5rem;
+    font-family: "poppins";
+    font-weight: bold;
+
+}
+
+
 
 .contenedorActividadesItinerary{
   display: flex;
@@ -325,7 +330,8 @@
   display: flex;
   margin-top: 9px;
   margin-bottom: 23px;
-      align-items: center;
+  align-items: center;
+      flex-wrap: wrap;
 }
 
 .contenedorComentarioUnico > .fa-ellipsis-h {
@@ -455,6 +461,21 @@
     .contenedorBtnSp_SignIp{
         margin-left: 10px;
     }
+
+  
+@media (max-width: 1024px) {
+  .btn_heart {
+    width: 9vw;
+  }
+
+  .btnActividades {
+    width: 21vw;
+    height: 5vw;
+  }
+  .contenedorActividades > p > img {
+    width: 5vw;
+  }
+}    
 
 @media (max-width: 798px) {
 
@@ -595,7 +616,7 @@
     width: 9vw;
   }
 }
-@media (max-width:430px) {
+@media screen and  (max-width:600px)  and  (min-width:376px) {
   
   .emoji-picker-react{
     position: absolute!important;
@@ -642,6 +663,10 @@
 }
 
 @media (max-width: 375px) {
+        .activityCuadro {
+        width: 73vw;
+        height: 47vw;
+    }
 
   .emoji-picker-react{
       position: absolute!important;

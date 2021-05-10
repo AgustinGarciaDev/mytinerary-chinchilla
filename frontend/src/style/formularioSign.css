@@ -1,10 +1,7 @@
-
 .contenedorFotoyFormulario {
   display: flex;
 
 }
-
-
 .contenedorFormulario{
    width: 40vw;
    display: flex;
@@ -12,7 +9,6 @@
    flex-direction: column;
    
 }
-
 .formularioRegistro {
   display: flex;
   flex-direction: column;
@@ -111,14 +107,17 @@
 }
 
 .contenedorTextoSign{
-      width: 9vw;
     display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    left: 12vw;
-    color: white;
+   color: #000e19;
+    margin-top: 15px;
+    text-align: left;
 }
+  .nameBtnForm{
+      color: #000e19;
+      font-weight: bold;
+      font-size: 20px;
+    }
 
 .contenedorTextoSign > p{
   margin: 0;
@@ -151,9 +150,6 @@
       height: 51vw;
 }
 
-.contenedorTextoSignUp{
-      width: 6vw;
-}
 
 .contenedorSignIn{
     background-image: url("http://baravdg.com/wp-content/uploads/2021/05/SignIn.jpg");
@@ -165,9 +161,6 @@
 }
 
 @media(max-width:1110px ){
-
- 
- 
   .btnGoogle{
        width: 23vw;
   }
@@ -189,11 +182,6 @@
      height: 40vw;
   }
 
-  .contenedorTextoSignIn{
-       left: 15vw;
-    width: 10vw;
-  }
-
 }
 
 
@@ -208,9 +196,6 @@
     align-items: flex-start;
 }
 
-.contenedorTextoSign{
-      left: 19vw;
-}
 
 .formularioRegistro{
     width: 31vw;
@@ -280,9 +265,7 @@
   margin: 7vw 0px;
   padding: 2vw;
 }
-.contenedorTextoSign {
-    left: 41vw;
-}
+
 .btnFormRegister {
     width: 24vw;
     height: 9vw;
@@ -307,24 +290,16 @@
     width: 66.5vw;
 }
 .formularioSignUp {
-    height: 167vw;
+    height: 171vw;
     width: 72vw;
 }
 .sectionSignUp {
     height: 181vw;
 }
-.contenedorTextoSign {
-    left: 53vw;
-}
-
 
   .formularioSignIn{
      height: 117vw;
     width: 70vw;
-  }
-  .contenedorTextoSignIn{
-        width: 28vw;
-        left: 35vw;
   }
 
 }

@@ -55,10 +55,12 @@ const Comments = (props) => {
                 setLoadingComment(false)
                 const respuesta = await props.cargarComentarios(comentario, id)
                 setComentariosActualizados(respuesta)
+                setLoadingComment(true)
                 setComentario({
+                    ...comentario,
                     mensaje: ""
                 })
-                setLoadingComment(true)
+
             }
         } else {
             toast.error("You must be logged in to comment", {
