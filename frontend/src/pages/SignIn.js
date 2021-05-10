@@ -14,6 +14,11 @@ const SingIn = (props) => {
         email: "",
         password: "",
     })
+    window.scroll({
+        top: 400,
+        left: 100,
+        behavior: 'smooth'
+    });
 
     const cambioValor = (e) => {
         const campo = e.target.name

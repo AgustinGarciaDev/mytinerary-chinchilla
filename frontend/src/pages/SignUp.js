@@ -22,8 +22,12 @@ const SingUp = (props) => {
     })
 
     useEffect(() => {
-
         props.fetchearPaises()
+        window.scroll({
+            top: 400,
+            left: 100,
+            behavior: 'smooth'
+        });
 
     }, [])
 
@@ -68,7 +72,6 @@ const SingUp = (props) => {
 
     useEffect(() => {
         notificacionesToast()
-        console.log(errores)
     }, [errores])
 
     const notificacionesToast = () => {

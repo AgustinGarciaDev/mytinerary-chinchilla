@@ -121,6 +121,7 @@
   height: 4vw;
   font-family: "poppins";
   font-weight: 700;
+      margin-top: 26px;
 }
 
 .tituloItinerary {
@@ -199,7 +200,7 @@
 }
 
 .rec-pagination {
-  margin-top: -15px;
+    margin-top: -31px !important;
 }
 
 .offeredText {
@@ -211,6 +212,7 @@
 .offeredText > p {
   font-family: "poppins";
   font-size: 20px;
+  margin-bottom: 0;
 }
 
 .contenedorCoins {

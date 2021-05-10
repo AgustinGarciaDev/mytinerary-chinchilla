@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Carousel from 'react-elastic-carousel';
 import Comments from './Comments'
 import Activities from './Activities'
@@ -21,6 +21,7 @@ const CardItinerary = (props) => {
         setBtn(!btnVisible)
         setComentariosActualizados(comments)
     }
+
     const likeBtn = async () => {
         if (props.usuarioStatus) {
             setLoadingCorazon(false)
@@ -39,10 +40,8 @@ const CardItinerary = (props) => {
 
     useEffect(() => {
         if (props.usuarioStatus) {
-
             if (usersLikes.includes(props.usuarioStatus.name)) {
                 setCorazonLike(true)
-
             } else {
                 setCorazonLike(false)
             }
@@ -57,7 +56,7 @@ const CardItinerary = (props) => {
         <>
             <div className="cardItinerary">
                 <div className="contenedorArriba">
-                    <h2 className="tituloItinerary">{nombreItinerary}</h2>
+                    <h2 id={nombreItinerary} className="tituloItinerary">{nombreItinerary}</h2>
                     <div className="hastag">{hastag.map((etiqueta, index) => <p key={index}>#{etiqueta}</p>)}</div>
                 </div>
                 <div className="contenedorAbajo">
@@ -89,10 +88,12 @@ const CardItinerary = (props) => {
                                         {corazonLike ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
                                         {like}</p></button>
                                 </div>
-                                <button className="btnActividades" id={_id} onClick={actualizadoBtn}> {btnVisible ? 'View less' : 'View More'}</button>
+                                {!btnVisible && <button className="btnActividades" id={_id} onClick={actualizadoBtn}> {btnVisible ? 'View less' : 'View More'}</button>}
+
                             </div>
                         </div>
                     </div>
+
                 </div>
                 {
                     btnVisible
@@ -100,6 +101,7 @@ const CardItinerary = (props) => {
                     <div className="contenedorParaActividades">
                         <Activities btnVisible={btnVisible} idItinerary={_id} />
                         <Comments comentariosActualizados={comentariosActualizados} setComentariosActualizados={setComentariosActualizados} idItinerary={_id} />
+                        <button className="btnActividades" id={_id} onClick={actualizadoBtn}> {btnVisible ? 'View less' : 'View More'}</button>
                     </div>
                 }
             </div>
