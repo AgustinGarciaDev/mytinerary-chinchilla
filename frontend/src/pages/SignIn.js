@@ -15,8 +15,7 @@ const SingIn = (props) => {
         password: "",
     })
     window.scroll({
-        top: 400,
-        left: 100,
+        top: 0,
         behavior: 'smooth'
     });
 

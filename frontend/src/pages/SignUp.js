@@ -24,8 +24,7 @@ const SingUp = (props) => {
     useEffect(() => {
         props.fetchearPaises()
         window.scroll({
-            top: 400,
-            left: 100,
+            top: 0,
             behavior: 'smooth'
         });
 
