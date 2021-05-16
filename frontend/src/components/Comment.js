@@ -33,7 +33,8 @@ const Comment = (props) => {
                 alert("no ")
             } else {
                 editarComentario(_id, comentario.mensaje, props.comment.userId.email)
-                changeInput()
+                /*  changeInput() */
+                editInput()
             }
         }
     }

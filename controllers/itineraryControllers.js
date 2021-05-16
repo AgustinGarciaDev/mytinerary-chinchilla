@@ -120,7 +120,6 @@ const itineraryControllers = {
             res.json({ success: true, respuesta: borrarComentario.comments })
 
         } catch (error) {
-
             console.log(error)
         }
 
@@ -177,8 +176,6 @@ const itineraryControllers = {
                 )
                 res.json({ success: true, respuesta: { btnStatus: true, usuariosLikes: likeComentario.userLiked, likes: aumetarLike.likes } })
             }
-
-
         } catch (error) {
             console.log(error)
         }
