@@ -74,7 +74,7 @@ const Comments = (props) => {
         if (props.usuarioStatus) {
             if (email === props.usuarioStatus.name) {
                 const respuesta = await props.borrarComentario(idComentario, id)
-                setComentariosActualizados(respuesta.comments)
+                setComentariosActualizados(respuesta)
                 toast.success("Comment deleted successfully", {
                     toastId: "delete"
                 })

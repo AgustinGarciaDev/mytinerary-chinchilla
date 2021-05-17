@@ -75,10 +75,7 @@ const userActions = {
                 })
             } catch (error) {
                 if (error.response.status === 401) {
-                    toast.success("Hacking Alert", {
-                        autoClose: 1000,
-                        position: "top-center",
-                    })
+                    alert("HACKING ALERT")
 
                 }
 
