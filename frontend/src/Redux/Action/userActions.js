@@ -17,7 +17,7 @@ const userActions = {
         return async (dispatch, getState) => {
 
             try {
-                const response = await axios.post("http://localhost:4000/api/user/signUp", datosUsuario)
+                const response = await axios.post("https://my-tinerary2021.herokuapp.com/api/user/signUp", datosUsuario)
                 if (!response.data.success) {
                     return response.data.errores
                 }
@@ -32,7 +32,7 @@ const userActions = {
 
         return async (dispatch, getState) => {
             try {
-                const response = await axios.post("http://localhost:4000/api/user/signIn", datosUsuario)
+                const response = await axios.post("https://my-tinerary2021.herokuapp.com/api/user/signIn", datosUsuario)
                 if (!response.data.success) {
 
                     return response.data.error
@@ -62,7 +62,7 @@ const userActions = {
     forzarLoginLocalStore: (usuarioLoguedo) => {
         return async (dispatch, getState) => {
             try {
-                const response = await axios.get("http://localhost:4000/api/user/loginLocalStore", {
+                const response = await axios.get("https://my-tinerary2021.herokuapp.com/api/user/loginLocalStore", {
                     headers: {
                         'Authorization': 'Bearer ' + usuarioLoguedo.token
                     }

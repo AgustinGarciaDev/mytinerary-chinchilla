@@ -10,30 +10,30 @@ const citiesActions = {
 
         return (dispatch, getState) => {
 
-            axios.get('http://localhost:4000/api/ciudades')
+            axios.get('https://my-tinerary2021.herokuapp.com/api/ciudades')
                 .then(response => dispatch({ type: 'CARGAR_CIUDADES', payload: response.data.respuesta }))
                 .catch(error => dispatch({ type: 'ERROR_SERVER', payload: true }))
         }
 
     },
 
-    filtrarCiudades: (e) => {     
+    filtrarCiudades: (e) => {
         const valorInput = e.target.value.trim()
-        
-         return (dispatch, getState) => { 
-            dispatch({ type: 'FILTRAR_CIUDADES', payload: valorInput } )
-        } 
+
+        return (dispatch, getState) => {
+            dispatch({ type: 'FILTRAR_CIUDADES', payload: valorInput })
+        }
 
     },
 
     encontrarCiudad: (id) => {
 
         return (dispatch, getState) => {
-             axios.get('http://localhost:4000/api/ciudad/' + id )
-            .then(response => dispatch({ type: 'BUSCAR_CIUDADES', payload: response.data.respuesta }))
-            .catch(error => console.log("Ciudad no encontrada"))
+            axios.get('https://my-tinerary2021.herokuapp.com/api/ciudad/' + id)
+                .then(response => dispatch({ type: 'BUSCAR_CIUDADES', payload: response.data.respuesta }))
+                .catch(error => console.log("Ciudad no encontrada"))
 
-        } 
+        }
     }
 
 }
