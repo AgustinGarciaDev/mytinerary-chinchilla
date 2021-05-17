@@ -44,6 +44,8 @@ const Comment = (props) => {
     useEffect(() => {
         if (props.usuarioStatus) {
             if (email === props.usuarioStatus.name) {
+                console.log(email)
+                console.log(props.usuarioStatus.name)
                 setUsuarioComentario(!usuarioComentario)
             }
         }
