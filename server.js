@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
 const router = require('./routes/index')
+const path = require('path')
 require('./config/passport')
 require('./config/database')
 
