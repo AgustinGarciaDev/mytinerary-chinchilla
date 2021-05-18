@@ -531,6 +531,7 @@ header {
     padding: 9px;
     flex-direction: column;
     height: 59vw;
+
   }
 
   .redes {
@@ -674,10 +675,19 @@ header {
     background-position: bottom;
   }
 
+  .contenedorBotones{
+        position: relative;
+    top: 19vw
+  }
+.heroSearch {
+    height: 41vw;
+}
   .footer {
     padding: 9px;
     flex-direction: column;
     height: 95vw;
+   position: relative;
+    top: 26vw;
   }
   .redes {
     top: 0;
