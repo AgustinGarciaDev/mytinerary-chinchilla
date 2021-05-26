@@ -31,7 +31,6 @@ class App extends React.Component {
       this.props.forzarLoginLocalStore(usuarioLoguedo)
       //Mientras esta procesando no me muestres nada
       return null
-
     }
 
 

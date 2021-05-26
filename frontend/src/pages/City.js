@@ -83,7 +83,7 @@ const mapStateToProps = state => {
 
 
     return {
-        buscarCiudad: state.cities.todasCiudades,
+        /*   buscarCiudad: state.cities.todasCiudades, */
         mostrarItineraries: state.itinerary.itinerary,
         ciudadBuscada: state.cities.ciudadBuscada,
     }

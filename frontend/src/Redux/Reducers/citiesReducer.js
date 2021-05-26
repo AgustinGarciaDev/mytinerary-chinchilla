@@ -19,33 +19,33 @@ const citiesReducer = (state = inicialState, action) => {
                 ...state,
                 todasCiudades: action.payload,
                 copiaCiudades: action.payload,
-               
+
             }
             break
         case 'FILTRAR_CIUDADES':
             return {
                 ...state,
-                copiaCiudades: state.todasCiudades.filter(ciudad => action.payload.toLowerCase() === ciudad.nombre.slice(0,action.payload.length).toLowerCase()) 
+                copiaCiudades: state.todasCiudades.filter(ciudad => action.payload.toLowerCase() === ciudad.nombre.slice(0, action.payload.length).toLowerCase())
             }
             break
         case 'BUSCAR_CIUDADES':
-           
+
             return {
                 ...state,
-                ciudadBuscada:action.payload,
+                ciudadBuscada: action.payload,
             }
             break
         case 'ERROR_SERVER':
 
             return {
                 ...state,
-                errorServer:action.payload,
+                errorServer: action.payload,
             }
-      
+
         default:
             return state
     }
-    
+
 }
 
 
