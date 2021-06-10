@@ -23,13 +23,9 @@ const City = (props) => {
         } else {
 
             props.history.push('/cities')
-            /* props.encontrarCiudad(idCiudadRuta) */
-            /*  setIdCiudad({ ciudad: props.ciudadBuscada,  loading: false }) */
         }
-
         props.obtenerItineraries(idCiudadRuta)
-
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const { loading, ciudad } = idCiudad
@@ -83,7 +79,7 @@ const mapStateToProps = state => {
 
 
     return {
-        /*   buscarCiudad: state.cities.todasCiudades, */
+        buscarCiudad: state.cities.todasCiudades,
         mostrarItineraries: state.itinerary.itinerary,
         ciudadBuscada: state.cities.ciudadBuscada,
     }

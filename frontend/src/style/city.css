@@ -62,10 +62,12 @@
 }
 
 .picBanner {
-  width: 18vw;
-  height: 29vw;
-  background-size: contain;
-  background-repeat: no-repeat;
+    width: 18vw;
+    height: 26vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 .nombreFotoUsuario {
@@ -146,7 +148,7 @@
 
 .btn_heart {
   background: #f33838;
-  width: 5vw;
+  width: 6vw;
   border-radius: 10px;
   padding: 6px;
   color: white;
@@ -199,9 +201,7 @@
   font-family: "poppins";
 }
 
-.rec-pagination {
-    margin-top: -31px !important;
-}
+
 
 .offeredText {
   display: flex;

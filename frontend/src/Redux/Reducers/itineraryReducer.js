@@ -13,21 +13,18 @@ const itineraryReducer = (state = inicialState, action) => {
                 ...state,
                 itinerary: action.payload
             }
-            break
         case 'OBTENER_ACTIVIDADES': {
             return {
                 ...state,
                 actividades: action.payload
             }
         }
-            break
         case 'OBTENER_COMENTARIOS': {
             return {
                 ...state,
                 comentarios: action.payload
             }
         }
-            break
         default:
             return state
     }

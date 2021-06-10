@@ -46,6 +46,7 @@ const Comment = (props) => {
                 setUsuarioComentario(!usuarioComentario)
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.usuarioStatus])
 
     const popover = (

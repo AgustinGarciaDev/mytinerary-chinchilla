@@ -19,7 +19,7 @@ const Cities = (props) => {
       left: 100,
       behavior: 'smooth'
     });
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 

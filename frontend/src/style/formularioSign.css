@@ -81,7 +81,7 @@
     margin-left: 4vw;
     -webkit-backdrop-filter: blur(34px);
     backdrop-filter: blur(34px);
-    align-items: end;
+    align-items: flex-start;
 }
 
 .correo{

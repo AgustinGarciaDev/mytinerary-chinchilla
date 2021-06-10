@@ -27,7 +27,7 @@ const SingUp = (props) => {
             top: 0,
             behavior: 'smooth'
         });
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const cambioValor = (e) => {
@@ -71,11 +71,12 @@ const SingUp = (props) => {
 
     useEffect(() => {
         notificacionesToast()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [errores])
 
     const notificacionesToast = () => {
         errores.map(error => {
-            toast.error(error.message, {
+            return toast.error(error.message, {
                 position: "top-center",
                 autoClose: false,
                 hideProgressBar: false,

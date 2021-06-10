@@ -108,8 +108,6 @@ const itineraryControllers = {
 
     borrarComentario: async (req, res) => {
         const idItinerari = req.params.id
-        console.log(idItinerari)
-
         const { id } = req.body
         try {
             const borrarComentario = await Itinerary.findOneAndUpdate(

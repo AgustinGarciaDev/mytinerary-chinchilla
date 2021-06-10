@@ -37,5 +37,5 @@ const citiesActions = {
     }
 
 }
-// Esto lo tenemos que importar para EL COMPONENTE!
+
 export default citiesActions

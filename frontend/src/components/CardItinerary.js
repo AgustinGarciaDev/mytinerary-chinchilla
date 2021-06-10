@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import Carousel from 'react-elastic-carousel';
 import Comments from './Comments'
 import Activities from './Activities'
@@ -10,7 +10,6 @@ const CardItinerary = (props) => {
 
     const { itinerary: { comments, nombreItinerary, _id, authorName, duration, authorPic, hastag, precie, picBanner, offered, countryCoin, likes, userLiked } } = props
     const [btnVisible, setBtn] = useState(false)
-    const [user, setUser] = useState('')
     const [corazonLike, setCorazonLike] = useState(false)
     const [usersLikes, setUsersLikes] = useState(userLiked)
     const [like, setLike] = useState(likes)
@@ -25,7 +24,6 @@ const CardItinerary = (props) => {
     const likeBtn = async () => {
         if (props.usuarioStatus) {
             setLoadingCorazon(false)
-            setUser(props.usuarioStatus.name)
             const respuesta = await props.likearCorazon(_id, props.usuarioStatus.name)
             setLike(respuesta.likes)
             setUsersLikes(respuesta.usuariosLikes)
@@ -48,6 +46,7 @@ const CardItinerary = (props) => {
         } else {
             setCorazonLike(false)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.usuarioStatus])
 
 

@@ -29,6 +29,7 @@
     "mongoose": "^5.12.9",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "react-google-login": "^5.2.2",
     "serve": "^11.3.2"
   }
 }

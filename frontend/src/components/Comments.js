@@ -29,6 +29,7 @@ const Comments = (props) => {
                 mensaje: comentario.mensaje + chosenEmoji.emoji
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [chosenEmoji])
 
     const actualizadoBtn = (e) => {

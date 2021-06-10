@@ -13,6 +13,7 @@ const Activities = (props) => {
 
     useEffect(() => {
         respuesta()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const respuesta = async () => {

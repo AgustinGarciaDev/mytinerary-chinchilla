@@ -7,11 +7,11 @@ import { Provider } from 'react-redux' // Provee a mi aplicacion de redux
 import mainReducer from './Redux/Reducers/mainReducer'
 
 
-const miStore = createStore(mainReducer , applyMiddleware(thunk))
+const miStore = createStore(mainReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={miStore}>
-     <App/>
+    <App />
   </Provider>,
   document.getElementById('root')
 );

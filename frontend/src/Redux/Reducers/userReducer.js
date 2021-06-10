@@ -12,7 +12,6 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 paises: action.payload
             }
-            break
         case 'LOGUEAR_USUARIO':
             localStorage.setItem('userLogged', JSON.stringify({ foto: action.payload.foto, name: action.payload.name }))
             localStorage.setItem('token', action.payload.token)
@@ -20,15 +19,12 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 usuarioStatus: action.payload
             }
-            break
         case 'DESLOGUEAR_USUARIO':
             localStorage.clear()
             return {
                 ...state,
                 usuarioStatus: null
             }
-            break
-
         default:
             return state
 
