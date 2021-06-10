@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 const HeroHome = () => {
 
     return (
-
+        /*  */
         <div className="contenedor">
             <video id="video_hero" loop autoPlay muted>
                 <source src="https://baravdg.com/wp-content/uploads/2021/04/heroVideo.mp4" type="video/mp4" />
