@@ -37,7 +37,6 @@ const userActions = {
 
                     return response.data.error
                 }
-                console.log(response)
                 dispatch({ type: 'LOGUEAR_USUARIO', payload: response.data.success ? response.data.respuesta : null })
 
             } catch (error) {
