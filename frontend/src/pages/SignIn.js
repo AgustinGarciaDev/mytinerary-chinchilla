@@ -59,6 +59,7 @@ const SingIn = (props) => {
         const { email } = response.profileObj
         enviarFormulario(null, { email: email, password: "Hola1235!" })
     }
+
     return (
 
         <section className="contenedorFormularioyTexto contenedorSignIn">
@@ -66,7 +67,7 @@ const SingIn = (props) => {
             <form className="formularioRegistro formularioSignIn" >
                 <h1 className="SignInText">Sign In</h1>
                 <GoogleLogin
-                    clientId={process.env.GOOGLEID}
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     render={renderProps => (
                         <button className="btnGoogle" onClick={renderProps.onClick} disabled={renderProps.disabled}><i className="fab fa-google"></i>Sign in with Google</button>
                     )}

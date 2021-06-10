@@ -94,7 +94,7 @@ const SingUp = (props) => {
             <form className="formularioRegistro formularioSignUp" >
                 <h1 className="SignInText">Sign Up</h1>
                 <GoogleLogin
-                    clientId={process.env.GOOGLEID}
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                     render={renderProps => (
                         <button className="btnGoogle btnGoogleSignUp" onClick={renderProps.onClick} disabled={renderProps.disabled}><i className="fab fa-google"></i>Sign in with Google</button>
                     )}
