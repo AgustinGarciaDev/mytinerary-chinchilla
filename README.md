@@ -1,4 +1,4 @@
-# MYTINERARY APLICACIÓN WEB
+# myTinerary Aplicación web 
 Aplicación web de viajes <br/>
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/66225450/121558589-2c710000-c9ec-11eb-84e3-67c8c5c83323.gif)
