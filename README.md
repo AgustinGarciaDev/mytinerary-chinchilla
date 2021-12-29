@@ -4,7 +4,6 @@ Aplicación web de viajes <br/>
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/66225450/121558589-2c710000-c9ec-11eb-84e3-67c8c5c83323.gif)
 
 <br/>
-Podés ver la web en el siguiente enlace : https://my-tinerary2021.herokuapp.com/
 
 # Trabajo realizado
 Una app desarrollada en el lapso de cinco semanas, durante el coding bootcamp de MindHub 2021.# Comenzando  🚀
